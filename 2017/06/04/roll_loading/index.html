@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>小清新加载等待控件 | 卖牙膏的芖口钉</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="custom_view,effect,android," />
+  
+
+  <meta name="description" content="控件源码：https://github.com/halohoop/RollSquareView 正文 背景从锤子手机上看到的效果，锤子系统更新界面的入口按钮就是这个加载动画。 效果图  图1(效果图1)  图2(效果图2) 使用方式  图3(使用说明图)  half_rect_width:半个方块的宽度，单位dp rect_divier_width:方块之间间隔宽度，单位dp start_empt">
+<meta name="keywords" content="custom_view,effect,android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小清新加载等待控件">
+<meta property="og:url" content="http://halohoop.com/2017/06/04/roll_loading/index.html">
+<meta property="og:site_name" content="卖牙膏的芖口钉">
+<meta property="og:description" content="控件源码：https://github.com/halohoop/RollSquareView 正文 背景从锤子手机上看到的效果，锤子系统更新界面的入口按钮就是这个加载动画。 效果图  图1(效果图1)  图2(效果图2) 使用方式  图3(使用说明图)  half_rect_width:半个方块的宽度，单位dp rect_divier_width:方块之间间隔宽度，单位dp start_empt">
+<meta property="og:image" content="http://halohoop.com/2017/06/04/roll_loading/roll_demo3.gif">
+<meta property="og:image" content="http://halohoop.com/2017/06/04/roll_loading/roll_demo2.gif">
+<meta property="og:image" content="http://halohoop.com/2017/06/04/roll_loading/roll_demo.png">
+<meta property="og:image" content="http://halohoop.com/2017/06/04/roll_loading/notice1.png">
+<meta property="og:image" content="http://halohoop.com/2017/06/04/roll_loading/notice3.png">
+<meta property="og:image" content="http://halohoop.com/2017/06/04/roll_loading/notice2.png">
+<meta property="og:image" content="http://halohoop.com/2017/06/04/roll_loading/notice4.png">
+<meta property="og:image" content="http://halohoop.com/2017/06/04/roll_loading/notice5.png">
+<meta property="og:updated_time" content="2017-06-04T10:07:51.434Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小清新加载等待控件">
+<meta name="twitter:description" content="控件源码：https://github.com/halohoop/RollSquareView 正文 背景从锤子手机上看到的效果，锤子系统更新界面的入口按钮就是这个加载动画。 效果图  图1(效果图1)  图2(效果图2) 使用方式  图3(使用说明图)  half_rect_width:半个方块的宽度，单位dp rect_divier_width:方块之间间隔宽度，单位dp start_empt">
+<meta name="twitter:image" content="http://halohoop.com/2017/06/04/roll_loading/roll_demo3.gif">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-roll_loading" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">小清新加载等待控件</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.06.04</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Halohoop</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </span>
+
+
+
+      
+
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>控件源码：<a href="https://github.com/halohoop/RollSquareView" target="_blank" rel="external">https://github.com/halohoop/RollSquareView</a></p>
+<p>正文</p>
+<p>背景<br>从锤子手机上看到的效果，锤子系统更新界面的入口按钮就是这个加载动画。</p>
+<p>效果图</p>
+<p><img src="/2017/06/04/roll_loading/roll_demo3.gif" alt="demo1"> 图1(效果图1)</p>
+<p><img src="/2017/06/04/roll_loading/roll_demo2.gif" alt="demo2"> 图2(效果图2)</p>
+<p>使用方式</p>
+<p><img src="/2017/06/04/roll_loading/roll_demo.png" alt="demo3"> 图3(使用说明图)</p>
+<ul>
+<li>half_rect_width:半个方块的宽度，单位dp</li>
+<li>rect_divier_width:方块之间间隔宽度，单位dp</li>
+<li>start_empty_position:初始空出的位置</li>
+<li>is_clockwise:是否顺时针旋转</li>
+<li>line_count:一行的数量，最少为3</li>
+<li>fix_round_cornor:固定的方框的圆角半径</li>
+<li>roll_round_cornor:旋转的方框的圆角半径，如果这两个圆角半径设置成不一样的值就会得到上面图1的效果，设置成一样就是图2.</li>
+<li>roll_when_show_stop_when_hide:是否自动开始自定旋转，如果设置为false，则需要手动调用startRoll()方法(下文会提到)才会开始运动，设置为true则设置View.Visibility就会自动开始旋转。</li>
+<li>square_color:方块的颜色。使用十六进制代码的形式（如：#333、#8e8e8e）</li>
+</ul>
+<p>讲解实现方法之前，首先要说明一下方格的排列方式是从左到右，从上到下，也就是如果line_count设置为3，那么方格的序号如下图：</p>
+<p><img src="/2017/06/04/roll_loading/notice1.png" alt="demo3"> 图4(序号排列说明)</p>
+<p>实现思路：<br>自定义控件最主要的就是如何去准备要展示给用户看的东西，东西有了之后，我们在onDraw方法里面按部就班的画出来就可以了。接下来就带大家来走一走我准备的整个过程。其实整个过程就像做菜，准备材料（准备数据），加调味料（处理初始数据），翻炒（编写逻辑），这一切都是在锅中完成的，这个锅就是我们的onDraw方法，我们把所有的一些都准备好，然后扔进锅（onDraw）里面。</p>
+<p>最终的绘制分为两步：</p>
+<ul>
+<li>绘制固定的方块</li>
+<li>绘制滚动的方块</li>
+</ul>
+<p>当运动的时候将固定的方框中的两个方块隐藏，然后让滚动的方块继承其中一个的位置，然后通过属性动画改变其位置的值以及旋转角度的值，最终调用invalidate()重绘让其动起来。</p>
+<p><img src="/2017/06/04/roll_loading/notice3.png" alt="demo3"> 图5(绘制原理图示)</p>
+<p>①（控件精髓就在此处）根据配置准备绘制的数据</p>
+<p>处理自定义属性：</p>
+<pre><code>private void initAttrs(Context context, AttributeSet attrs) {
+    TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RollSquareView);
+    //行列数
+    mLineCount = typedArray.getInteger(R.styleable.RollSquareView_line_count, 3);
+    //旋转的方块圆角
+    mRollRoundCornor = typedArray.getFloat(R.styleable.RollSquareView_roll_round_cornor, 10);
+    ...
+    其他属性省略，请大家看源码
+
+    //开始的空格位置
+    mStartEmptyPosition = typedArray.getInteger(R.styleable.RollSquareView_start_empty_position, 0);
+    if (isInsideTheRect(mStartEmptyPosition, mLineCount)) {
+        mStartEmptyPosition = 0;
+    }
+    //当动态滚动的时候实时更新的空格位置
+    mCurrEmptyPosition = mStartEmptyPosition;
+    typedArray.recycle();
+}
+</code></pre><p>当选择空格位置不是外围的方块序号的时候，自动选择0位置，判断是否外围一圈的算法如下，纯数学知识：</p>
+<p><img src="/2017/06/04/roll_loading/notice2.png" alt="demo3"> 图6(绿色框出来的就是非外围的方块)</p>
+<pre><code>private boolean isInsideTheRect(int pos, int lineCount) {
+    if (pos &lt; lineCount) {//是否第一行
+        return false;
+    } else if (pos &gt; (lineCount * lineCount - 1 - lineCount)) {//是否最后一行
+        return false;
+    } else if ((pos + 1) % lineCount == 0) {//是否右边
+        return false;
+    } else if (pos % lineCount == 0) {//是否左边
+        return false;
+    }
+    //四边都不在，那就是在内部了
+    return true;
+}
+</code></pre><p>初始化方块的方法：</p>
+<pre><code>private void initSquares(int startEmptyPosition) {
+    //创建mLineCount * mLineCount个方块
+    mFixSquares = new FixSquare[mLineCount * mLineCount];
+    for (int i = 0; i &lt; mFixSquares.length; i++) {
+        mFixSquares[i] = new FixSquare();
+        mFixSquares[i].index = i;
+        mFixSquares[i].isShow = startEmptyPosition == i ? false : true;
+        mFixSquares[i].rectF = new RectF();
+    }
+    //外圈链接起来
+    linkTheOuterSquare(mFixSquares, mIsClockwise);//下文讲解
+    //创建1个滚动方块
+    mRollSquare = new RollSquare();
+    mRollSquare.rectF = new RectF();
+    mRollSquare.isShow = false;
+}
+</code></pre><p>两种方块都使用内部类定义，代码如下：</p>
+<pre><code>private class FixSquare {
+    RectF rectF;//需要绘制的方块
+    int index;//所在的序号
+    boolean isShow;//是否需要绘制
+    FixSquare next;//指向下一个需要滚动的位置，顺时针和逆时针相反
+}
+
+private class RollSquare {
+    RectF rectF;//需要绘制的方块
+    int index;//所在的序号
+    boolean isShow;//是否需要绘制
+    /**
+     * 旋转中心坐标
+     */
+    float cx;//滚动的时候的旋转中心x
+    float cy;//滚动的时候的旋转中心y
+}
+</code></pre><p>我们可以看到固定的方块FixSquare中有一个next变量：</p>
+<pre><code>FixSquare next;//指向下一个需要滚动的位置，顺时针和逆时针相反
+</code></pre><p>因为我们需要将外围的一圈方块都链接起来，但是现在有一个问题就是外围的方块序号并不是按照0、1、2…排列的，因此我定义了一个next变量用于指定其下一个，这样一个接一个的就把外围连成一圈了。算法如下，可能第一次看这个方法的小伙伴需要看一小会儿，因为需要适配行数3个以上的需求，因此都是动态变化的，因此都是一些数学公式，这里篇幅有限不一一讲解，大家可以顺着注释看看规律就很容易理解了，这个方法的主要目的就是为了让每个FixSquare的“FixSquare next”都赋上值，最终将外围都连成一圈，不要忘记考虑顺逆时针isClockwise这个变量哦：</p>
+<pre><code>private void linkTheOuterSquare(FixSquare[] fixSquares, boolean isClockwise) {
+    int lineCount = (int) Math.sqrt(mFixSquares.length);
+    //连接第一行
+    for (int i = 0; i &lt; lineCount; i++) {
+        if (i % lineCount == 0) {//位于最左边
+            fixSquares[i].next = isClockwise ? fixSquares[i + lineCount] : fixSquares[i + 1];
+        } else if ((i + 1) % lineCount == 0) {//位于最右边
+            fixSquares[i].next = isClockwise ? fixSquares[i - 1] : fixSquares[i + lineCount];
+        } else {//中间
+            fixSquares[i].next = isClockwise ? fixSquares[i - 1] : fixSquares[i + 1];
+        }
+    }
+    //连接最后一行
+    for (int i = (lineCount - 1) * lineCount; i &lt; lineCount * lineCount; i++) {
+        if (i % lineCount == 0) {//位于最左边
+            fixSquares[i].next = isClockwise ? fixSquares[i + 1] : fixSquares[i - lineCount];
+        } else if ((i + 1) % lineCount == 0) {//位于最右边
+            fixSquares[i].next = isClockwise ? fixSquares[i - lineCount] : fixSquares[i - 1];
+        } else {//中间
+            fixSquares[i].next = isClockwise ? fixSquares[i + 1] : fixSquares[i - 1];
+        }
+    }
+    //连接左边
+    for (int i = 1 * lineCount; i &lt;= (lineCount - 1) * lineCount; i += lineCount) {
+        if (i == (lineCount - 1) * lineCount) {//如果是左下角的一个
+            fixSquares[i].next = isClockwise ? fixSquares[i + 1] : fixSquares[i - lineCount];
+            continue;
+        }
+        fixSquares[i].next = isClockwise ? fixSquares[i + lineCount] : fixSquares[i - lineCount];
+    }
+    //连接右边
+    for (int i = 2 * lineCount - 1; i &lt;= lineCount * lineCount - 1; i += lineCount) {
+        if (i == lineCount * lineCount - 1) {//如果是右下角的一个
+            fixSquares[i].next = isClockwise ? fixSquares[i - lineCount] : fixSquares[i - 1];
+            continue;
+        }
+        fixSquares[i].next = isClockwise ? fixSquares[i - lineCount] : fixSquares[i + lineCount];
+    }
+}
+</code></pre><p>固定方块的位置，分别使用fixFixSquarePosition和fixRollSquarePosition两个方法来固定FixSquare和RollSquare：</p>
+<pre><code>private void fixFixSquarePosition(FixSquare[] fixSquares, int cx, int cy, float dividerWidth, float halfSquareWidth) {
+    //确定第一个rect的位置
+    float squareWidth = halfSquareWidth * 2;
+    int lineCount = (int) Math.sqrt(fixSquares.length);
+    float firstRectLeft = 0;
+    float firstRectTop = 0;
+    if (lineCount % 2 == 0) {//偶数
+        int squareCountInAline = lineCount / 2;
+        int diviCountInAline = squareCountInAline - 1;
+        float firstRectLeftTopFromCenter = squareCountInAline * squareWidth
+                + diviCountInAline * dividerWidth
+                + dividerWidth / 2;
+        firstRectLeft = cx - firstRectLeftTopFromCenter;
+        firstRectTop = cy - firstRectLeftTopFromCenter;
+    } else {//奇数
+        int squareCountInAline = lineCount / 2;
+        int diviCountInAline = squareCountInAline;
+        float firstRectLeftTopFromCenter = squareCountInAline * squareWidth
+                + diviCountInAline * dividerWidth
+                + halfSquareWidth;
+        firstRectLeft = cx - firstRectLeftTopFromCenter;
+        firstRectTop = cy - firstRectLeftTopFromCenter;
+    }
+    for (int i = 0; i &lt; lineCount; i++) {//行
+        for (int j = 0; j &lt; lineCount; j++) {//列
+            if (i == 0) {
+                if (j == 0) {
+                    fixSquares[0].rectF.set(firstRectLeft, firstRectTop,
+                            firstRectLeft + squareWidth, firstRectTop + squareWidth);
+                } else {
+                    int currIndex = i * lineCount + j;
+                    fixSquares[currIndex].rectF.set(fixSquares[currIndex - 1].rectF);
+                    fixSquares[currIndex].rectF.offset(dividerWidth + squareWidth, 0);
+                }
+            } else {
+                int currIndex = i * lineCount + j;
+                fixSquares[currIndex].rectF.set(fixSquares[currIndex - lineCount].rectF);
+                fixSquares[currIndex].rectF.offset(0, dividerWidth + squareWidth);
+            }
+        }
+    }
+}
+
+private void fixRollSquarePosition(FixSquare[] fixSquares,
+                                   RollSquare rollSquare, int startEmptyPosition) {
+    FixSquare fixSquare = fixSquares[startEmptyPosition];
+    rollSquare.rectF.set(fixSquare.next.rectF);
+}
+</code></pre><p>对于方法fixFixSquarePosition：</p>
+<ul>
+<li>通过参数有控件的中点的x和y坐标，cx和cy，加上行数，方块的宽以及方块间隔;</li>
+<li>通过以上参数很容易就可以通过计算得出第0个方块的left和top值，分别是firstRectLeft和firstRectTop；</li>
+<li>因为行数可能是奇数也可能是偶数，所以分为奇数和偶数两种计算方式；</li>
+<li>然后我把第一行的方块都固定下来之后，剩下的方块只需要往下平移即可固定下来了；</li>
+<li>第一个for循环表示行，第二个表示列，都是简单的数学计数知识，不过多阐述。</li>
+</ul>
+<p>对于方法fixRollSquarePosition：</p>
+<ul>
+<li>因为我们已经从初始化的操作中知道哪一个位置是空的，startEmptyPosition；</li>
+<li>而且已经把外围的方块连成了环（通过next关联），上文的linkTheOuterSquare方法；</li>
+<li>因此可以很容易确定下来旋转的方块所要开始运动的初始位置。</li>
+</ul>
+<p>②两种运动，平移 和 90度旋转</p>
+<p>这里主要讲解一下思路，使用属性动画创建两个动画，一个是平移动画，一个是旋转动画，如下图，然后使用AnimatorSet将两个连接起来，同时运行。</p>
+<p><img src="/2017/06/04/roll_loading/notice4.png" alt="demo3">图7（平移动画）</p>
+<p><img src="/2017/06/04/roll_loading/notice5.png" alt="demo3">图8（旋转动画）</p>
+<ul>
+<li>由于篇幅有限，加之方法比较长，这里不贴出，感兴趣的朋友可以去原码查看：</li>
+<li>createTranslateValueAnimator方法 和 createRollValueAnimator方法；</li>
+<li>其中值得关注的点是：需要考虑顺逆时针，以及实时更新旋转方块的旋转中心，因为平移过程中旋转中心也会跟着改变的，因此需要改变RollSquare的cx和cy，具体的逻辑就在setRollSquareRotateCenter方法中，调用的时机当然就是在动画运动的过程中啦（见onAnimationUpdate）。</li>
+</ul>
+<p>③循环起来把</p>
+<ul>
+<li>通过调用startRoll方法，会创建一次动画，当动画结束的时候（onAnimationEnd），重新调用startRoll方法，以达到循环的目的。这里相信大家都明白，就跟handler循环发送消息一样。</li>
+<li>这里有一点需要注意的就是如果动画速度调的很快，那么会导致ValueAnimator动画对象频繁重复的创建，可能会有内存抖动的风险；因此建议使用者不要将速度调的太块，不过这个控件的后期的迭代我可能将这个动画对象换成始终只有一个ValueAnimator的情况。</li>
+</ul>
+<p>④停止条件</p>
+<ul>
+<li>在动画结束准备重新调用startRoll方法之前做一个变量判断，来控制是否需要循环调用，如下：</li>
+</ul>
+<pre><code>if (mAllowRoll) {
+    startRoll();
+}
+</code></pre><ul>
+<li>当我们调用stopRoll方法的时候，mAllowRoll会变为false，调用startRoll的时候，mAllowRoll会变为true；</li>
+</ul>
+<p>⑤最后，画出来</p>
+<pre><code>@Override
+protected void onDraw(Canvas canvas) {
+    for (int i = 0; i &lt; mFixSquares.length; i++) {
+        if (mFixSquares[i].isShow) {
+            canvas.drawRoundRect(mFixSquares[i].rectF, mFixRoundCornor, mFixRoundCornor, mPaint);
+        }
+    }
+    if (mRollSquare.isShow) {
+        canvas.rotate(mIsClockwise ? mRotateDegree : -mRotateDegree, mRollSquare.cx, mRollSquare.cy);
+        canvas.drawRoundRect(mRollSquare.rectF, mRollRoundCornor, mRollRoundCornor, mPaint);
+    }
+}
+</code></pre><p>上文也有提到，最终的绘制分为两步：</p>
+<ol>
+<li>绘制固定的方块</li>
+<li>绘制滚动的方块；</li>
+</ol>
+<p>如果读者还有不明朗的地方，欢迎查看源码，并且给我提bug，一起为这个社区做出自己的微薄贡献。</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持Halohoop</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/06/03/hello-world/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">Close</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+  
+<script type="text/javascript"
+color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
