@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://halohoop.com/2017/06/05/cookies-kotlin-trick-001/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
 <meta property="og:description" content="好的文章有时候不在于鸿篇巨制，而在于一目了然，有时候这种快餐小技巧更能帮助人，没有铺垫没有客套，直戳掌握知识的要害。所以从这篇开始会不间断的记录一些小技巧，文章已[饼干]开头的都是一篇短文。 一些重复的工作，比如说我们在性能调优的时候经常用到的Trace，以下是一个实例： Java:Trace.beginSection(sectionName); doSomeCalculation(); Trac">
-<meta property="og:updated_time" content="2017-06-05T09:10:04.921Z">
+<meta property="og:updated_time" content="2017-06-05T09:11:35.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[饼干]Kotlin Trick 001-省略一些重复的工作">
 <meta name="twitter:description" content="好的文章有时候不在于鸿篇巨制，而在于一目了然，有时候这种快餐小技巧更能帮助人，没有铺垫没有客套，直戳掌握知识的要害。所以从这篇开始会不间断的记录一些小技巧，文章已[饼干]开头的都是一篇短文。 一些重复的工作，比如说我们在性能调优的时候经常用到的Trace，以下是一个实例： Java:Trace.beginSection(sectionName); doSomeCalculation(); Trac">
@@ -144,7 +144,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java"><span class="toc-text">Java:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题："><span class="toc-text">问题：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#When-it-comes-to-Kotlin："><span class="toc-text">When it comes to Kotlin：</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java"><span class="toc-text">Java:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题："><span class="toc-text">问题：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#When-it-comes-to-Kotlin："><span class="toc-text">When it comes to Kotlin：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
   </div>
 
 
@@ -218,7 +218,7 @@ trace(&quot;foo&quot;) {
 val result = trace(&quot;foo&quot;) {
     doSomeCalculation()
 }
-</code></pre><p><strong>实际上这种方式是方法拓展，lambda带给我们的额便利，同样的技巧，相信你能应用到Trace以外更多的地方，相信你能接触到更好的用法。</strong></p>
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>实际上这种方式是方法拓展，lambda带给我们的额便利，同样的技巧，相信你能应用到Trace以外更多的地方，相信你能接触到更好的用法。</strong></p>
 
     
   </div>
