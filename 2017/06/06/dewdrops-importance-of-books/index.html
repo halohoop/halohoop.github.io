@@ -7,25 +7,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>[饼干]Kotlin Trick 001-省略一些重复的工作 | 卖牙膏的芖口钉</title>
+  <title>[露水多看书有多重要 | 卖牙膏的芖口钉</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="cookies,kotlin,android," />
+    <meta name="keywords" content="dewdrops," />
   
 
-  <meta name="description" content="好的文章有时候不在于鸿篇巨制，而在于一目了然，有时候这种快餐小技巧更能帮助人，没有铺垫没有客套，直戳掌握知识的要害。所以从这篇开始会不间断的记录一些小技巧，文章已[饼干]开头的都是一篇短文。 一些重复的工作，比如说我们在性能调优的时候经常用到的Trace，以下是一个实例： Java:Trace.beginSection(sectionName); doSomeCalculation(); Trac">
-<meta name="keywords" content="cookies,kotlin,android">
+  <meta name="description" content="多看书有多重要，为了拓展思维，在大脑留下更多的种子，也许你没有全部记住，但是你留下了种子，日后接触到相关的内容(肥料)的时候，你可以快速的回来生根发芽。">
+<meta name="keywords" content="dewdrops">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[饼干]Kotlin Trick 001-省略一些重复的工作">
-<meta property="og:url" content="http://halohoop.com/2017/06/05/cookies-kotlin-trick-001/index.html">
+<meta property="og:title" content="[露水多看书有多重要">
+<meta property="og:url" content="http://halohoop.com/2017/06/06/dewdrops-importance-of-books/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
-<meta property="og:description" content="好的文章有时候不在于鸿篇巨制，而在于一目了然，有时候这种快餐小技巧更能帮助人，没有铺垫没有客套，直戳掌握知识的要害。所以从这篇开始会不间断的记录一些小技巧，文章已[饼干]开头的都是一篇短文。 一些重复的工作，比如说我们在性能调优的时候经常用到的Trace，以下是一个实例： Java:Trace.beginSection(sectionName); doSomeCalculation(); Trac">
-<meta property="og:updated_time" content="2017-06-05T09:11:35.806Z">
+<meta property="og:description" content="多看书有多重要，为了拓展思维，在大脑留下更多的种子，也许你没有全部记住，但是你留下了种子，日后接触到相关的内容(肥料)的时候，你可以快速的回来生根发芽。">
+<meta property="og:updated_time" content="2017-06-06T15:34:46.673Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[饼干]Kotlin Trick 001-省略一些重复的工作">
-<meta name="twitter:description" content="好的文章有时候不在于鸿篇巨制，而在于一目了然，有时候这种快餐小技巧更能帮助人，没有铺垫没有客套，直戳掌握知识的要害。所以从这篇开始会不间断的记录一些小技巧，文章已[饼干]开头的都是一篇短文。 一些重复的工作，比如说我们在性能调优的时候经常用到的Trace，以下是一个实例： Java:Trace.beginSection(sectionName); doSomeCalculation(); Trac">
+<meta name="twitter:title" content="[露水多看书有多重要">
+<meta name="twitter:description" content="多看书有多重要，为了拓展思维，在大脑留下更多的种子，也许你没有全部记住，但是你留下了种子，日后接触到相关的内容(肥料)的时候，你可以快速的回来生根发芽。">
 
   
 
@@ -142,22 +142,17 @@
 </div>
 
 
-  <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java"><span class="toc-text">Java:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题："><span class="toc-text">问题：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#When-it-comes-to-Kotlin："><span class="toc-text">When it comes to Kotlin：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
-  </div>
-
 
 
 <div class="content content-post CENTER">
-   <article id="post-cookies-kotlin-trick-001" class="article article-type-post" itemprop="blogPost">
+   <article id="post-dewdrops-importance-of-books" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">[饼干]Kotlin Trick 001-省略一些重复的工作</h1>
+    <h1 class="post-title">[露水多看书有多重要</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.06.05</span>
+        <span>2017.06.06</span>
       </span>
 
       
@@ -170,7 +165,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/programming/">programming</a>
+    <a class="article-category-link" href="/categories/tricks/">tricks</a>
   </span>
 
 
@@ -186,39 +181,7 @@
 
   <div class="article-content">
     
-      <p>好的文章有时候不在于鸿篇巨制，而在于一目了然，有时候这种快餐小技巧更能帮助人，没有铺垫没有客套，直戳掌握知识的要害。所以从这篇开始会不间断的记录一些小技巧，文章已[饼干]开头的都是一篇短文。</p>
-<p>一些重复的工作，比如说我们在性能调优的时候经常用到的Trace，以下是一个实例：</p>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java:"></a>Java:</h2><pre><code>Trace.beginSection(sectionName);
-doSomeCalculation();
-Trace.endSection();
-</code></pre><h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><p>如果在每个地方都加入<strong>Trace.beginSection(sectionName)和Trace.endSection()</strong>会疯掉的，搞不好还忘记加Trace.endSection()。</p>
-<h2 id="When-it-comes-to-Kotlin："><a href="#When-it-comes-to-Kotlin：" class="headerlink" title="When it comes to Kotlin："></a>When it comes to Kotlin：</h2><pre><code>inline fun trace(sectionName: String, body: () -&gt; Unit) {
-    Trace.beginSection(sectionName)
-    try {
-        body()
-    } finally {
-        Trace.endSection()
-    }
-}
-//and use it
-trace(&quot;foo&quot;) {
-    doSomeCalculation()
-}
-</code></pre><p>这样我们就可以把Trace.beginSection(sectionName)和Trace.endSection()省略了。<br>甚至你还可以有返回值：</p>
-<pre><code>inline fun &lt;T&gt; trace(sectionName: String, body: () -&gt; T): T {
-    Trace.beginSection(sectionName)
-    try {
-        return body()
-    } finally {
-        Trace.endSection()
-    }
-}
-
-//and use it
-val result = trace(&quot;foo&quot;) {
-    doSomeCalculation()
-}
-</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>实际上这种方式是方法拓展，lambda带给我们的额便利，同样的技巧，相信你能应用到Trace以外更多的地方，相信你能接触到更好的用法。</strong></p>
+      <p>多看书有多重要，为了拓展思维，在大脑留下更多的种子，也许你没有全部记住，但是你留下了种子，日后接触到相关的内容(肥料)的时候，你可以快速的回来生根发芽。</p>
 
     
   </div>
@@ -249,10 +212,10 @@ val result = trace(&quot;foo&quot;) {
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/06/04/roll_loading/">
+    <a class="show pull-left" href="/2017/06/06/cookies-android-touchdelegate/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/06/06/cookies-android-touchdelegate/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
