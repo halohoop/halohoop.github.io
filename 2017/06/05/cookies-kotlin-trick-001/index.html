@@ -12,11 +12,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="cookies,kotlin,android," />
+    <meta name="keywords" content="cookies,android,kotlin," />
   
 
   <meta name="description" content="好的文章有时候不在于鸿篇巨制，而在于一目了然，有时候这种快餐小技巧更能帮助人，没有铺垫没有客套，直戳掌握知识的要害。所以从这篇开始会不间断的记录一些小技巧，文章已[饼干]开头的都是一篇短文。 一些重复的工作，比如说我们在性能调优的时候经常用到的Trace，以下是一个实例： Java:Trace.beginSection(sectionName); doSomeCalculation(); Trac">
-<meta name="keywords" content="cookies,kotlin,android">
+<meta name="keywords" content="cookies,android,kotlin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[饼干]Kotlin Trick 001-省略一些重复的工作">
 <meta property="og:url" content="http://halohoop.com/2017/06/05/cookies-kotlin-trick-001/index.html">
@@ -143,7 +143,7 @@
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Posts List</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java"><span class="toc-text">Java:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题："><span class="toc-text">问题：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#When-it-comes-to-Kotlin："><span class="toc-text">When it comes to Kotlin：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
   </div>
 
@@ -274,7 +274,7 @@ val result = trace(&quot;foo&quot;) {
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
+      <span id="close" class="btn-close">Close</span>
     </div>
     <hr>
     <div class="modal-body">
@@ -416,20 +416,5 @@ val result = trace(&quot;foo&quot;) {
 <script type="text/javascript"
 color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
