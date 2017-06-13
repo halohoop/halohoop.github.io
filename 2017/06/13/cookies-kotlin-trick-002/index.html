@@ -7,25 +7,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>[露水]客观，有时候需要精分 | 卖牙膏的芖口钉</title>
+  <title>[饼干]Kotlin Trick 002-滚吧重载方法 | 卖牙膏的芖口钉</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="dewdrops," />
+    <meta name="keywords" content="cookies,kotlin,android," />
   
 
-  <meta name="description" content="有时候，需要客观一点，不要被某一个很新鲜的事物所蛊惑，当你接触到一个觉得很赞的事物的时候，你觉得以你的能力你也能完成，退一步想，我完成了，然后呢？对我现在状态会不会有很大的改观？还是说只是增加了装X的资本？我后期是不是还会花更多不必要的时间去维护它？有时候，你需要精分出另一个置身事外的自己，看到自己的整体概况，去告诉自己，要做真正适合自己的，促进自己的事情。然而，说的好听谁都会，人是情感趋势生物，">
-<meta name="keywords" content="dewdrops">
+  <meta name="description" content="Java:void test(int i){ } void test(String j){ } void test(int i, String j){ } 调用: test(1); test(&amp;quot;aaa&amp;quot;); test(1,&amp;quot;aaa&amp;quot;); Annoying：写太多重载了，眼都花了 When it comes to Kotlin：//一个足矣 fun test(">
+<meta name="keywords" content="cookies,kotlin,android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[露水]客观，有时候需要精分">
-<meta property="og:url" content="http://halohoop.com/2017/06/08/dewdrops-be_objective/index.html">
+<meta property="og:title" content="[饼干]Kotlin Trick 002-滚吧重载方法">
+<meta property="og:url" content="http://halohoop.com/2017/06/13/cookies-kotlin-trick-002/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
-<meta property="og:description" content="有时候，需要客观一点，不要被某一个很新鲜的事物所蛊惑，当你接触到一个觉得很赞的事物的时候，你觉得以你的能力你也能完成，退一步想，我完成了，然后呢？对我现在状态会不会有很大的改观？还是说只是增加了装X的资本？我后期是不是还会花更多不必要的时间去维护它？有时候，你需要精分出另一个置身事外的自己，看到自己的整体概况，去告诉自己，要做真正适合自己的，促进自己的事情。然而，说的好听谁都会，人是情感趋势生物，">
-<meta property="og:updated_time" content="2017-06-07T16:44:19.643Z">
+<meta property="og:description" content="Java:void test(int i){ } void test(String j){ } void test(int i, String j){ } 调用: test(1); test(&amp;quot;aaa&amp;quot;); test(1,&amp;quot;aaa&amp;quot;); Annoying：写太多重载了，眼都花了 When it comes to Kotlin：//一个足矣 fun test(">
+<meta property="og:updated_time" content="2017-06-13T11:41:15.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[露水]客观，有时候需要精分">
-<meta name="twitter:description" content="有时候，需要客观一点，不要被某一个很新鲜的事物所蛊惑，当你接触到一个觉得很赞的事物的时候，你觉得以你的能力你也能完成，退一步想，我完成了，然后呢？对我现在状态会不会有很大的改观？还是说只是增加了装X的资本？我后期是不是还会花更多不必要的时间去维护它？有时候，你需要精分出另一个置身事外的自己，看到自己的整体概况，去告诉自己，要做真正适合自己的，促进自己的事情。然而，说的好听谁都会，人是情感趋势生物，">
+<meta name="twitter:title" content="[饼干]Kotlin Trick 002-滚吧重载方法">
+<meta name="twitter:description" content="Java:void test(int i){ } void test(String j){ } void test(int i, String j){ } 调用: test(1); test(&amp;quot;aaa&amp;quot;); test(1,&amp;quot;aaa&amp;quot;); Annoying：写太多重载了，眼都花了 When it comes to Kotlin：//一个足矣 fun test(">
 
   
 
@@ -142,17 +142,22 @@
 </div>
 
 
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java"><span class="toc-text">Java:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Annoying："><span class="toc-text">Annoying：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#When-it-comes-to-Kotlin："><span class="toc-text">When it comes to Kotlin：</span></a></li></ol>
+  </div>
+
 
 
 <div class="content content-post CENTER">
-   <article id="post-dewdrops-be_objective" class="article article-type-post" itemprop="blogPost">
+   <article id="post-cookies-kotlin-trick-002" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">[露水]客观，有时候需要精分</h1>
+    <h1 class="post-title">[饼干]Kotlin Trick 002-滚吧重载方法</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.06.08</span>
+        <span>2017.06.13</span>
       </span>
 
       
@@ -165,7 +170,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/tricks/">tricks</a>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
   </span>
 
 
@@ -181,9 +186,25 @@
 
   <div class="article-content">
     
-      <p>有时候，需要客观一点，不要被某一个很新鲜的事物所蛊惑，当你接触到一个觉得很赞的事物的时候，你觉得以你的能力你也能完成，退一步想，我完成了，然后呢？对我现在状态会不会有很大的改观？还是说只是增加了装X的资本？我后期是不是还会花更多不必要的时间去维护它？有时候，你需要精分出另一个置身事外的自己，看到自己的整体概况，去告诉自己，要做真正适合自己的，促进自己的事情。<br>然而，说的好听谁都会，人是情感趋势生物，人非圣贤，孰能任何时候都控制好自己呢？</p>
-<p><strong>我就说一个决心和一个能忍，勾践尚且卧薪尝胆，范雎更是十年报仇不晚，我就要比比看谁更能忍，因为我TM从骨子里就不愿平庸。</strong></p>
-
+      <h2 id="Java"><a href="#Java" class="headerlink" title="Java:"></a>Java:</h2><pre><code>void test(int i){
+}
+void test(String j){
+}
+void test(int i, String j){
+}
+</code></pre><p>调用:</p>
+<pre><code>test(1);
+test(&quot;aaa&quot;);
+test(1,&quot;aaa&quot;);
+</code></pre><h2 id="Annoying："><a href="#Annoying：" class="headerlink" title="Annoying："></a>Annoying：</h2><p>写太多重载了，眼都花了</p>
+<h2 id="When-it-comes-to-Kotlin："><a href="#When-it-comes-to-Kotlin：" class="headerlink" title="When it comes to Kotlin："></a>When it comes to Kotlin：</h2><pre><code>//一个足矣
+fun test(i:int = 0, j:String = &quot;&quot;){
+}
+</code></pre><p>调用:</p>
+<pre><code>test(1);
+test(1,&quot;aaa&quot;);
+test(j = &quot;aaa&quot;);//非第一个需要传递参数名字，这也能增加可读性
+</code></pre>
     
   </div>
 </article>
@@ -213,10 +234,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/06/06/dewdrops-importance-of-books/">
+    <a class="show pull-left" href="/2017/06/13/meals-speedup_gradle_build/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/06/08/dewdrops-weiyuju/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
