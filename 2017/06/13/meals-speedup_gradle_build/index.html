@@ -24,7 +24,7 @@
 <meta property="og:description" content="开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这三方面其实都可以有切入点来进行提速，gradle插件3.0做了大改，优化了很多东西，包括gradle">
 <meta property="og:image" content="http://halohoop.com/2017/06/13/meals-speedup_gradle_build/demo0.png">
 <meta property="og:image" content="http://halohoop.com/2017/06/13/meals-speedup_gradle_build/demo1.png">
-<meta property="og:updated_time" content="2017-06-12T16:52:20.313Z">
+<meta property="og:updated_time" content="2017-06-13T03:30:10.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[大餐]加快gradle构建速度">
 <meta name="twitter:description" content="开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这三方面其实都可以有切入点来进行提速，gradle插件3.0做了大改，优化了很多东西，包括gradle">
@@ -146,8 +146,8 @@
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开门撞山："><span class="toc-text">开门撞山：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正餐："><span class="toc-text">正餐：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧1：使用最新版本的gradle插件"><span class="toc-text">技巧1：使用最新版本的gradle插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧2：避免使用legacy-multidex"><span class="toc-text">技巧2：避免使用legacy multidex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧3：关闭multi-apk"><span class="toc-text">技巧3：关闭multi apk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧4：使用最少的资源打包"><span class="toc-text">技巧4：使用最少的资源打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧5-关闭aapt对png的优化"><span class="toc-text">技巧5:关闭aapt对png的优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧6：使用instant-run"><span class="toc-text">技巧6：使用instant run</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧7：避免写一些不必要的更改"><span class="toc-text">技巧7：避免写一些不必要的更改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧8：类库不要使用动态的版本"><span class="toc-text">技巧8：类库不要使用动态的版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧9：查看jvm使用的内存是否合适"><span class="toc-text">技巧9：查看jvm使用的内存是否合适</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧10：打开gradle新的缓存机制"><span class="toc-text">技巧10：打开gradle新的缓存机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧11：使用新的依赖机制"><span class="toc-text">技巧11：使用新的依赖机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    <strong class="toc-title">Posts List</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开门撞山："><span class="toc-text">开门撞山：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正餐："><span class="toc-text">正餐：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧1：使用最新版本的gradle插件"><span class="toc-text">技巧1：使用最新版本的gradle插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧2：避免使用legacy-multidex"><span class="toc-text">技巧2：避免使用legacy multidex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧3：关闭multi-apk"><span class="toc-text">技巧3：关闭multi apk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧4：使用最少的资源打包"><span class="toc-text">技巧4：使用最少的资源打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧5-关闭aapt对png的优化"><span class="toc-text">技巧5:关闭aapt对png的优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧6：使用instant-run"><span class="toc-text">技巧6：使用instant run</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧7：避免写一些不必要的更改"><span class="toc-text">技巧7：避免写一些不必要的更改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧8：类库不要使用动态的版本"><span class="toc-text">技巧8：类库不要使用动态的版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧9：查看jvm使用的内存是否合适"><span class="toc-text">技巧9：查看jvm使用的内存是否合适</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧10：打开gradle新的缓存机制"><span class="toc-text">技巧10：打开gradle新的缓存机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧11：使用新的依赖机制"><span class="toc-text">技巧11：使用新的依赖机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例"><span class="toc-text">实例</span></a></li></ol></li></ol>
   </div>
 
 
@@ -233,19 +233,45 @@ You may try using --multi-dex option.
 </code></pre><p>但是显然这趟配置影响全局配置，后期还可能忘记改回来，更灵活一点的方式可以这样：</p>
 <pre><code>android {
     ...
+    splits {
+        ...
+    ｝
     if(project.hasProperty(&apos;HaloDevBuild&apos;)){
         splits.abi.enable = false;
         splits.density.enable = false;
     }
     ...
 }
-</code></pre><p>注意project没有s，不是projects。<br>“HaloDevBuild”属性的字符串我们可以自定义，在gradle写好这个判断之后，我们就可以在命令行编译了，命令如下：</p>
+</code></pre><p>或者，可以更加细致一点：</p>
+<pre><code>android {
+    ...
+    splits {
+        ...
+    ｝
+    if(project.hasProperty(&apos;HaloDevBuild&apos;)){
+        splits.density.enable = false
+        splits.abi {
+            enable true
+            reset()
+            include &apos;arm64-v8a&apos; //select ABIs to build APKs for
+            universalApk false //whether generate an additional APK that contains all the ABIs
+        }
+        aaptOptions.cruncherEnabled = false
+    }
+    ...
+}
+</code></pre><p>注意project没有s，不是projects。<strong>并且这个判断的代码必须置于splits块的下面，否则就可能设置完之后就又被覆盖回来了</strong><br>“HaloDevBuild”属性的字符串我们可以自定义，在gradle写好这个判断之后，我们就可以在命令行编译了，命令如下：</p>
 <pre><code>./gradlew 项目名:变体 -PHaloDevBuild
 </code></pre><p>比如：</p>
 <pre><code>gradlew app:assembleDevelopmentDebug -PHaloDevBuild
+</code></pre><p>又或者可以构建顺带安装了：</p>
+<pre><code>gradlew demo:installdevelopmentDebug -PHaloDevBuild
 </code></pre><p>-P之后表示要传递的属性。当然我们如果需要在as中点击绿色构建按钮▶编译，那就要设置一下每次都要传入属性：</p>
 <p><img src="/2017/06/13/meals-speedup_gradle_build/demo0.png" alt="demo0"></p>
-<h3 id="技巧4：使用最少的资源打包"><a href="#技巧4：使用最少的资源打包" class="headerlink" title="技巧4：使用最少的资源打包"></a>技巧4：使用最少的资源打包</h3><p>和上面的思路一样，我们开发调试的时候只需要用到一种语言和一套资源文件。所以我们打包的时候不需要将所有的东西都放到这个调试的apk中。我们可以采用<a href="https://developer.android.com/studio/build/build-variants.html" target="_blank" rel="external">定义变体</a>的方式来完成，注意下面的resConfigs属性指定了要保留的素材资源文件和语言资源文件。</p>
+<p>另外，我们可以这样获取Android手机CPU/ABI型号：</p>
+<pre><code>String CPU_ABI = android.os.Build.CPU_ABI;//过时了
+String CPU_ABIs[] = android.os.Build.SUPPORTED_ABIS;
+</code></pre><h3 id="技巧4：使用最少的资源打包"><a href="#技巧4：使用最少的资源打包" class="headerlink" title="技巧4：使用最少的资源打包"></a>技巧4：使用最少的资源打包</h3><p>和上面的思路一样，我们开发调试的时候只需要用到一种语言和一套资源文件。所以我们打包的时候不需要将所有的东西都放到这个调试的apk中。我们可以采用<a href="https://developer.android.com/studio/build/build-variants.html" target="_blank" rel="external">定义变体</a>的方式来完成，注意下面的resConfigs属性指定了要保留的素材资源文件和语言资源文件。</p>
 <pre><code>android {
     ...
     flavorDimensions &quot;dev&quot;
@@ -319,7 +345,9 @@ org.gradle.caching=true
 </code></pre><p>libX：</p>
 <pre><code>api &apos;libY&apos;
 </code></pre><p>由于存在之前的这种依赖传递的错误机制，因此我们项目中很可能就出现了这种依赖传递之后导致一个小修改就把所有库都构建一遍的情况，因此我们花一些时间将一些库的compile都替换成api和impementation对我们是有好处的，一来有效缩短构建时间，而来真正搞清楚项目中依赖的情况，那些api需要依赖传递，哪些不需要。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>未完待续…</p>
+<p>当然我们还是可以继续使用compile，不过这种方式已经是过时的了，我们只要更新了最新插件，那么新建了项目就会发现所有的compile都会被换成了implementation。相关的修改还有androidTestImplementation和testImplementation，对应的是原来的androidTestCompile和testCompile。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>根据上述技巧，我写了一个小demo：</p>
+<p><a href="https://github.com/halohoop/SpeedUpGradleBuild2" target="_blank" rel="external">https://github.com/halohoop/SpeedUpGradleBuild2</a></p>
 <ul>
 <li>Stay hungry stay foolish!</li>
 </ul>
@@ -378,7 +406,7 @@ org.gradle.caching=true
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
+      <span id="close" class="btn-close">Close</span>
     </div>
     <hr>
     <div class="modal-body">
