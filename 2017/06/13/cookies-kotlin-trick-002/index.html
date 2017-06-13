@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://halohoop.com/2017/06/13/cookies-kotlin-trick-002/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
 <meta property="og:description" content="Java:void test(int i){ } void test(String j){ } void test(int i, String j){ } 调用: test(1); test(&amp;quot;aaa&amp;quot;); test(1,&amp;quot;aaa&amp;quot;); Annoying：写太多重载了，眼都花了 When it comes to Kotlin：//一个足矣 fun test(">
-<meta property="og:updated_time" content="2017-06-13T11:41:15.938Z">
+<meta property="og:updated_time" content="2017-06-13T11:57:57.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[饼干]Kotlin Trick 002-滚吧重载方法">
 <meta name="twitter:description" content="Java:void test(int i){ } void test(String j){ } void test(int i, String j){ } 调用: test(1); test(&amp;quot;aaa&amp;quot;); test(1,&amp;quot;aaa&amp;quot;); Annoying：写太多重载了，眼都花了 When it comes to Kotlin：//一个足矣 fun test(">
@@ -201,7 +201,8 @@ test(1,&quot;aaa&quot;);
 fun test(i:int = 0, j:String = &quot;&quot;){
 }
 </code></pre><p>调用:</p>
-<pre><code>test(1);
+<pre><code>test(0);//有默认值，可以不用传
+test(1);
 test(1,&quot;aaa&quot;);
 test(j = &quot;aaa&quot;);//非第一个需要传递参数名字，这也能增加可读性
 </code></pre>
