@@ -12,11 +12,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="cookies,kotlin,android," />
+    <meta name="keywords" content="cookies,android,kotlin," />
   
 
   <meta name="description" content="Java:void test(int i){ } void test(String j){ } void test(int i, String j){ } 调用: test(1); test(&amp;quot;aaa&amp;quot;); test(1,&amp;quot;aaa&amp;quot;); Annoying：写太多重载了，眼都花了 When it comes to Kotlin：//一个足矣 fun test(">
-<meta name="keywords" content="cookies,kotlin,android">
+<meta name="keywords" content="cookies,android,kotlin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[饼干]Kotlin Trick 002-滚吧重载方法">
 <meta property="og:url" content="http://halohoop.com/2017/06/13/cookies-kotlin-trick-002/index.html">
@@ -143,7 +143,7 @@
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Posts List</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java"><span class="toc-text">Java:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Annoying："><span class="toc-text">Annoying：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#When-it-comes-to-Kotlin："><span class="toc-text">When it comes to Kotlin：</span></a></li></ol>
   </div>
 
@@ -260,7 +260,7 @@ test(j = &quot;aaa&quot;);//非第一个需要传递参数名字，这也能增�
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
+      <span id="close" class="btn-close">Close</span>
     </div>
     <hr>
     <div class="modal-body">
@@ -402,5 +402,20 @@ test(j = &quot;aaa&quot;);//非第一个需要传递参数名字，这也能增�
 <script type="text/javascript"
 color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

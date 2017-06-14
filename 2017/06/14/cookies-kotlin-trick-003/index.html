@@ -12,17 +12,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="cookies,kotlin,android," />
+    <meta name="keywords" content="cookies,android,kotlin," />
   
 
   <meta name="description" content="Java:class Utils {     public static char getLastChar(String str){         return str.charAt(s.length()-1);     } } 调用: char c = Utils.getLastChar(&amp;quot;halohoop.com&amp;quot;);//得到m Annoying：增加类 When it">
-<meta name="keywords" content="cookies,kotlin,android">
+<meta name="keywords" content="cookies,android,kotlin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[饼干]Kotlin Trick 003-滚吧工具类">
 <meta property="og:url" content="http://halohoop.com/2017/06/14/cookies-kotlin-trick-003/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
 <meta property="og:description" content="Java:class Utils {     public static char getLastChar(String str){         return str.charAt(s.length()-1);     } } 调用: char c = Utils.getLastChar(&amp;quot;halohoop.com&amp;quot;);//得到m Annoying：增加类 When it">
-<meta property="og:updated_time" content="2017-06-14T02:04:43.525Z">
+<meta property="og:updated_time" content="2017-06-14T02:08:35.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[饼干]Kotlin Trick 003-滚吧工具类">
 <meta name="twitter:description" content="Java:class Utils {     public static char getLastChar(String str){         return str.charAt(s.length()-1);     } } 调用: char c = Utils.getLastChar(&amp;quot;halohoop.com&amp;quot;);//得到m Annoying：增加类 When it">
@@ -143,7 +143,7 @@
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Posts List</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java"><span class="toc-text">Java:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Annoying："><span class="toc-text">Annoying：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#When-it-comes-to-Kotlin："><span class="toc-text">When it comes to Kotlin：</span></a></li></ol>
   </div>
 
@@ -194,7 +194,8 @@
 </code></pre><p>调用:</p>
 <pre><code>char c = Utils.getLastChar(&quot;halohoop.com&quot;);//得到m
 </code></pre><h2 id="Annoying："><a href="#Annoying：" class="headerlink" title="Annoying："></a>Annoying：</h2><p>增加类</p>
-<h2 id="When-it-comes-to-Kotlin："><a href="#When-it-comes-to-Kotlin：" class="headerlink" title="When it comes to Kotlin："></a>When it comes to Kotlin：</h2><pre><code>//扩展属性
+<h2 id="When-it-comes-to-Kotlin："><a href="#When-it-comes-to-Kotlin：" class="headerlink" title="When it comes to Kotlin："></a>When it comes to Kotlin：</h2><p>不需要增加额外的类。</p>
+<pre><code>//扩展属性
 inline val String.lastC: Char
     get() = get(length - 1)
 </code></pre><p>或者：</p>
@@ -261,7 +262,7 @@ inline fun String.getLastChar() : Char{
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
+      <span id="close" class="btn-close">Close</span>
     </div>
     <hr>
     <div class="modal-body">
@@ -403,5 +404,20 @@ inline fun String.getLastChar() : Char{
 <script type="text/javascript"
 color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
