@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 
 
-  <html class="light page-categoriestricks">
+  <html class="light page-post">
 
 
 <head>
   <meta charset="utf-8">
   
-  <title>Category: tricks | 卖牙膏的芖口钉</title>
+  <title>[饼干]FragmentManager的popBackStack的使用 | 卖牙膏的芖口钉</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Halohoop,卖牙膏的霸气侧漏农村的芖口钉,Android,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript" />
+    <meta name="keywords" content="cookies,android,Fragment," />
   
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="卖牙膏的芖口钉">
-<meta property="og:url" content="http://halohoop.com/categories/tricks/index.html">
+  <meta name="description" content="开门撞山： 用法： //自己以上所有，不包括自己 getSupportFragmentManager().popBackStack(&amp;quot;rt&amp;quot;, 0); //自己以上所有，包括自己 getSupportFragmentManager().popBackStack(&amp;quot;rt&amp;quot;, 1); //最上层的一个 getSupportFragmentManager().po">
+<meta name="keywords" content="cookies,android,Fragment">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[饼干]FragmentManager的popBackStack的使用">
+<meta property="og:url" content="http://halohoop.com/2017/06/16/cookies-frag_manager_popstack/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
+<meta property="og:description" content="开门撞山： 用法： //自己以上所有，不包括自己 getSupportFragmentManager().popBackStack(&amp;quot;rt&amp;quot;, 0); //自己以上所有，包括自己 getSupportFragmentManager().popBackStack(&amp;quot;rt&amp;quot;, 1); //最上层的一个 getSupportFragmentManager().po">
+<meta property="og:updated_time" content="2017-06-16T03:58:16.991Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="卖牙膏的芖口钉">
+<meta name="twitter:title" content="[饼干]FragmentManager的popBackStack的使用">
+<meta name="twitter:description" content="开门撞山： 用法： //自己以上所有，不包括自己 getSupportFragmentManager().popBackStack(&amp;quot;rt&amp;quot;, 0); //自己以上所有，包括自己 getSupportFragmentManager().popBackStack(&amp;quot;rt&amp;quot;, 1); //最上层的一个 getSupportFragmentManager().po">
 
   
 
@@ -54,17 +59,8 @@
     <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
   
 
-  <div class="content content-category">
-  <div class="page-header">
-
-  
-    <div class="breadcrumb">
-      <div class="location">Categories</div>
-      <i class="icon-location"></i>
-    </div>
-  
-
-  
+  <div class="post-header CENTER">
+   
   <div class="toolbox">
     <a class="toolbox-entry" href="/">
       <span class="toolbox-entry-text">盒子</span>
@@ -143,211 +139,121 @@
   </div>
 
 
+</div>
 
-  <div class="box-blog-info">
-    <a class="avatar" href="/">
-      <img src="/images/avatar.jpg" alt="" />
-    </a>
-    <div class="info">
-      <h3 class="name" style="font-family: calligraffittiregular">
-        卖牙膏的霸气侧漏农村的芖口钉
-      </h3>
-      <div class="slogan">
-        你好，请问买牙膏么？
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">Posts List</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开门撞山："><span class="toc-text">开门撞山：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例代码Demo"><span class="toc-text">实例代码Demo</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-cookies-frag_manager_popstack" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">[饼干]FragmentManager的popBackStack的使用</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.06.16</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Halohoop</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </span>
+
+
+
+      
+
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="开门撞山："><a href="#开门撞山：" class="headerlink" title="开门撞山："></a>开门撞山：</h2><ul>
+<li><p>用法：</p>
+<pre><code>//自己以上所有，不包括自己
+getSupportFragmentManager().popBackStack(&quot;rt&quot;, 0);
+//自己以上所有，包括自己
+getSupportFragmentManager().popBackStack(&quot;rt&quot;, 1);
+//最上层的一个
+getSupportFragmentManager().popBackStack(null, 0);
+//最上层的一个
+getSupportFragmentManager().popBackStack();
+//全部pop
+getSupportFragmentManager().popBackStack(null, 1);
+</code></pre></li>
+<li><p>注意：popBackStack传入的第一个参数是addToBackStack(name)传入的参数，而不是Fragment的Tag；</p>
+</li>
+</ul>
+<h2 id="实例代码Demo"><a href="#实例代码Demo" class="headerlink" title="实例代码Demo"></a>实例代码Demo</h2><p><a href="https://github.com/halohoop/AndroidDigIn#20fragmentmanager的popbackstack的使用" target="_blank" rel="external">https://github.com/halohoop/AndroidDigIn</a></p>
+<p><em>仅作知识点记录，如有疏漏，全(欢)都(迎)怪(指)你(正)。</em></p>
+<ul>
+<li>Stay hungry stay foolish!</li>
+</ul>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持Halohoop</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
       </div>
     </div>
   </div>
 
-</div>
 
-  <section class="category-box">
-  <div class="category-title">Categories</div>
-  <div class="category-list">
-    
-      <a class="category-item" href="#Hexo教程">
-        <span class="category-name">Hexo教程</span>
-        <span class="category-size">( 1 )</span>
-      </a>
-    
-      <a class="category-item" href="#notes">
-        <span class="category-name">notes</span>
-        <span class="category-size">( 1 )</span>
-      </a>
-    
-      <a class="category-item" href="#programming">
-        <span class="category-name">programming</span>
-        <span class="category-size">( 9 )</span>
-      </a>
-    
-      <a class="category-item" href="#tricks">
-        <span class="category-name">tricks</span>
-        <span class="category-size">( 3 )</span>
-      </a>
-    
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/06/15/dewdrops-adb_wifi/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
   </div>
-</section>
-
-  <ul class="list-post"><li id="Hexo教程" class="item-category-name item-title item-title-0">
-  <!--
-    <a href="" class="text-year">
-   -->
-    Hexo教程
-    <span class="category-count">( 1 )</span>
-  <!--
-  </a>
-   -->
-</li>
-<li class="item-post item">
-  <span class="post-date">01-01</span>
-
-  
-  <a class="post-title" href="/1970/01/01/hello-world/">Hello World</a>
 
 
-</li>
-<li id="notes" class="item-category-name item-title item-title-1">
-  <!--
-    <a href="" class="text-year">
-   -->
-    notes
-    <span class="category-count">( 1 )</span>
-  <!--
-  </a>
-   -->
-</li>
-<li class="item-post item">
-  <span class="post-date">01-01</span>
-
-  
-  <a class="post-title" href="/1970/01/01/tags-notes/">我觉得我的博文标签是这样分类的</a>
 
 
-</li>
-<li id="programming" class="item-category-name item-title item-title-2">
-  <!--
-    <a href="" class="text-year">
-   -->
-    programming
-    <span class="category-count">( 9 )</span>
-  <!--
-  </a>
-   -->
-</li>
-<li class="item-post item">
-  <span class="post-date">06-16</span>
-
-  
-  <a class="post-title" href="/2017/06/16/cookies-frag_manager_popstack/">[饼干]FragmentManager的popBackStack的使用</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">06-14</span>
-
-  
-  <a class="post-title" href="/2017/06/14/cookies-kotlin-trick-003/">[饼干]Kotlin Trick 003-滚吧工具类</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">06-13</span>
-
-  
-  <a class="post-title" href="/2017/06/13/cookies-kotlin-trick-002/">[饼干]Kotlin Trick 002-滚吧重载方法</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">06-13</span>
-
-  
-  <a class="post-title" href="/2017/06/13/meals-speedup_gradle_build/">[大餐]加快gradle构建速度</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">06-09</span>
-
-  
-  <a class="post-title" href="/2017/06/09/meals-android-fishing/">[大餐]开发摘记1--我的Fragment通信的框架</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">06-08</span>
-
-  
-  <a class="post-title" href="/2017/06/08/dewdrops-weiyuju/">[露水]你知道卫语句不</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">06-06</span>
-
-  
-  <a class="post-title" href="/2017/06/06/cookies-android-touchdelegate/">[饼干]安卓小秘密-不扩大view宽高增加其可触控范围</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">06-05</span>
-
-  
-  <a class="post-title" href="/2017/06/05/cookies-kotlin-trick-001/">[饼干]Kotlin Trick 001-省略一些重复的工作</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">06-04</span>
-
-  
-  <a class="post-title" href="/2017/06/04/roll_loading/">[点心]小清新加载等待控件</a>
-
-
-</li>
-<li id="tricks" class="item-category-name item-title item-title-3">
-  <!--
-    <a href="" class="text-year">
-   -->
-    tricks
-    <span class="category-count">( 3 )</span>
-  <!--
-  </a>
-   -->
-</li>
-<li class="item-post item">
-  <span class="post-date">06-15</span>
-
-  
-  <a class="post-title" href="/2017/06/15/dewdrops-adb_wifi/">[露水]adb无线调试</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">06-08</span>
-
-  
-  <a class="post-title" href="/2017/06/08/dewdrops-be_objective/">[露水]客观，有时候需要精分</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">06-06</span>
-
-  
-  <a class="post-title" href="/2017/06/06/dewdrops-importance-of-books/">[露水]多看书有多重要</a>
-
-
-</li>
-</ul>
 </div>
 
 
   <a id="backTop" class="back-top">
     <i class="icon-angle-up"></i>
   </a>
-
-
 
 
 
@@ -435,6 +341,32 @@
 </div>
 
 
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "cbb093ce3d1143eba2f2196086c1116f",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+
+
+    
+	
+  </div>
 
   
 
