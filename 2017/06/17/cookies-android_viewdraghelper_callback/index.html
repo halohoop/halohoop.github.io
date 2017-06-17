@@ -7,25 +7,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>[露水]客观，有时候需要精分 | 卖牙膏的芖口钉</title>
+  <title>[饼干]ViewDragHelper.Callback.onEdgeLock是干嘛的么 | 卖牙膏的芖口钉</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="dewdrops," />
+    <meta name="keywords" content="cookies,view,android,ViewDragHelper," />
   
 
-  <meta name="description" content="有时候，需要客观一点，不要被某一个很新鲜的事物所蛊惑，当你接触到一个觉得很赞的事物的时候，你觉得以你的能力你也能完成，退一步想，我完成了，然后呢？对我现在状态会不会有很大的改观？还是说只是增加了装X的资本？我后期是不是还会花更多不必要的时间去维护它？有时候，你需要精分出另一个置身事外的自己，看到自己的整体概况，去告诉自己，要做真正适合自己的，促进自己的事情。然而，说的好听谁都会，人是情感趋势生物，">
-<meta name="keywords" content="dewdrops">
+  <meta name="description" content="开门撞山：ViewDragHelper.Callback提供给我们很多回调，灰常方便，网上很多文章都非常棒和详细，如果你还不知道ViewDragHelper这个神器怎么用，那你先去看看这些文章，不然下文你也看不懂。 有一个回调大家都没有在意，或者说描述的含糊不清，这里要说的回调就是： @Override public boolean onEdgeLock(int edgeFlags) {">
+<meta name="keywords" content="cookies,view,android,ViewDragHelper">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[露水]客观，有时候需要精分">
-<meta property="og:url" content="http://halohoop.com/2017/06/08/dewdrops-be_objective/index.html">
+<meta property="og:title" content="[饼干]ViewDragHelper.Callback.onEdgeLock是干嘛的么">
+<meta property="og:url" content="http://halohoop.com/2017/06/17/cookies-android_viewdraghelper_callback/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
-<meta property="og:description" content="有时候，需要客观一点，不要被某一个很新鲜的事物所蛊惑，当你接触到一个觉得很赞的事物的时候，你觉得以你的能力你也能完成，退一步想，我完成了，然后呢？对我现在状态会不会有很大的改观？还是说只是增加了装X的资本？我后期是不是还会花更多不必要的时间去维护它？有时候，你需要精分出另一个置身事外的自己，看到自己的整体概况，去告诉自己，要做真正适合自己的，促进自己的事情。然而，说的好听谁都会，人是情感趋势生物，">
-<meta property="og:updated_time" content="2017-06-07T16:44:19.643Z">
+<meta property="og:description" content="开门撞山：ViewDragHelper.Callback提供给我们很多回调，灰常方便，网上很多文章都非常棒和详细，如果你还不知道ViewDragHelper这个神器怎么用，那你先去看看这些文章，不然下文你也看不懂。 有一个回调大家都没有在意，或者说描述的含糊不清，这里要说的回调就是： @Override public boolean onEdgeLock(int edgeFlags) {">
+<meta property="og:image" content="http://halohoop.com/2017/06/17/cookies-android_viewdraghelper_callback/demo0.png">
+<meta property="og:image" content="http://halohoop.com/2017/06/17/cookies-android_viewdraghelper_callback/demo1.png">
+<meta property="og:updated_time" content="2017-06-17T05:00:24.829Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[露水]客观，有时候需要精分">
-<meta name="twitter:description" content="有时候，需要客观一点，不要被某一个很新鲜的事物所蛊惑，当你接触到一个觉得很赞的事物的时候，你觉得以你的能力你也能完成，退一步想，我完成了，然后呢？对我现在状态会不会有很大的改观？还是说只是增加了装X的资本？我后期是不是还会花更多不必要的时间去维护它？有时候，你需要精分出另一个置身事外的自己，看到自己的整体概况，去告诉自己，要做真正适合自己的，促进自己的事情。然而，说的好听谁都会，人是情感趋势生物，">
+<meta name="twitter:title" content="[饼干]ViewDragHelper.Callback.onEdgeLock是干嘛的么">
+<meta name="twitter:description" content="开门撞山：ViewDragHelper.Callback提供给我们很多回调，灰常方便，网上很多文章都非常棒和详细，如果你还不知道ViewDragHelper这个神器怎么用，那你先去看看这些文章，不然下文你也看不懂。 有一个回调大家都没有在意，或者说描述的含糊不清，这里要说的回调就是： @Override public boolean onEdgeLock(int edgeFlags) {">
+<meta name="twitter:image" content="http://halohoop.com/2017/06/17/cookies-android_viewdraghelper_callback/demo0.png">
 
   
 
@@ -142,17 +145,22 @@
 </div>
 
 
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开门撞山："><span class="toc-text">开门撞山：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实际应用场景"><span class="toc-text">实际应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+  </div>
+
 
 
 <div class="content content-post CENTER">
-   <article id="post-dewdrops-be_objective" class="article article-type-post" itemprop="blogPost">
+   <article id="post-cookies-android_viewdraghelper_callback" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">[露水]客观，有时候需要精分</h1>
+    <h1 class="post-title">[饼干]ViewDragHelper.Callback.onEdgeLock是干嘛的么</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.06.08</span>
+        <span>2017.06.17</span>
       </span>
 
       
@@ -165,7 +173,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/tricks/">tricks</a>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
   </span>
 
 
@@ -181,8 +189,45 @@
 
   <div class="article-content">
     
-      <p>有时候，需要客观一点，不要被某一个很新鲜的事物所蛊惑，当你接触到一个觉得很赞的事物的时候，你觉得以你的能力你也能完成，退一步想，我完成了，然后呢？对我现在状态会不会有很大的改观？还是说只是增加了装X的资本？我后期是不是还会花更多不必要的时间去维护它？有时候，你需要精分出另一个置身事外的自己，看到自己的整体概况，去告诉自己，要做真正适合自己的，促进自己的事情。<br>然而，说的好听谁都会，人是情感趋势生物，人非圣贤，孰能任何时候都控制好自己呢？</p>
-<p><strong>我就说一个决心和一个能忍，勾践尚且卧薪尝胆，范雎更是十年报仇不晚，我就要比比看谁更能忍，因为我TM从骨子里就不愿平庸。</strong></p>
+      <h2 id="开门撞山："><a href="#开门撞山：" class="headerlink" title="开门撞山："></a>开门撞山：</h2><p>ViewDragHelper.Callback提供给我们很多回调，灰常方便，网上很多文章都非常棒和详细，如果你还不知道ViewDragHelper这个神器怎么用，那你先去看看这些<a href="http://46aae4d1e2371e4aa769798941cef698.devproxy.yunshipei.com/hbl_for_android/article/details/51485827" target="_blank" rel="external">文章</a>，不然下文你也看不懂。</p>
+<p>有一个回调大家都没有在意，或者说描述的含糊不清，这里要说的回调就是：</p>
+<pre><code>@Override
+public boolean onEdgeLock(int edgeFlags) {
+    return false;
+}
+</code></pre><p>默认是返回false，从方法字面上去理解，那就是边缘锁定，我试着判断一个边缘然后返回true看看，是否边缘拖拽就失效了呢，代码如下：</p>
+<pre><code>@Override
+public boolean onEdgeLock(int edgeFlags) {
+    return (edgeFlags&amp;ViewDragHelper.EDGE_LEFT)==ViewDragHelper.EDGE_LEFT;
+}
+</code></pre><p>显然结果和我预料的并不一样，难道这个方法是要手动调用的咩？这个时候咋办呢，当然是看源码，记住，一切答案都在源码。</p>
+<p><img src="/2017/06/17/cookies-android_viewdraghelper_callback/demo0.png" alt="demo0"></p>
+<p>注意1278行，源码中确实调用了onEdgeLock，为什么没有跑到这句，这里有些线索，比如：</p>
+<ul>
+<li>absDelta &lt; absODelta * 0.5f，绝对值后新旧数据的比较</li>
+</ul>
+<p>但是线索还不够，那就往上爬，找到checkNewEdgeDrag方法被调用的地方。当是LEFT和RIGHT的时候传入的是dx和dy，而TOP和BOTTOM的时候传入的是dy和dx，dx和dy调换了位置，恍然大悟了。</p>
+<p><img src="/2017/06/17/cookies-android_viewdraghelper_callback/demo1.png" alt="demo1"></p>
+<p>不多说，我把代码直接翻译成中文：</p>
+<ul>
+<li>当想要锁住的是<strong>左</strong>或者<strong>右</strong>的时候，如果<strong>左右</strong>滑动的距离还没<strong>上下</strong>滑动的距离的一半多，那就走回调onEdgeLock；</li>
+<li>当想要锁住的是<strong>上</strong>或者<strong>下</strong>的时候，如果<strong>上下</strong>滑动的距离还没<strong>左右</strong>滑动的距离的一半多，那就走回调onEdgeLock；</li>
+</ul>
+<p>当我们开启了边缘锁定模式，像这样：</p>
+<pre><code>viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);//这里锁定左边
+</code></pre><p>之后，我们在左边缘<strong>上下</strong>滑动的时候，就能够走回调onEdgeLock方法了。</p>
+<p>看看红框框出来的部分，</p>
+<h2 id="实际应用场景"><a href="#实际应用场景" class="headerlink" title="实际应用场景"></a>实际应用场景</h2><ul>
+<li>微信边滑退出，识别是边滑的时候锁定只能是左右滑，而不能是上下滑。<ul>
+<li>当然我们可以自己在别的ViewDragHelper.Callback的回调中做限制,比如clampViewPositionHorizontal和clampViewPositionVertical，但是，神经病啊，用原生的不用你写那么多的判断逻辑啊。</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>答案都在源码.</li>
+<li>Stay hungry stay foolish!</li>
+</ul>
+<p><em>仅作知识点记录，如有疏漏，全(欢)都(迎)怪(指)你(正)。</em></p>
 
     
   </div>
@@ -213,10 +258,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/06/06/dewdrops-importance-of-books/">
+    <a class="show pull-left" href="/2017/06/16/cookies-frag_manager_popstack/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/06/08/dewdrops-weiyuju/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
