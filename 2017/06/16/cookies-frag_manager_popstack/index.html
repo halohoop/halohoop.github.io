@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://halohoop.com/2017/06/16/cookies-frag_manager_popstack/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
 <meta property="og:description" content="开门撞山： 用法： //自己以上所有，不包括自己 getSupportFragmentManager().popBackStack(&amp;quot;rt&amp;quot;, 0); //自己以上所有，包括自己 getSupportFragmentManager().popBackStack(&amp;quot;rt&amp;quot;, 1); //最上层的一个 getSupportFragmentManager().po">
-<meta property="og:updated_time" content="2017-06-16T03:58:16.991Z">
+<meta property="og:updated_time" content="2017-06-17T02:29:18.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[饼干]FragmentManager的popBackStack的使用">
 <meta name="twitter:description" content="开门撞山： 用法： //自己以上所有，不包括自己 getSupportFragmentManager().popBackStack(&amp;quot;rt&amp;quot;, 0); //自己以上所有，包括自己 getSupportFragmentManager().popBackStack(&amp;quot;rt&amp;quot;, 1); //最上层的一个 getSupportFragmentManager().po">
@@ -143,7 +143,7 @@
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Posts List</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开门撞山："><span class="toc-text">开门撞山：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例代码Demo"><span class="toc-text">实例代码Demo</span></a></li></ol>
   </div>
 
@@ -199,7 +199,17 @@ getSupportFragmentManager().popBackStack();
 //全部pop
 getSupportFragmentManager().popBackStack(null, 1);
 </code></pre></li>
-<li><p>注意：popBackStack传入的第一个参数是addToBackStack(name)传入的参数，而不是Fragment的Tag；</p>
+<li><p>注意：</p>
+<ul>
+<li>popBackStack传入的第一个参数是addToBackStack(name)传入的参数，而不是Fragment的Tag；</li>
+<li>如果遇到两个name相同的连在一起的时候，两个移除，三个相同的就三个都移除…示例代码：<ul>
+<li>getFragmentManager().popBackStack(“rt”, 1); <ul>
+<li>也就是说，查找栈的顺序是先从后入栈的开始查找往下找，找到一个之后还继续找下一个如果还是一样的name就再找一个直到不是为止，然后将是的一并pop出栈。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 <h2 id="实例代码Demo"><a href="#实例代码Demo" class="headerlink" title="实例代码Demo"></a>实例代码Demo</h2><p><a href="https://github.com/halohoop/AndroidDigIn#20fragmentmanager的popbackstack的使用" target="_blank" rel="external">https://github.com/halohoop/AndroidDigIn</a></p>
@@ -262,7 +272,7 @@ getSupportFragmentManager().popBackStack(null, 1);
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
+      <span id="close" class="btn-close">Close</span>
     </div>
     <hr>
     <div class="modal-body">
