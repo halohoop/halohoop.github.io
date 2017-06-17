@@ -12,11 +12,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="cookies,view,android,ViewDragHelper," />
+    <meta name="keywords" content="cookies,view,ViewDragHelper,android," />
   
 
   <meta name="description" content="开门撞山：ViewDragHelper.Callback提供给我们很多回调，灰常方便，网上很多文章都非常棒和详细，如果你还不知道ViewDragHelper这个神器怎么用，那你先去看看这些文章，不然下文你也看不懂。 有一个回调大家都没有在意，或者说描述的含糊不清，这里要说的回调就是： @Override public boolean onEdgeLock(int edgeFlags) {">
-<meta name="keywords" content="cookies,view,android,ViewDragHelper">
+<meta name="keywords" content="cookies,view,ViewDragHelper,android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[饼干]ViewDragHelper.Callback.onEdgeLock是干嘛的么">
 <meta property="og:url" content="http://halohoop.com/2017/06/17/cookies-android_viewdraghelper_callback/index.html">
@@ -24,7 +24,7 @@
 <meta property="og:description" content="开门撞山：ViewDragHelper.Callback提供给我们很多回调，灰常方便，网上很多文章都非常棒和详细，如果你还不知道ViewDragHelper这个神器怎么用，那你先去看看这些文章，不然下文你也看不懂。 有一个回调大家都没有在意，或者说描述的含糊不清，这里要说的回调就是： @Override public boolean onEdgeLock(int edgeFlags) {">
 <meta property="og:image" content="http://halohoop.com/2017/06/17/cookies-android_viewdraghelper_callback/demo0.png">
 <meta property="og:image" content="http://halohoop.com/2017/06/17/cookies-android_viewdraghelper_callback/demo1.png">
-<meta property="og:updated_time" content="2017-06-17T05:00:24.829Z">
+<meta property="og:updated_time" content="2017-06-17T05:10:43.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[饼干]ViewDragHelper.Callback.onEdgeLock是干嘛的么">
 <meta name="twitter:description" content="开门撞山：ViewDragHelper.Callback提供给我们很多回调，灰常方便，网上很多文章都非常棒和详细，如果你还不知道ViewDragHelper这个神器怎么用，那你先去看看这些文章，不然下文你也看不懂。 有一个回调大家都没有在意，或者说描述的含糊不清，这里要说的回调就是： @Override public boolean onEdgeLock(int edgeFlags) {">
@@ -210,16 +210,22 @@ public boolean onEdgeLock(int edgeFlags) {
 <p><img src="/2017/06/17/cookies-android_viewdraghelper_callback/demo1.png" alt="demo1"></p>
 <p>不多说，我把代码直接翻译成中文：</p>
 <ul>
-<li>当想要锁住的是<strong>左</strong>或者<strong>右</strong>的时候，如果<strong>左右</strong>滑动的距离还没<strong>上下</strong>滑动的距离的一半多，那就走回调onEdgeLock；</li>
-<li>当想要锁住的是<strong>上</strong>或者<strong>下</strong>的时候，如果<strong>上下</strong>滑动的距离还没<strong>左右</strong>滑动的距离的一半多，那就走回调onEdgeLock；</li>
+<li>当想要锁住的是<strong>左</strong>或者<strong>右</strong>的时候，如果<strong>左右</strong>滑动的距离还没<strong>上下</strong>滑动的距离的一半多，那就走回调onEdgeLock()；</li>
+<li>当想要锁住的是<strong>上</strong>或者<strong>下</strong>的时候，如果<strong>上下</strong>滑动的距离还没<strong>左右</strong>滑动的距离的一半多，那就走回调onEdgeLock()；</li>
 </ul>
 <p>当我们开启了边缘锁定模式，像这样：</p>
 <pre><code>viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);//这里锁定左边
 </code></pre><p>之后，我们在左边缘<strong>上下</strong>滑动的时候，就能够走回调onEdgeLock方法了。</p>
 <p>看看红框框出来的部分，</p>
 <h2 id="实际应用场景"><a href="#实际应用场景" class="headerlink" title="实际应用场景"></a>实际应用场景</h2><ul>
-<li>微信边滑退出，识别是边滑的时候锁定只能是左右滑，而不能是上下滑。<ul>
+<li><p>微信边滑退出，识别是边滑的时候锁定只能是左右滑，而不能是上下滑。</p>
+<ul>
 <li>当然我们可以自己在别的ViewDragHelper.Callback的回调中做限制,比如clampViewPositionHorizontal和clampViewPositionVertical，但是，神经病啊，用原生的不用你写那么多的判断逻辑啊。</li>
+</ul>
+</li>
+<li><p>我写的Demo在这里，请享用：</p>
+<ul>
+<li><a href="https://github.com/halohoop/AndroidDigIn/blob/c4d530b5943ab79e7dd6dc3dbbff1f6a76e214be/app/src/main/java/com/halohoop/androiddigin/widgets/DragViewGroup.java" target="_blank" rel="external">DragViewGroup.java</a></li>
 </ul>
 </li>
 </ul>
