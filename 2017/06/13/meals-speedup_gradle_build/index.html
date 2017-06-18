@@ -24,7 +24,7 @@
 <meta property="og:description" content="本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布 开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这三方面其实都可以有切入点来进行提">
 <meta property="og:image" content="http://halohoop.com/2017/06/13/meals-speedup_gradle_build/demo0.png">
 <meta property="og:image" content="http://halohoop.com/2017/06/13/meals-speedup_gradle_build/demo1.png">
-<meta property="og:updated_time" content="2017-06-17T07:35:33.221Z">
+<meta property="og:updated_time" content="2017-06-18T11:00:31.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[大餐]加快gradle构建速度">
 <meta name="twitter:description" content="本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布 开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这三方面其实都可以有切入点来进行提">
@@ -146,7 +146,7 @@
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Posts List</strong>
+    <strong class="toc-title">文章目录</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开门撞山："><span class="toc-text">开门撞山：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正餐："><span class="toc-text">正餐：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧1：使用最新版本的gradle插件"><span class="toc-text">技巧1：使用最新版本的gradle插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧2：避免使用legacy-multidex"><span class="toc-text">技巧2：避免使用legacy multidex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧3：关闭multi-apk"><span class="toc-text">技巧3：关闭multi apk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧4：使用最少的资源打包"><span class="toc-text">技巧4：使用最少的资源打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧5-关闭aapt对png的优化"><span class="toc-text">技巧5:关闭aapt对png的优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧6：使用instant-run"><span class="toc-text">技巧6：使用instant run</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧7：避免写一些不必要的更改"><span class="toc-text">技巧7：避免写一些不必要的更改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧8：类库不要使用动态的版本"><span class="toc-text">技巧8：类库不要使用动态的版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧9：查看jvm使用的内存是否合适"><span class="toc-text">技巧9：查看jvm使用的内存是否合适</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧10：打开gradle新的缓存机制"><span class="toc-text">技巧10：打开gradle新的缓存机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧11：使用新的依赖机制"><span class="toc-text">技巧11：使用新的依赖机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例"><span class="toc-text">实例</span></a></li></ol></li></ol>
   </div>
 
@@ -407,7 +407,7 @@ org.gradle.caching=true
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">Close</span>
+      <span id="close" class="btn-close">关闭</span>
     </div>
     <hr>
     <div class="modal-body">
