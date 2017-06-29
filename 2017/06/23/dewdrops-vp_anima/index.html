@@ -15,18 +15,18 @@
     <meta name="keywords" content="android,dewdrops,effect," />
   
 
-  <meta name="description" content="效果图片比较大，可能需要加载一会儿。  ##原码解析##">
+  <meta name="description" content="效果图片比较大，可能需要加载一会儿。  HOW TO USESet Animation for every single view By calling View.setTag() to set params of the animations  @Override public void onViewCreated(View view, @Nullable Bundle savedInstanc">
 <meta name="keywords" content="android,dewdrops,effect">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[露水]ViewPager动画类库">
 <meta property="og:url" content="http://halohoop.com/2017/06/23/dewdrops-vp_anima/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
-<meta property="og:description" content="效果图片比较大，可能需要加载一会儿。  ##原码解析##">
+<meta property="og:description" content="效果图片比较大，可能需要加载一会儿。  HOW TO USESet Animation for every single view By calling View.setTag() to set params of the animations  @Override public void onViewCreated(View view, @Nullable Bundle savedInstanc">
 <meta property="og:image" content="http://halohoop.com/2017/06/23/dewdrops-vp_anima/demo0.gif">
-<meta property="og:updated_time" content="2017-06-24T03:13:31.518Z">
+<meta property="og:updated_time" content="2017-06-29T02:53:23.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[露水]ViewPager动画类库">
-<meta name="twitter:description" content="效果图片比较大，可能需要加载一会儿。  ##原码解析##">
+<meta name="twitter:description" content="效果图片比较大，可能需要加载一会儿。  HOW TO USESet Animation for every single view By calling View.setTag() to set params of the animations  @Override public void onViewCreated(View view, @Nullable Bundle savedInstanc">
 <meta name="twitter:image" content="http://halohoop.com/2017/06/23/dewdrops-vp_anima/demo0.gif">
 
   
@@ -178,7 +178,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原码解析"><span class="toc-text">##原码解析##</span></a>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HOW-TO-USE"><span class="toc-text">HOW TO USE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-Animation-for-every-single-view"><span class="toc-text">Set Animation for every single view</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-Animation-for-the-page-view-ViewGroup"><span class="toc-text">Set Animation for the page view(ViewGroup)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-Complex-Animation-for-the-page-view-ViewGroup"><span class="toc-text">Set Complex Animation for the page view(ViewGroup)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原码解析"><span class="toc-text">##原码解析##</span></a>
   </div>
 
 
@@ -222,7 +222,62 @@
     
       <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>图片比较大，可能需要加载一会儿。</p>
 <p><img src="/2017/06/23/dewdrops-vp_anima/demo0.gif" alt="demo0"></p>
-<h1 id="原码解析"><a href="#原码解析" class="headerlink" title="##原码解析##"></a><a href="http://halohoop.com/2017/06/24/snacks-vp_anima_detail/"><strong>##原码解析##</strong></a></h1>
+<h2 id="HOW-TO-USE"><a href="#HOW-TO-USE" class="headerlink" title="HOW TO USE"></a>HOW TO USE</h2><h3 id="Set-Animation-for-every-single-view"><a href="#Set-Animation-for-every-single-view" class="headerlink" title="Set Animation for every single view"></a>Set Animation for every single view</h3><ul>
+<li>By calling View.setTag() to set params of the animations</li>
+</ul>
+<pre><code>@Override
+public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    View imageView3 = view.findViewById(R.id.imageView3);
+    imageView3.setTag(ChildsTranslateTransformer.KEY_OFFSET_X_FACTOR, 2f);
+    imageView3.setTag(ChildsTranslateTransformer.KEY_IS_REVERSE, true);
+    imageView3.setTag(ChildsTranslateTransformer.KEY_MARGIN_WHEN_REVERSE, -30f);
+
+    View line = view.findViewById(R.id.line);
+    line.setTag(ChildsTranslateTransformer.KEY_OFFSET_X_FACTOR, 2f);
+    line.setTag(ChildsTranslateTransformer.KEY_IS_REVERSE, true);
+    line.setTag(ChildsTranslateTransformer.KEY_MARGIN_WHEN_REVERSE, -70f);
+
+    View ll_top = view.findViewById(R.id.ll_top);
+    ll_top.setTag(ChildsTranslateTransformer.KEY_OFFSET_X_FACTOR, 2f);
+    ll_top.setTag(ChildsRotateTransformer.KEY_ROTATE, -90f);
+    ll_top.setTag(ChildsRotateTransformer.KEY_ROTATE_PIVOTX_RATIO, 1f);
+    ll_top.setTag(ChildsRotateTransformer.KEY_ROTATE_PIVOTY_RATIO, 0.5f);
+
+    View textView1 = view.findViewById(R.id.textView1);
+    textView1.setTag(ChildsTranslateTransformer.KEY_OFFSET_X_FACTOR, 3f);
+
+    View imageView1 = view.findViewById(R.id.imageView1);
+    imageView1.setTag(ChildsTranslateTransformer.KEY_OFFSET_X_FACTOR, 2f);
+    imageView1.setTag(ChildsRotateTransformer.KEY_ROTATE, 90f);
+    imageView1.setTag(ChildsRotateTransformer.KEY_ROTATE_PIVOTX_RATIO, 1f);
+    imageView1.setTag(ChildsRotateTransformer.KEY_ROTATE_PIVOTY_RATIO, 0.5f);
+}
+</code></pre><h3 id="Set-Animation-for-the-page-view-ViewGroup"><a href="#Set-Animation-for-the-page-view-ViewGroup" class="headerlink" title="Set Animation for the page view(ViewGroup)"></a>Set Animation for the page view(ViewGroup)</h3><ul>
+<li>The same, by calling View.setTag() to set params of the animations</li>
+</ul>
+<h3 id="Set-Complex-Animation-for-the-page-view-ViewGroup"><a href="#Set-Complex-Animation-for-the-page-view-ViewGroup" class="headerlink" title="Set Complex Animation for the page view(ViewGroup)"></a>Set Complex Animation for the page view(ViewGroup)</h3><ul>
+<li>choose one or more Transformers to add into the complex one</li>
+</ul>
+<pre><code>ComplexChildsTransformer complexChildsTransformer = new ComplexChildsTransformer();
+complexChildsTransformer.addTransformer(new ChildsTranslateTransformer());
+complexChildsTransformer.addTransformer(new ChildsRotateTransformer());
+complexChildsTransformer.addTransformer(new ChildsAlphaTransformer());
+complexChildsTransformer.addTransformer(new ChildsScaleTransformer());
+//choose one or more Transformers to add into the complex one
+//complexChildsTransformer.addTransformer(new PageDefaultTransformer());//普通vp滑动
+//complexChildsTransformer.addTransformer(new PageAlphaTransFormer(false/*可修改*/, true/*可修改*/));//透明度
+//complexChildsTransformer.addTransformer(new PageCubeInnerTransformer(/*可传参数*/));//立方体内部
+//complexChildsTransformer.addTransformer(new PageCubeOuterTransformer());//立方体外部
+//complexChildsTransformer.addTransformer(new PageDepthTransformer(/*可传参数*/));//深度变化
+//complexChildsTransformer.addTransformer(new PageExtrudingTransformer());//挤压
+complexChildsTransformer.addTransformer(new PageFlipTransformer(/*可传参数*/));//flip
+//complexChildsTransformer.addTransformer(new PageInRightUpTransformer());//右上到左下
+//complexChildsTransformer.addTransformer(new PageInRightDownTransformer());//右下到左上
+//complexChildsTransformer.addTransformer(new PageRotateTransformer(/*可传参数*/));//旋转
+//complexChildsTransformer.addTransformer(new PageZoomOutTransformer(/*可传参数*/));//Zoom out
+vp.setPageTransformer(true, complexChildsTransformer);
+</code></pre><h1 id="原码解析"><a href="#原码解析" class="headerlink" title="##原码解析##"></a><a href="http://halohoop.com/2017/06/24/snacks-vp_anima_detail/"><strong>##原码解析##</strong></a></h1>
     
   </div>
 </article>
@@ -419,5 +474,20 @@
 <script type="text/javascript"
 color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
