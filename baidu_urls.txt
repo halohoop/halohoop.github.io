@@ -1,1 +1,1 @@
-http://halohoop.com/2017/06/27/meals-kotlin_mvp_retrofit2_rxjava2_dagger2_demo/
+http://halohoop.com/2017/07/14/the_key_to_efficiency/

@@ -7,27 +7,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>[大餐]写个Kotlin+MVP+Retrofit2+RxJava2+Daggers2的示例代码 | 卖牙膏的芖口钉</title>
+  <title>[露水]使用计算机的时候提升效率的本质 | 卖牙膏的芖口钉</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="android,kotlin,meals,MVP,Retrofit2,RxJava2,Daggers2," />
+    <meta name="keywords" content="dewdrops," />
   
 
-  <meta name="description" content="源码：https://github.com/halohoop/Kotlin_Mvp_R2R2D2 效果  tryDonwload APK  概述 Demo的功能是显示，自己的Github 和 大神的Github 之间相差多少个Followers. 三个接口:  1.https://api.github.com/search/users?q={id} 2.http://halohoop.com/ha">
-<meta name="keywords" content="android,kotlin,meals,MVP,Retrofit2,RxJava2,Daggers2">
+  <meta name="description" content="将需要精确点击的事情，变得不需要精确，甚至是随机（有规则的随机，但是遵守这个规则是人的轻易就能做到的），让计算机来处理这种随机，那你的效率将会提高很多很多。  ————来自 卖牙膏霸气侧漏农村有文化的芖口钉（Halohoop）语录 那么你可能需要这些工具：  PC 端：StrokeIt。 地址：http://www.tcbmi.com/strokeit/      这个真的很好用，还是开源的软件，">
+<meta name="keywords" content="dewdrops">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[大餐]写个Kotlin+MVP+Retrofit2+RxJava2+Daggers2的示例代码">
-<meta property="og:url" content="http://halohoop.com/2017/06/27/meals-kotlin_mvp_retrofit2_rxjava2_dagger2_demo/index.html">
+<meta property="og:title" content="[露水]使用计算机的时候提升效率的本质">
+<meta property="og:url" content="http://halohoop.com/2017/07/14/the_key_to_efficiency/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
-<meta property="og:description" content="源码：https://github.com/halohoop/Kotlin_Mvp_R2R2D2 效果  tryDonwload APK  概述 Demo的功能是显示，自己的Github 和 大神的Github 之间相差多少个Followers. 三个接口:  1.https://api.github.com/search/users?q={id} 2.http://halohoop.com/ha">
-<meta property="og:image" content="http://halohoop.com/2017/06/27/meals-kotlin_mvp_retrofit2_rxjava2_dagger2_demo/demo0.gif">
-<meta property="og:updated_time" content="2017-06-28T07:38:59.216Z">
+<meta property="og:description" content="将需要精确点击的事情，变得不需要精确，甚至是随机（有规则的随机，但是遵守这个规则是人的轻易就能做到的），让计算机来处理这种随机，那你的效率将会提高很多很多。  ————来自 卖牙膏霸气侧漏农村有文化的芖口钉（Halohoop）语录 那么你可能需要这些工具：  PC 端：StrokeIt。 地址：http://www.tcbmi.com/strokeit/      这个真的很好用，还是开源的软件，">
+<meta property="og:image" content="http://halohoop.com/2017/07/14/the_key_to_efficiency/demo0.png">
+<meta property="og:image" content="http://halohoop.com/2017/07/14/the_key_to_efficiency/demo1.png">
+<meta property="og:image" content="http://halohoop.com/2017/07/14/the_key_to_efficiency/demo2.png">
+<meta property="og:updated_time" content="2017-07-14T11:41:03.885Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[大餐]写个Kotlin+MVP+Retrofit2+RxJava2+Daggers2的示例代码">
-<meta name="twitter:description" content="源码：https://github.com/halohoop/Kotlin_Mvp_R2R2D2 效果  tryDonwload APK  概述 Demo的功能是显示，自己的Github 和 大神的Github 之间相差多少个Followers. 三个接口:  1.https://api.github.com/search/users?q={id} 2.http://halohoop.com/ha">
-<meta name="twitter:image" content="http://halohoop.com/2017/06/27/meals-kotlin_mvp_retrofit2_rxjava2_dagger2_demo/demo0.gif">
+<meta name="twitter:title" content="[露水]使用计算机的时候提升效率的本质">
+<meta name="twitter:description" content="将需要精确点击的事情，变得不需要精确，甚至是随机（有规则的随机，但是遵守这个规则是人的轻易就能做到的），让计算机来处理这种随机，那你的效率将会提高很多很多。  ————来自 卖牙膏霸气侧漏农村有文化的芖口钉（Halohoop）语录 那么你可能需要这些工具：  PC 端：StrokeIt。 地址：http://www.tcbmi.com/strokeit/      这个真的很好用，还是开源的软件，">
+<meta name="twitter:image" content="http://halohoop.com/2017/07/14/the_key_to_efficiency/demo0.png">
 
   
 
@@ -176,22 +178,17 @@
 </div>
 
 
-  <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#源码："><span class="toc-text">源码：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-Android-Studio-Version"><span class="toc-text">Use Android Studio Version</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks-for"><span class="toc-text">Thanks for</span></a></li></ol>
-  </div>
-
 
 
 <div class="content content-post CENTER">
-   <article id="post-meals-kotlin_mvp_retrofit2_rxjava2_dagger2_demo" class="article article-type-post" itemprop="blogPost">
+   <article id="post-the_key_to_efficiency" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">[大餐]写个Kotlin+MVP+Retrofit2+RxJava2+Daggers2的示例代码</h1>
+    <h1 class="post-title">[露水]使用计算机的时候提升效率的本质</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.06.27</span>
+        <span>2017.07.14</span>
       </span>
 
       
@@ -204,7 +201,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/programming/">programming</a>
+    <a class="article-category-link" href="/categories/tricks/">tricks</a>
   </span>
 
 
@@ -220,33 +217,33 @@
 
   <div class="article-content">
     
-      <h2 id="源码："><a href="#源码：" class="headerlink" title="源码："></a>源码：</h2><p><strong><a href="https://github.com/halohoop/Kotlin_Mvp_R2R2D2" target="_blank" rel="external">https://github.com/halohoop/Kotlin_Mvp_R2R2D2</a></strong></p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="/2017/06/27/meals-kotlin_mvp_retrofit2_rxjava2_dagger2_demo/demo0.gif" alt="demo0"></p>
+      <p>将需要精确点击的事情，变得不需要精确，甚至是随机（有规则的随机，但是遵守这个规则是人的轻易就能做到的），让计算机来处理这种随机，那你的效率将会提高很多很多。 </p>
+<p>————来自 卖牙膏霸气侧漏农村有文化的芖口钉（Halohoop）语录</p>
+<p>那么你可能需要这些工具：</p>
 <ul>
-<li>try<br><a href="https://github.com/halohoop/Kotlin_Mvp_R2R2D2/releases/download/v1.0/app-release_v1.0.apk" target="_blank" rel="external">Donwload APK</a></li>
-</ul>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
-<li><strong>Demo的功能是显示，自己的Github 和 大神的Github 之间相差多少个Followers.</strong></li>
-<li><p>三个接口:</p>
-<ul>
-<li>1.<del><a href="https://api.github.com/search/users?q={id}" target="_blank" rel="external">https://api.github.com/search/users?q={id}</a></del></li>
-<li>2.<a href="http://halohoop.com/halohoop_custom_datas/meals-kotlin_mvp_retrofit2_rxjava2_dagger2_demo/user1.json">http://halohoop.com/halohoop_custom_datas/meals-kotlin_mvp_retrofit2_rxjava2_dagger2_demo/user1.json</a></li>
-<li>3.<a href="https://api.github.com/users/{id}" target="_blank" rel="external">https://api.github.com/users/{id}</a></li>
+<li>PC 端：StrokeIt。<ul>
+<li>地址：<a href="http://www.tcbmi.com/strokeit/" target="_blank" rel="external">http://www.tcbmi.com/strokeit/</a></li>
 </ul>
 </li>
-<li><p>使用Retrofit2请求上述api；</p>
-</li>
-<li>使用Dagger2注入对象；</li>
-<li>整体架构使用MVP；</li>
-<li>P层使用RxJava2辅助过度连接M层和V层；</li>
 </ul>
-<h2 id="Use-Android-Studio-Version"><a href="#Use-Android-Studio-Version" class="headerlink" title="Use Android Studio Version"></a>Use Android Studio Version</h2><ul>
-<li>3.0 Canary 4</li>
+<p><img src="/2017/07/14/the_key_to_efficiency/demo0.png" alt="demo0"></p>
+<p> 这个真的很好用，还是开源的软件，一年前，为了表示支持，我还把我PayPal赚到的10多美元全部Donate给他了。</p>
+<ul>
+<li>FireFox插件：</li>
 </ul>
-<h2 id="Thanks-for"><a href="#Thanks-for" class="headerlink" title="Thanks for"></a>Thanks for</h2><ul>
-<li><a href="https://github.com/grantland/android-autofittextview" target="_blank" rel="external">https://github.com/grantland/android-autofittextview</a></li>
-<li><a href="https://github.com/robinhood/ticker" target="_blank" rel="external">https://github.com/robinhood/ticker</a></li>
+<p><img src="/2017/07/14/the_key_to_efficiency/demo1.png" alt="demo1"></p>
+<ul>
+<li>Chrome插件：</li>
 </ul>
+<p><img src="/2017/07/14/the_key_to_efficiency/demo2.png" alt="demo2"></p>
+<ul>
+<li>MAC显然是自带插件的，对于我这种一个月只有十几毛捡破烂钱收入的人来说只能是一笑而过，诶。</li>
+</ul>
+<p>我这里就不造轮子教程教大家怎么用了，网上就有很多很多的使用和设置的教程。</p>
+<p>你只需要</p>
+<p><strong><a href="https://www.baidu.com" target="_blank" rel="external">百度一下</a></strong> </p>
+<p>或者 </p>
+<p><strong><a href="https://www.google.com" target="_blank" rel="external">Google手气不错</a></strong>  就可以了。</p>
 
     
   </div>
@@ -277,10 +274,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/06/24/cookies-android_vp_onpagescrolled/">
+    <a class="show pull-left" href="/2017/06/27/meals-kotlin_mvp_retrofit2_rxjava2_dagger2_demo/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/07/14/the_key_to_efficiency/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
