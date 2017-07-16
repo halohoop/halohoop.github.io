@@ -39,7 +39,7 @@
 <meta property="og:image" content="http://halohoop.com/2017/07/16/snacks_shortcuts_of_as/pic15.png">
 <meta property="og:image" content="http://halohoop.com/2017/07/16/snacks_shortcuts_of_as/pic16.png">
 <meta property="og:image" content="http://halohoop.com/2017/07/16/snacks_shortcuts_of_as/pic17.png">
-<meta property="og:updated_time" content="2017-07-16T09:54:12.052Z">
+<meta property="og:updated_time" content="2017-07-16T09:57:49.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[点心]Android Studio快捷键这篇就够了">
 <meta name="twitter:description" content="将需要精确点击的事情，变得不需要精确，甚至是随机（有规则的随机，但是遵守这个规则是人的轻易就能做到的），让计算机来处理这种随机，那你的效率将会提高很多很多。 ————来自 卖牙膏霸气侧漏农村有文化的芖口钉（Halohoop）语录 (Yeah,I said that.😄) 举个例子，一个界面窗口需要点击一个叉叉才能关闭，然后如果你能够使用一个手势，比如左滑或者右滑（有规律的随机，随便一个地方左/右">
@@ -298,7 +298,7 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
 <p>好了回来，我们暂且不考虑onInterceptTouchEvent的if条件中更深的方法调用，所以这里就一个判断一眼扫过，onInterceptTouchEvent执行完就出栈了，这时候我们想要回到dispatchTouchEvent方法中继续看其下面的流程，dispatchTouchEvent和onInterceptTouchEvent隔了好几百行代码，我们可以通过<strong>“Ctrl + F12”</strong>然后输入dispatchTouchEvent前面几个字符，快速找回dispatchTouchEvent，但是还是太慢，因为还要肉眼去定位dispatchTouchEvent中调用onInterceptTouchEvent的位置，于巨给个<strong>“Ctrl + Alt + ←/→”</strong>。</p>
 <hr>
 <h2 id="5-“Ctrl-Alt-←-→”，光标位置的历史列表预览器"><a href="#5-“Ctrl-Alt-←-→”，光标位置的历史列表预览器" class="headerlink" title="5.“Ctrl + Alt + ←/→”，光标位置的历史列表预览器"></a>5.“Ctrl + Alt + ←/→”，光标位置的历史列表预览器</h2><p>我们按“Ctrl + Alt + ←”一下或者多下，按多下因为可能在找到onInterceptTouchEvent之后又按了鼠标好几下，如果每次点击位置都不一样，那么每次都会生成一个新历史位置数据，我想这个历史列表的Bean的数据结构很有可能是酱的：</p>
-<pre><code>data class CursorBean(var 第几行: Int, var 第几列: Int)
+<pre><code>data class CursorBean(var 什么文件: File, var 第几行: Int, var 第几列: Int)
 </code></pre><p>当然这个快捷键的按钮位置就在菜单工具栏，如下图：</p>
 <p><img src="/2017/07/16/snacks_shortcuts_of_as/pic6.png" alt="图6"></p>
 <p>当我们悬停在按钮上面的时候，就会发现它的快捷键被提示出来了，所以悬停肯定可以是我们获取快捷键的一条有效路径。</p>
