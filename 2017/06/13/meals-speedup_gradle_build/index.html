@@ -15,19 +15,19 @@
     <meta name="keywords" content="android,meals,gradle,构建," />
   
 
-  <meta name="description" content="本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布 开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这三方面其实都可以有切入点来进行提">
+  <meta name="description" content="声明：博文未经授权一律不允转载 本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布 开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这">
 <meta name="keywords" content="android,meals,gradle,构建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[大餐]加快gradle构建速度">
 <meta property="og:url" content="http://halohoop.com/2017/06/13/meals-speedup_gradle_build/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
-<meta property="og:description" content="本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布 开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这三方面其实都可以有切入点来进行提">
+<meta property="og:description" content="声明：博文未经授权一律不允转载 本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布 开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这">
 <meta property="og:image" content="http://halohoop.com/2017/06/13/meals-speedup_gradle_build/demo0.png">
 <meta property="og:image" content="http://halohoop.com/2017/06/13/meals-speedup_gradle_build/demo1.png">
-<meta property="og:updated_time" content="2017-06-18T11:00:31.268Z">
+<meta property="og:updated_time" content="2017-07-20T05:36:34.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[大餐]加快gradle构建速度">
-<meta name="twitter:description" content="本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布 开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这三方面其实都可以有切入点来进行提">
+<meta name="twitter:description" content="声明：博文未经授权一律不允转载 本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布 开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这">
 <meta name="twitter:image" content="http://halohoop.com/2017/06/13/meals-speedup_gradle_build/demo0.png">
 
   
@@ -221,7 +221,8 @@
 
   <div class="article-content">
     
-      <p><em>本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布</em></p>
+      <p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
+<p><em>本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布</em></p>
 <h2 id="开门撞山："><a href="#开门撞山：" class="headerlink" title="开门撞山："></a>开门撞山：</h2><p>AS中gradle构建一般可以分为三种，</p>
 <p>1.从0开始构建，Full Build；</p>
 <p>2.修改源代码后构建，之前构建过，Incremental build java change；</p>
