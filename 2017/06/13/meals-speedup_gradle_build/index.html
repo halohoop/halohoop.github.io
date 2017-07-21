@@ -24,7 +24,7 @@
 <meta property="og:description" content="声明：博文未经授权一律不允转载 本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布 开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这">
 <meta property="og:image" content="http://halohoop.com/2017/06/13/meals-speedup_gradle_build/demo0.png">
 <meta property="og:image" content="http://halohoop.com/2017/06/13/meals-speedup_gradle_build/demo1.png">
-<meta property="og:updated_time" content="2017-07-20T05:36:34.539Z">
+<meta property="og:updated_time" content="2017-07-21T18:03:10.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[大餐]加快gradle构建速度">
 <meta name="twitter:description" content="声明：博文未经授权一律不允转载 本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布 开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这">
@@ -327,7 +327,8 @@ String CPU_ABIs[] = android.os.Build.SUPPORTED_ABIS;
     }
     ...
 }
-</code></pre><p>当然如果我们将PNG转为webP也可以是一种优化方案。as2.3+支持直接转换，右键直接png图片选则convert to webP。当然webP是有版本要求的，所以请注意其用法，非本文重点自行百度了解。</p>
+</code></pre><p>当然如果我们将PNG转为webP也可以是一种优化方案。as2.3+支持直接转换，右键直接png图片选则convert to webP。当然webP是有版本要求的，所以请注意其用法，只有4.0及以上的android手机支持webP，不过当然想要低版本的支持webP可以引入以下这个裤，另，更多webP详情非本文重点请自行百度了解。</p>
+<p><a href="https://github.com/alexey-pelykh/webp-android-backport" target="_blank" rel="external">https://github.com/alexey-pelykh/webp-android-backport</a></p>
 <h3 id="技巧6：使用instant-run"><a href="#技巧6：使用instant-run" class="headerlink" title="技巧6：使用instant run"></a>技巧6：使用instant run</h3><p>多使用instant run，根据谷歌的描述，as3.0和2.0的instant run有巨大的差别，做了很多的优化，instant run要求调试的机器必须要在api21或者以上，而不是你的项目最小版本要在21或者以上。还有一点就是使用instant run的时候，如果我们首次构建是从0开始的，那么会比不使用instant run慢一点，因为需要为后面的instant run的冷热交换去准备一些额外的东西，然而如果后面一直都使用instant run，那么首次构建的延缓的时间就能很快被挽回来。</p>
 <h3 id="技巧7：避免写一些不必要的更改"><a href="#技巧7：避免写一些不必要的更改" class="headerlink" title="技巧7：避免写一些不必要的更改"></a>技巧7：避免写一些不必要的更改</h3><p>有些开发者为了方便会直接使用时间戳来作为每次构建的版本号（或者是自己的一套计算算法），像这样：</p>
 <pre><code>def buildDataTime = new Date().format(&apos;yyMMddHHmm&apos;).toInteger()
