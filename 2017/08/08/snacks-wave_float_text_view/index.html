@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>[点心]自定义控件之这文字有点浪-Kotlin实现 | 卖牙膏的芖口钉</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="android,effect,snacks,custom_view," />
+  
+
+  <meta name="description" content="声明：博文未经授权一律不允转载 控件源码：https://github.com/halohoop/AndroidDigIn#24带文字的波浪 壹.效果图 贰.知识点 1.SurfaceView子线程高效绘制； 2.贝塞尔曲线画波浪； 3.文字测量； 4.Kotlin语法； 5.Region+Path的使用；  叁.背景&amp;amp;介绍 给自己的需求是酱的：想要实现一个随着波浪浮动的文字。 可能是因为">
+<meta name="keywords" content="android,effect,snacks,custom_view">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[点心]自定义控件之这文字有点浪-Kotlin实现">
+<meta property="og:url" content="http://halohoop.com/2017/08/08/snacks-wave_float_text_view/index.html">
+<meta property="og:site_name" content="卖牙膏的芖口钉">
+<meta property="og:description" content="声明：博文未经授权一律不允转载 控件源码：https://github.com/halohoop/AndroidDigIn#24带文字的波浪 壹.效果图 贰.知识点 1.SurfaceView子线程高效绘制； 2.贝塞尔曲线画波浪； 3.文字测量； 4.Kotlin语法； 5.Region+Path的使用；  叁.背景&amp;amp;介绍 给自己的需求是酱的：想要实现一个随着波浪浮动的文字。 可能是因为">
+<meta property="og:image" content="http://halohoop.com/2017/08/08/snacks-wave_float_text_view/device-2017-07-13-004908.gif">
+<meta property="og:image" content="http://halohoop.com/2017/08/08/snacks-wave_float_text_view/demo1.png">
+<meta property="og:updated_time" content="2017-08-09T15:03:35.393Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[点心]自定义控件之这文字有点浪-Kotlin实现">
+<meta name="twitter:description" content="声明：博文未经授权一律不允转载 控件源码：https://github.com/halohoop/AndroidDigIn#24带文字的波浪 壹.效果图 贰.知识点 1.SurfaceView子线程高效绘制； 2.贝塞尔曲线画波浪； 3.文字测量； 4.Kotlin语法； 5.Region+Path的使用；  叁.背景&amp;amp;介绍 给自己的需求是酱的：想要实现一个随着波浪浮动的文字。 可能是因为">
+<meta name="twitter:image" content="http://halohoop.com/2017/08/08/snacks-wave_float_text_view/device-2017-07-13-004908.gif">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+<script type="text/javascript">
+	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cspan id='cnzz_stat_icon_1262349251'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D1262349251%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8d386d3f58d003ed2f4b4d02e584d2ae";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#壹-效果图"><span class="toc-text">壹.效果图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#贰-知识点"><span class="toc-text">贰.知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#叁-背景-amp-介绍"><span class="toc-text">叁.背景&介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#肆-使用方式"><span class="toc-text">肆.使用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伍-拆解轮子"><span class="toc-text">伍.拆解轮子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-绘制波浪。"><span class="toc-text">1.绘制波浪。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-拆解文字，得到文字绘制的区域Rect。"><span class="toc-text">2.拆解文字，得到文字绘制的区域Rect。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-通过region得到波浪Path上的x，y坐标，将文字滑出来。"><span class="toc-text">3.通过region得到波浪Path上的x，y坐标，将文字滑出来。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“-”拒绝kotlin帮你的空指针危险限制。"><span class="toc-text">4.设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“!!”拒绝kotlin帮你的空指针危险限制。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-使用SurfaceView子线程绘制实现。"><span class="toc-text">5.使用SurfaceView子线程绘制实现。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#陆-新需求迭代展望："><span class="toc-text">陆.新需求迭代展望：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#柒-最后"><span class="toc-text">柒.最后</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-snacks-wave_float_text_view" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">[点心]自定义控件之这文字有点浪-Kotlin实现</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.08.08</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Halohoop</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </span>
+
+
+
+      
+
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
+<p>控件源码：<a href="https://github.com/halohoop/AndroidDigIn#24带文字的波浪" target="_blank" rel="external">https://github.com/halohoop/AndroidDigIn#24带文字的波浪</a></p>
+<h2 id="壹-效果图"><a href="#壹-效果图" class="headerlink" title="壹.效果图"></a>壹.效果图</h2><p><img src="/2017/08/08/snacks-wave_float_text_view/device-2017-07-13-004908.gif" alt="demo0"></p>
+<h2 id="贰-知识点"><a href="#贰-知识点" class="headerlink" title="贰.知识点"></a>贰.知识点</h2><ul>
+<li>1.SurfaceView子线程高效绘制；</li>
+<li>2.贝塞尔曲线画波浪；</li>
+<li>3.文字测量；</li>
+<li>4.Kotlin语法；</li>
+<li>5.Region+Path的使用；</li>
+</ul>
+<h2 id="叁-背景-amp-介绍"><a href="#叁-背景-amp-介绍" class="headerlink" title="叁.背景&amp;介绍"></a>叁.背景&amp;介绍</h2><ul>
+<li>给自己的需求是酱的：想要实现一个随着波浪浮动的文字。</li>
+<li>可能是因为使用kotlin语法简洁的缘故，代码只有不到400行。</li>
+<li>用工的孩子时间都不多，心照啦，所以全文会尽量不说废话或少说废话，先来一句废话，么么哒。</li>
+</ul>
+<h2 id="肆-使用方式"><a href="#肆-使用方式" class="headerlink" title="肆.使用方式"></a>肆.使用方式</h2><ul>
+<li>改变速度，绘制的时候就是根据速度的值来决定波浪移动的距离的，代码见下文的绘制方法</li>
+</ul>
+<hr>
+<pre><code>progress.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+        val value = progress.toFloat()
+        view.mSpeed = if (value&lt;=0) 1F else value
+    }
+
+    ...
+})
+</code></pre><hr>
+<ul>
+<li>修改文字，可以看到Kotlin的set我们只需要直接给变量赋值即可。</li>
+</ul>
+<hr>
+<pre><code>view实例.text = &quot;中abcdefghijkl文&quot;
+
+//具体的set、get方法
+var text: String = &quot;Halohoop&quot;
+    set(value) {
+        stopLoopDraw()//先暂停
+        lock(lockObj,{
+            field = value
+            val textPosMidX = mMidX;
+            updateTextsConfigs(value, textPosMidX)
+        })
+        startLoopDraw()//重新开始
+    }
+    get
+</code></pre><hr>
+<h2 id="伍-拆解轮子"><a href="#伍-拆解轮子" class="headerlink" title="伍.拆解轮子"></a>伍.拆解轮子</h2><h3 id="1-绘制波浪。"><a href="#1-绘制波浪。" class="headerlink" title="1.绘制波浪。"></a>1.绘制波浪。</h3><ul>
+<li>准备波浪Path<ul>
+<li>如下图，不管你屏幕中画多少个周期，你给我<strong>画多一个周期</strong>出来用作移动就好了，每次朝一个方向移动完一个周期就重置。</li>
+<li><img src="/2017/08/08/snacks-wave_float_text_view/demo1.png" alt="demo1"></li>
+<li>取巧的方法是Path.rQuadTo方法，而不是直接用Path.quadTo，因为可以相对于上一个Path移动到的位置作为起点。</li>
+<li>看码</li>
+</ul>
+</li>
+</ul>
+<hr>
+<pre><code>private fun drawWave(canvas: Canvas?) {
+    paint.color = WAVE_COLOR
+    val quaterWaveWidth = mHalfWaveWidth / 2f;//四分之一个周期
+
+    path.rewind()//重置path，清空路径
+
+    val dx = mDx;//移动的距离
+    path.moveTo(0f - mHalfWaveWidth * 2f + dx, mMidY)//移动到开始点
+
+    for (i in 0..mWaveCount) {
+        path.rQuadTo(quaterWaveWidth, mWaveHeight, mHalfWaveWidth, 0f)
+        path.rQuadTo(quaterWaveWidth, -mWaveHeight, mHalfWaveWidth, 0f)
+    }
+
+    path.lineTo(measuredWidth.toFloat(), measuredHeight.toFloat())//和右下角连接起来
+    path.lineTo(0f, measuredHeight.toFloat())//和左下角连接起来
+    path.close()//封闭起来
+
+    canvas?.drawPath(path, paint)
+}
+</code></pre><hr>
+<h3 id="2-拆解文字，得到文字绘制的区域Rect。"><a href="#2-拆解文字，得到文字绘制的区域Rect。" class="headerlink" title="2.拆解文字，得到文字绘制的区域Rect。"></a>2.拆解文字，得到文字绘制的区域Rect。</h3><ul>
+<li>看码，你应该注意到方法中又定义方法，这是Kotlin特性，就是这么任性，抄抄JavaScript有时还抄抄C++抄抄Groovy…</li>
+<li>看码中注释即可，不废话</li>
+</ul>
+<hr>
+<pre><code>//用于计算文字位置的Region集合
+private var mTextPositionHelperRegions: ArrayList&lt;Region&gt;? = null
+//每个文字的宽度数组
+private lateinit var mEveryLetterWidths: FloatArray
+...
+@MainThread
+private fun updateTextsConfigs(newText: String, textPosMidX: Float) {
+
+    //获取每个文字的宽度
+    fun getEveryLetterWidth(text: String) : FloatArray{
+        mEveryLetterWidths = FloatArray(text.length)
+        textPaint.getTextWidths(text, 0, text.length, mEveryLetterWidths)
+        return mEveryLetterWidths
+    }
+
+    //得到所有文字的总宽
+    fun getHowWidthOfTexts(everyLetterWidths: FloatArray): Float {
+        mHowWidthOfTexts = 0f;
+        everyLetterWidths.forEach { mHowWidthOfTexts += it }
+        return mHowWidthOfTexts
+    }
+
+    //得到所有的文字的绘制区域，放入集合中
+    fun updateTextPositionHelperRegions(textPosMidX: Float = 0f, howWidthOfTexts: Float,
+                                                everyLetterWidths: FloatArray) {
+        val startX = textPosMidX - howWidthOfTexts / 2
+        val tmpEveryLetterWidths = everyLetterWidths
+        var tmpHowWidthOfTexts = howWidthOfTexts
+        val lettersCount = tmpEveryLetterWidths.size
+
+        if (mTextPositionHelperRegions != null) {
+            mTextPositionHelperRegions!!.clear()
+            mTextPositionHelperRegions = null
+        }
+        mTextPositionHelperRegions = ArrayList&lt;Region&gt;()
+
+        for (i in lettersCount - 1 downTo 0) {//倒序遍历每个字
+            if (tmpHowWidthOfTexts &lt; 0) tmpHowWidthOfTexts = 0f
+            tmpHowWidthOfTexts -= tmpEveryLetterWidths[i]
+            val region = Region((startX - 1 + tmpHowWidthOfTexts).toInt(), 0,
+                    (startX + tmpHowWidthOfTexts).toInt(), measuredHeight)
+            mTextPositionHelperRegions!!.add(0, region)//往最前面插
+        }
+    }
+
+    val everyLetterWidths = getEveryLetterWidth(newText)
+    //get how width of texts
+    val howWidthOfTexts = getHowWidthOfTexts(everyLetterWidths)
+    //initialize TextPositionHelperRegions
+    updateTextPositionHelperRegions(textPosMidX, howWidthOfTexts, everyLetterWidths)
+}
+</code></pre><hr>
+<h3 id="3-通过region得到波浪Path上的x，y坐标，将文字滑出来。"><a href="#3-通过region得到波浪Path上的x，y坐标，将文字滑出来。" class="headerlink" title="3.通过region得到波浪Path上的x，y坐标，将文字滑出来。"></a>3.通过region得到波浪Path上的x，y坐标，将文字滑出来。</h3><hr>
+<pre><code>private fun drawTexts(canvas: Canvas?) {
+    textPaint.color = TEXT_COLOR
+    var i = 0
+    val toCharArray = text!!.toCharArray()
+    mTextPositionHelperRegions?.forEach {
+        //以下这句是得到波浪上点的关键
+        //会往it,也就是mTextPositionHelperRegions的一个元素Region里面塞入裁剪之后的Rect
+        mRegion.setPath(path, it)//里面记录了Path和Region相交的四个方向的最值。
+        if (DEBUG) {
+            //debug
+            canvas?.drawRect(it.bounds, textPaint)
+        }
+
+        //使用左和上值绘制文字
+        canvas?.drawText(toCharArray[i] + &quot;&quot;, it.bounds.left.toFloat(), mRegion.bounds.top.toFloat(), textPaint)
+        if (DEBUG &amp;&amp; i == 0) {
+            canvas?.drawText(text, it.bounds.left.toFloat(), mRegion.bounds.top.toFloat() - 100, textPaint)
+        }
+        i++
+    }
+}
+</code></pre><hr>
+<h3 id="4-设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“-”拒绝kotlin帮你的空指针危险限制。"><a href="#4-设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“-”拒绝kotlin帮你的空指针危险限制。" class="headerlink" title="4.设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“!!”拒绝kotlin帮你的空指针危险限制。"></a>4.设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“!!”拒绝kotlin帮你的空指针危险限制。</h3><hr>
+<pre><code>fun startFlow() {
+    stopFlow()
+    flowAnimator = ValueAnimator.ofFloat(0f, mHalfWaveWidth * 2)
+            .setDuration(1000)
+    flowAnimator!!.setRepeatMode(ValueAnimator.RESTART)
+    flowAnimator!!.setRepeatCount(ValueAnimator.INFINITE)
+    flowAnimator!!.interpolator = LinearInterpolator()
+    flowAnimator!!.addUpdateListener {
+        mDx = it.animatedValue as Float
+        this@WaveWithTextView.invalidate(0, (mMidY - mWaveHeight).toInt(), measuredHeight, (mMidY + mWaveHeight).toInt())
+    }
+
+    flowAnimator!!.start()
+}
+
+fun stopFlow() {
+    if (flowAnimator != null &amp;&amp; flowAnimator!!.isRunning &amp;&amp; flowAnimator!!.isStarted) {
+        flowAnimator!!.cancel()
+        flowAnimator = null
+    }
+}
+</code></pre><hr>
+<h3 id="5-使用SurfaceView子线程绘制实现。"><a href="#5-使用SurfaceView子线程绘制实现。" class="headerlink" title="5.使用SurfaceView子线程绘制实现。"></a>5.使用SurfaceView子线程绘制实现。</h3><ul>
+<li>5.1.这里贴出关键绘制线程run方法代码：</li>
+</ul>
+<hr>
+<pre><code>override fun run() {
+    val startTime = System.currentTimeMillis()
+    while (true) {
+        if (!mIsRunning) {//控制是否开始波浪起伏
+            Log.i(&quot;halohoop&quot;, &quot;Halohoop--&quot; + &quot;stop&quot;)
+            break
+        }
+        val canvas = mSurfaceHolder.lockCanvas()
+        if (canvas != null) {
+            lock(lockObj, {
+                if (mIsRunning) {
+                    onThreadRenderDraw(canvas, System.currentTimeMillis() - startTime)
+                }
+            })
+            //绘制完成
+            mSurfaceHolder.unlockCanvasAndPost(canvas)
+        }
+        try {
+            Thread.sleep(SLEEP_TIME)//用于保证和垂直刷新信号同步的时间差
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
+    }
+}
+...
+companion object {
+    private val SLEEP_TIME: Long = 16//毫秒
+}
+...
+//其中onThreadRenderDraw是基类的抽象方法，
+//具体需要话什么需要子类自己去实现
+//并且这个方法是在子线程中进行绘制的。
+@WorkerThread
+protected abstract fun onThreadRenderDraw(canvas: Canvas, l: Long)
+</code></pre><hr>
+<ul>
+<li>5.2.多线程加速工具方法，由于涉及线程因此一些关键状态的修改需要加锁</li>
+</ul>
+<hr>
+<pre><code>fun &lt;T&gt; lock(lock: Lock, body: () -&gt; T) {//为了加锁方便，定义了一个加锁工具方法
+    lock.lock()
+    try {
+        body()
+    }
+    finally {
+        lock.unlock()
+    }
+}
+...
+//使用示例
+override fun surfaceDestroyed(holder: SurfaceHolder) {
+    lock(lockObj,{
+        stopLoopDraw()
+    })
+}
+</code></pre><hr>
+<ul>
+<li>其中是抽象方法onThreadRenderDraw，负责使用给的Canvas绘制工作，子线程中.</li>
+<li><p>更多详情请参阅BaseSurfaceWaveWithTextsViewKotlin原码。</p>
+</li>
+<li><p>5.3.具体的绘制过程</p>
+</li>
+</ul>
+<hr>
+<pre><code>override fun onThreadRenderDraw(canvas: Canvas, l: Long) {
+    canvas.drawColor(Color.WHITE)
+
+    mDx += mSpeed
+    if (mDx &gt;= mHalfWaveWidth * 2) {
+        mDx = 0f
+    }
+
+    if (DEBUG) {
+        canvas?.drawLine((measuredWidth shr 1).toFloat(), 0f,
+                (measuredWidth shr 1).toFloat(), measuredHeight.toFloat(), paint)
+    }
+
+    drawTexts(canvas)//画文字
+    drawWave(canvas)//画波浪
+
+}
+
+//没什么可说的，一目了然的命名
+private fun drawWave(canvas: Canvas?) {
+    paint.color = WAVE_COLOR
+    val quaterWaveWidth = mHalfWaveWidth / 2f;
+
+    path.rewind()//清空旧path
+
+    val dx = mDx;
+    path.moveTo(0f - mHalfWaveWidth * 2f + dx, mMidY)
+
+    for (i in 0..mWaveCount) {
+        path.rQuadTo(quaterWaveWidth, mWaveHeight, mHalfWaveWidth, 0f)
+        path.rQuadTo(quaterWaveWidth, -mWaveHeight, mHalfWaveWidth, 0f)
+    }
+
+    path.lineTo(measuredWidth.toFloat(), measuredHeight.toFloat())
+    path.lineTo(0f, measuredHeight.toFloat())
+    path.close()
+
+    canvas?.drawPath(path, paint)
+}
+
+private fun drawTexts(canvas: Canvas?) {
+    textPaint.color = TEXT_COLOR
+    var i = 0
+    val toCharArray = text!!.toCharArray()
+    mTextPositionHelperRegions?.forEach {
+        //kotlin的forEach遍历可以使用it来接收每一次遍历的结果
+        mRegion.setPath(path, it)
+        //当一个Region和path相交的时候
+        //这个path在这个region中被用一个Rect来描述，也就是下面的bounds
+        //因此就能够得到这个path被region裁剪之后四边之最，左上右下
+        if (DEBUG) {
+            //debug
+            canvas?.drawRect(it.bounds, textPaint)
+        }
+
+        canvas?.drawText(toCharArray[i] + &quot;&quot;, it.bounds.left.toFloat(), mRegion.bounds.top.toFloat(), textPaint)
+        if (DEBUG &amp;&amp; i == 0) {
+            canvas?.drawText(text, it.bounds.left.toFloat(), mRegion.bounds.top.toFloat() - 100, textPaint)
+        }
+        i++
+    }
+}
+</code></pre><hr>
+<h2 id="陆-新需求迭代展望："><a href="#陆-新需求迭代展望：" class="headerlink" title="陆.新需求迭代展望："></a>陆.新需求迭代展望：</h2><ul>
+<li>1.支持使用图片替换文字。</li>
+<li>2.添加TextureView的版本，因为TextureView可以做view的动画。</li>
+<li>3.加入角度的旋转，欢迎继续关注。</li>
+</ul>
+<h2 id="柒-最后"><a href="#柒-最后" class="headerlink" title="柒.最后"></a>柒.最后</h2><p>声明：此控件没有经过完整测试，纯练手控件，不要随便在项目中使用，请自行完善。<br>思想为主，知识为辅，Coding随后。<br>如果读者还有不明朗的地方，欢迎查看源码，并且给我提bug，一起为这个社区做出自己的微薄贡献。</p>
+<p>控件源码：<a href="https://github.com/halohoop/AndroidDigIn#24带文字的波浪" target="_blank" rel="external">https://github.com/halohoop/AndroidDigIn#24带文字的波浪</a></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持Halohoop</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/08/05/dewdrops-peace_in_your_heart/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "cbb093ce3d1143eba2f2196086c1116f",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+  
+<script type="text/javascript"
+color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
