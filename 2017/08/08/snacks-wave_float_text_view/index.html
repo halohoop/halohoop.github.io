@@ -24,7 +24,7 @@
 <meta property="og:description" content="声明：博文未经授权一律不允转载 控件源码：https://github.com/halohoop/AndroidDigIn#24带文字的波浪 壹.效果图 贰.知识点 1.SurfaceView子线程高效绘制； 2.贝塞尔曲线画波浪； 3.文字测量； 4.Kotlin语法； 5.Region+Path的使用；  叁.背景&amp;amp;介绍 给自己的需求是酱的：想要实现一个随着波浪浮动的文字。 可能是因为">
 <meta property="og:image" content="http://halohoop.com/2017/08/08/snacks-wave_float_text_view/device-2017-07-13-004908.gif">
 <meta property="og:image" content="http://halohoop.com/2017/08/08/snacks-wave_float_text_view/demo1.png">
-<meta property="og:updated_time" content="2017-08-09T15:33:57.745Z">
+<meta property="og:updated_time" content="2017-09-14T16:26:16.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[点心]自定义控件之这文字有点浪-Kotlin实现">
 <meta name="twitter:description" content="声明：博文未经授权一律不允转载 控件源码：https://github.com/halohoop/AndroidDigIn#24带文字的波浪 壹.效果图 贰.知识点 1.SurfaceView子线程高效绘制； 2.贝塞尔曲线画波浪； 3.文字测量； 4.Kotlin语法； 5.Region+Path的使用；  叁.背景&amp;amp;介绍 给自己的需求是酱的：想要实现一个随着波浪浮动的文字。 可能是因为">
@@ -179,7 +179,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#壹-效果图"><span class="toc-text">壹.效果图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#贰-知识点"><span class="toc-text">贰.知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#叁-背景-amp-介绍"><span class="toc-text">叁.背景&介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#肆-使用方式"><span class="toc-text">肆.使用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伍-拆解轮子"><span class="toc-text">伍.拆解轮子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-绘制波浪。"><span class="toc-text">1.绘制波浪。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-拆解文字，得到文字绘制的区域Rect。"><span class="toc-text">2.拆解文字，得到文字绘制的区域Rect。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-通过region得到波浪Path上的x，y坐标，将文字滑出来。"><span class="toc-text">3.通过region得到波浪Path上的x，y坐标，将文字滑出来。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“-”拒绝kotlin帮你的空指针危险限制。"><span class="toc-text">4.设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“!!”拒绝kotlin帮你的空指针危险限制。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-使用SurfaceView子线程绘制实现。"><span class="toc-text">5.使用SurfaceView子线程绘制实现。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#陆-新需求迭代展望："><span class="toc-text">陆.新需求迭代展望：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#柒-最后"><span class="toc-text">柒.最后</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#壹-效果图"><span class="toc-text">壹.效果图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#贰-知识点"><span class="toc-text">贰.知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#叁-背景-amp-介绍"><span class="toc-text">叁.背景&介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#肆-使用方式"><span class="toc-text">肆.使用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伍-拆解轮子"><span class="toc-text">伍.拆解轮子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-绘制波浪。"><span class="toc-text">1.绘制波浪。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-拆解文字，得到文字绘制的区域Rect。"><span class="toc-text">2.拆解文字，得到文字绘制的区域Rect。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-通过region得到波浪Path上的x，y坐标，将文字画出来。"><span class="toc-text">3.通过region得到波浪Path上的x，y坐标，将文字画出来。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“-”拒绝kotlin帮你做好的空指针危险限制。"><span class="toc-text">4.设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“!!”拒绝kotlin帮你做好的空指针危险限制。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-使用SurfaceView子线程绘制实现。"><span class="toc-text">5.使用SurfaceView子线程绘制实现。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#陆-新需求迭代展望："><span class="toc-text">陆.新需求迭代展望：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#柒-最后"><span class="toc-text">柒.最后</span></a></li></ol>
   </div>
 
 
@@ -356,7 +356,7 @@ private fun updateTextsConfigs(newText: String, textPosMidX: Float) {
     updateTextPositionHelperRegions(textPosMidX, howWidthOfTexts, everyLetterWidths)
 }
 </code></pre><hr>
-<h3 id="3-通过region得到波浪Path上的x，y坐标，将文字滑出来。"><a href="#3-通过region得到波浪Path上的x，y坐标，将文字滑出来。" class="headerlink" title="3.通过region得到波浪Path上的x，y坐标，将文字滑出来。"></a>3.通过region得到波浪Path上的x，y坐标，将文字滑出来。</h3><hr>
+<h3 id="3-通过region得到波浪Path上的x，y坐标，将文字画出来。"><a href="#3-通过region得到波浪Path上的x，y坐标，将文字画出来。" class="headerlink" title="3.通过region得到波浪Path上的x，y坐标，将文字画出来。"></a>3.通过region得到波浪Path上的x，y坐标，将文字画出来。</h3><hr>
 <pre><code>private fun drawTexts(canvas: Canvas?) {
     textPaint.color = TEXT_COLOR
     var i = 0
@@ -379,7 +379,7 @@ private fun updateTextsConfigs(newText: String, textPosMidX: Float) {
     }
 }
 </code></pre><hr>
-<h3 id="4-设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“-”拒绝kotlin帮你的空指针危险限制。"><a href="#4-设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“-”拒绝kotlin帮你的空指针危险限制。" class="headerlink" title="4.设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“!!”拒绝kotlin帮你的空指针危险限制。"></a>4.设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“!!”拒绝kotlin帮你的空指针危险限制。</h3><hr>
+<h3 id="4-设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“-”拒绝kotlin帮你做好的空指针危险限制。"><a href="#4-设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“-”拒绝kotlin帮你做好的空指针危险限制。" class="headerlink" title="4.设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“!!”拒绝kotlin帮你做好的空指针危险限制。"></a>4.设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“!!”拒绝kotlin帮你做好的空指针危险限制。</h3><hr>
 <pre><code>fun startFlow() {
     stopFlow()
     flowAnimator = ValueAnimator.ofFloat(0f, mHalfWaveWidth * 2)
@@ -403,7 +403,11 @@ fun stopFlow() {
 }
 </code></pre><hr>
 <h3 id="5-使用SurfaceView子线程绘制实现。"><a href="#5-使用SurfaceView子线程绘制实现。" class="headerlink" title="5.使用SurfaceView子线程绘制实现。"></a>5.使用SurfaceView子线程绘制实现。</h3><ul>
-<li>5.1.这里贴出关键绘制线程run方法代码：</li>
+<li>5.1.这里贴出关键绘制线程run方法代码：<ul>
+<li>其中是抽象方法onThreadRenderDraw，负责使用给的Canvas绘制工作，执行在子线程中.</li>
+<li>更多详情请参阅BaseSurfaceWaveWithTextsViewKotlin原码。</li>
+</ul>
+</li>
 </ul>
 <hr>
 <pre><code>override fun run() {
@@ -463,16 +467,13 @@ override fun surfaceDestroyed(holder: SurfaceHolder) {
 }
 </code></pre><hr>
 <ul>
-<li>其中是抽象方法onThreadRenderDraw，负责使用给的Canvas绘制工作，子线程中.</li>
-<li><p>更多详情请参阅BaseSurfaceWaveWithTextsViewKotlin原码。</p>
-</li>
-<li><p>5.3.具体的绘制过程</p>
-</li>
+<li>5.3.具体的绘制过程</li>
 </ul>
 <hr>
 <pre><code>override fun onThreadRenderDraw(canvas: Canvas, l: Long) {
     canvas.drawColor(Color.WHITE)
 
+    //当你单位时间水平方向的移动距离越大时候，速度就越快
     mDx += mSpeed
     if (mDx &gt;= mHalfWaveWidth * 2) {
         mDx = 0f
@@ -515,7 +516,7 @@ private fun drawTexts(canvas: Canvas?) {
     var i = 0
     val toCharArray = text!!.toCharArray()
     mTextPositionHelperRegions?.forEach {
-        //kotlin的forEach遍历可以使用it来接收每一次遍历的结果
+        //kotlin的forEach遍历可以使用it来接收每一轮遍历的结果
         mRegion.setPath(path, it)
         //当一个Region和path相交的时候
         //这个path在这个region中被用一个Rect来描述，也就是下面的bounds
@@ -536,7 +537,7 @@ private fun drawTexts(canvas: Canvas?) {
 <h2 id="陆-新需求迭代展望："><a href="#陆-新需求迭代展望：" class="headerlink" title="陆.新需求迭代展望："></a>陆.新需求迭代展望：</h2><ul>
 <li>1.支持使用图片替换文字。</li>
 <li>2.添加TextureView的版本，因为TextureView可以做view的动画。</li>
-<li>3.加入角度的旋转，欢迎继续关注。</li>
+<li>3.加入角度的旋转，打造文字随着波浪的切线摆动，会更加真实，欢迎继续关注。</li>
 </ul>
 <h2 id="柒-最后"><a href="#柒-最后" class="headerlink" title="柒.最后"></a>柒.最后</h2><p>声明：此控件没有经过完整测试，纯练手控件，不要随便在项目中使用，请自行完善。<br>思想为主，知识为辅，Coding随后。<br>如果读者还有不明朗的地方，欢迎查看源码，并且给我提bug，一起为这个社区做出自己的微薄贡献。</p>
 <p>控件源码：<a href="https://github.com/halohoop/AndroidDigIn#24带文字的波浪" target="_blank" rel="external">https://github.com/halohoop/AndroidDigIn#24带文字的波浪</a></p>
