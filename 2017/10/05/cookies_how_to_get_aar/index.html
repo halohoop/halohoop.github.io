@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>[饼干]如何获取官方的aar包 | 卖牙膏的芖口钉</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="cookies,android,maven,aar," />
+  
+
+  <meta name="description" content="声明：博文未经授权一律不允转载 问题 怎么获取开源项目的aar包。 support library的aar包又怎么获取呢。  背景首先我们来看看这个问题是如何产生的，因为公司需要配置Jenkins离线打包，而服务器为了避免编译的时候下载很多的未知的资源，以及编译节省时间，因此如果安卓的项目中如果在build.gradle中使用compile、api或者implementation引用开源项目的话，">
+<meta name="keywords" content="cookies,android,maven,aar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[饼干]如何获取官方的aar包">
+<meta property="og:url" content="http://halohoop.com/2017/10/05/cookies_how_to_get_aar/index.html">
+<meta property="og:site_name" content="卖牙膏的芖口钉">
+<meta property="og:description" content="声明：博文未经授权一律不允转载 问题 怎么获取开源项目的aar包。 support library的aar包又怎么获取呢。  背景首先我们来看看这个问题是如何产生的，因为公司需要配置Jenkins离线打包，而服务器为了避免编译的时候下载很多的未知的资源，以及编译节省时间，因此如果安卓的项目中如果在build.gradle中使用compile、api或者implementation引用开源项目的话，">
+<meta property="og:image" content="http://halohoop.com/2017/10/05/cookies_how_to_get_aar/5eb1829e-63d9-44cd-a217-3355d3f8cfe9.png">
+<meta property="og:image" content="http://halohoop.com/2017/10/05/cookies_how_to_get_aar/b623fb45-dc06-42f3-bb6f-2a7a01c7ebfd.png">
+<meta property="og:image" content="http://halohoop.com/2017/10/05/cookies_how_to_get_aar/0ca1de32-e796-4991-9a05-0bf6082c67e9.png">
+<meta property="og:image" content="http://halohoop.com/2017/10/05/cookies_how_to_get_aar/aad5e099-a4fc-41da-9f3e-3c24ab2491bb.png">
+<meta property="og:updated_time" content="2017-10-05T10:01:13.347Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[饼干]如何获取官方的aar包">
+<meta name="twitter:description" content="声明：博文未经授权一律不允转载 问题 怎么获取开源项目的aar包。 support library的aar包又怎么获取呢。  背景首先我们来看看这个问题是如何产生的，因为公司需要配置Jenkins离线打包，而服务器为了避免编译的时候下载很多的未知的资源，以及编译节省时间，因此如果安卓的项目中如果在build.gradle中使用compile、api或者implementation引用开源项目的话，">
+<meta name="twitter:image" content="http://halohoop.com/2017/10/05/cookies_how_to_get_aar/5eb1829e-63d9-44cd-a217-3355d3f8cfe9.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+<script type="text/javascript">
+	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cspan id='cnzz_stat_icon_1262349251'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D1262349251%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8d386d3f58d003ed2f4b4d02e584d2ae";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">Posts List</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取官方的aar包"><span class="toc-text">获取官方的aar包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取开源项目的aar包"><span class="toc-text">获取开源项目的aar包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取support-library的aar包"><span class="toc-text">获取support library的aar包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拓展"><span class="toc-text">拓展</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-cookies_how_to_get_aar" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">[饼干]如何获取官方的aar包</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.10.05</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Halohoop</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </span>
+
+
+
+      
+
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>怎么获取开源项目的aar包。</li>
+<li>support library的aar包又怎么获取呢。</li>
+</ol>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>首先我们来看看这个问题是如何产生的，因为公司需要配置Jenkins离线打包，而服务器为了避免编译的时候下载很多的未知的资源，以及编译节省时间，因此如果安卓的项目中如果在build.gradle中使用compile、api或者implementation引用开源项目的话，比如：</p>
+<pre><code>compile &apos;com.android.support:appcompat-v7:26.1.0&apos;
+</code></pre><p>如果服务器的sdk中没有下载有这个库，那么就很可能会导致离线编译不通过，因为专门用于编译工作的服务器有时候是没有必要连接外网的，没有外网就意味着不能够下载相关的引用的资源或者代码，因此我们通常会需要引用的开源项目的aar包，来支持离线编译。<br>然而通过compile、api或者implementation引用开源项目，我们在本地很可能会找不到aar，哪怕在build里面也找不到。<br>这个时候开头说的两个需求就来了。我们当然可以通过下载开源项目的源代码然后手动打aar包<a href="https://www.google.com.hk/search?safe=strict&amp;q=%E6%89%93aar%E5%8C%85&amp;oq=%E6%89%93aar%E5%8C%85&amp;gs_l=psy-ab.12..0i10i42k1.622035.622035.0.622425.1.1.0.0.0.0.264.264.2-1.1.0....0...1.1.64.psy-ab..0.1.262....0.MwxG2Y8zpJE" target="_blank" rel="external">[谷歌一下]</a>的方式来得到，当然我们也可以通过官方的下载渠道得到。接下来就介绍一下如何获取官方的aar包。</p>
+<h2 id="获取官方的aar包"><a href="#获取官方的aar包" class="headerlink" title="获取官方的aar包"></a>获取官方的aar包</h2><h3 id="获取开源项目的aar包"><a href="#获取开源项目的aar包" class="headerlink" title="获取开源项目的aar包"></a>获取开源项目的aar包</h3><p>四个步骤，简单到怀疑人生</p>
+<ol>
+<li>打开链接<br><a href="https://search.maven.org/#search" target="_blank" rel="external">https://search.maven.org/#search</a></li>
+<li>搜索开源项目名字<ul>
+<li>a. 比如搜索okhttp<br><img src="/2017/10/05/cookies_how_to_get_aar/5eb1829e-63d9-44cd-a217-3355d3f8cfe9.png" alt=""></li>
+</ul>
+</li>
+<li><p>下载</p>
+<ul>
+<li>a.这里需要说的一点就是，由于有些开源项目比如说squareup的okhttp，只是一个类库，也就是全部都是class文件，因此是不需要打包成aar包的，只需要一个jar包即可。</li>
+<li>b.点击对应开源项目的“jar”或者“aar”即可下载到对应版本的，如下图<br><img src="/2017/10/05/cookies_how_to_get_aar/b623fb45-dc06-42f3-bb6f-2a7a01c7ebfd.png" alt=""></li>
+<li><p>c.一般这个的版本都是最新发布的版本，如果不是想要的版本的时候，可以点击下图中的“all”，就能够得到所有的已发布的版本，这时候点击对应aar或者jar下载需要的包即可。<br><img src="/2017/10/05/cookies_how_to_get_aar/0ca1de32-e796-4991-9a05-0bf6082c67e9.png" alt=""><br><img src="/2017/10/05/cookies_how_to_get_aar/aad5e099-a4fc-41da-9f3e-3c24ab2491bb.png" alt=""></p>
+<h3 id="获取support-library的aar包"><a href="#获取support-library的aar包" class="headerlink" title="获取support library的aar包"></a>获取support library的aar包</h3></li>
+<li>比如需要找到appcompat-v7的25.3.1版本，去SDK下相应的文件夹下就能够找到了<ul>
+<li>[SDK_DIR]\extras\android\m2repository\com\android\support\appcompat-v7\25.3.1</li>
+</ul>
+</li>
+<li>如果不知道有什么版本怎么办，别怕，谷歌出品必属精品，肯定有迹可循的嘛<ul>
+<li>打开这个网址即可查看最近的和最新的发布的支持包版本了：<a href="https://developer.android.com/topic/libraries/support-library/revisions.html" target="_blank" rel="external">Recent Support Library Revisions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>引用</p>
+</li>
+</ol>
+<hr>
+<pre><code>//引用aar包配置
+dependencies {
+    //compile(name: &apos;xxx&apos;, ext: &apos;aar&apos;)
+    compile(name:&apos;mylib-release&apos;, ext:&apos;aar&apos;)
+}
+repositories{
+    flatDir{
+        dirs &apos;libs&apos;
+    }
+}
+</code></pre><h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>如果想要更加深入拓展研究透彻，推荐可以从这些个方向去深入：</p>
+<ol>
+<li>如何打aar包。</li>
+<li>build.gradle中compile、api或者implementation回来依赖库在本地是以怎么样的形式存在的。<ul>
+<li>是一堆的资源文件和*.class文件还是什么？</li>
+<li>存在什么目录中？build文件夹中？</li>
+<li>难道不是compile引用一个库不是下载其aar包到本地么？</li>
+</ul>
+</li>
+</ol>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持Halohoop</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/08/08/snacks-wave_float_text_view/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">Close</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "cbb093ce3d1143eba2f2196086c1116f",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+  
+<script type="text/javascript"
+color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
