@@ -15,21 +15,21 @@
     <meta name="keywords" content="cookies,android,maven,aar," />
   
 
-  <meta name="description" content="声明：博文未经授权一律不允转载 问题 怎么获取开源项目的aar包。 support library的aar包又怎么获取呢。  背景首先我们来看看这个问题是如何产生的，因为公司需要配置Jenkins离线打包，而服务器为了避免编译的时候下载很多的未知的资源，以及编译节省时间，因此如果安卓的项目中如果在build.gradle中使用compile、api或者implementation引用开源项目的话，">
+  <meta name="description" content="声明：博文未经授权一律不允转载 问题 怎么获取开源项目的aar包。 support library的aar包又怎么获取呢。  背景首先我们来看看这个问题是如何产生的，因为公司需要配置Jenkins离线打包，具体的操作我也写了一篇博文来描述踩坑过程，《Ubuntu下结合Github搭建Jenkins自动打Android包》，显然，点进去之后你会发现被我坑了，因为我还时间没写完。 公司需要配置Jenk">
 <meta name="keywords" content="cookies,android,maven,aar">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[饼干]如何获取官方的aar包">
 <meta property="og:url" content="http://halohoop.com/2017/10/05/cookies_how_to_get_aar/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
-<meta property="og:description" content="声明：博文未经授权一律不允转载 问题 怎么获取开源项目的aar包。 support library的aar包又怎么获取呢。  背景首先我们来看看这个问题是如何产生的，因为公司需要配置Jenkins离线打包，而服务器为了避免编译的时候下载很多的未知的资源，以及编译节省时间，因此如果安卓的项目中如果在build.gradle中使用compile、api或者implementation引用开源项目的话，">
+<meta property="og:description" content="声明：博文未经授权一律不允转载 问题 怎么获取开源项目的aar包。 support library的aar包又怎么获取呢。  背景首先我们来看看这个问题是如何产生的，因为公司需要配置Jenkins离线打包，具体的操作我也写了一篇博文来描述踩坑过程，《Ubuntu下结合Github搭建Jenkins自动打Android包》，显然，点进去之后你会发现被我坑了，因为我还时间没写完。 公司需要配置Jenk">
 <meta property="og:image" content="http://halohoop.com/2017/10/05/cookies_how_to_get_aar/5eb1829e-63d9-44cd-a217-3355d3f8cfe9.png">
 <meta property="og:image" content="http://halohoop.com/2017/10/05/cookies_how_to_get_aar/b623fb45-dc06-42f3-bb6f-2a7a01c7ebfd.png">
 <meta property="og:image" content="http://halohoop.com/2017/10/05/cookies_how_to_get_aar/0ca1de32-e796-4991-9a05-0bf6082c67e9.png">
 <meta property="og:image" content="http://halohoop.com/2017/10/05/cookies_how_to_get_aar/aad5e099-a4fc-41da-9f3e-3c24ab2491bb.png">
-<meta property="og:updated_time" content="2017-10-05T10:01:13.347Z">
+<meta property="og:updated_time" content="2017-10-05T10:10:21.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[饼干]如何获取官方的aar包">
-<meta name="twitter:description" content="声明：博文未经授权一律不允转载 问题 怎么获取开源项目的aar包。 support library的aar包又怎么获取呢。  背景首先我们来看看这个问题是如何产生的，因为公司需要配置Jenkins离线打包，而服务器为了避免编译的时候下载很多的未知的资源，以及编译节省时间，因此如果安卓的项目中如果在build.gradle中使用compile、api或者implementation引用开源项目的话，">
+<meta name="twitter:description" content="声明：博文未经授权一律不允转载 问题 怎么获取开源项目的aar包。 support library的aar包又怎么获取呢。  背景首先我们来看看这个问题是如何产生的，因为公司需要配置Jenkins离线打包，具体的操作我也写了一篇博文来描述踩坑过程，《Ubuntu下结合Github搭建Jenkins自动打Android包》，显然，点进去之后你会发现被我坑了，因为我还时间没写完。 公司需要配置Jenk">
 <meta name="twitter:image" content="http://halohoop.com/2017/10/05/cookies_how_to_get_aar/5eb1829e-63d9-44cd-a217-3355d3f8cfe9.png">
 
   
@@ -228,9 +228,10 @@
 <li>怎么获取开源项目的aar包。</li>
 <li>support library的aar包又怎么获取呢。</li>
 </ol>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>首先我们来看看这个问题是如何产生的，因为公司需要配置Jenkins离线打包，而服务器为了避免编译的时候下载很多的未知的资源，以及编译节省时间，因此如果安卓的项目中如果在build.gradle中使用compile、api或者implementation引用开源项目的话，比如：</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>首先我们来看看这个问题是如何产生的，因为公司需要配置Jenkins离线打包，具体的操作我也写了一篇博文来描述踩坑过程，<a href="http://halohoop.com/2017/10/05/nothing/">《Ubuntu下结合Github搭建Jenkins自动打Android包》</a>，显然，点进去之后你会发现被我坑了，因为我还时间没写完。</p>
+<p>公司需要配置Jenkins离线打包，服务器为了避免编译的时候下载很多的未知的资源，以及缩短编译时间，因此如果安卓的项目中如果在build.gradle中使用compile、api或者implementation引用开源项目的话，比如：</p>
 <pre><code>compile &apos;com.android.support:appcompat-v7:26.1.0&apos;
-</code></pre><p>如果服务器的sdk中没有下载有这个库，那么就很可能会导致离线编译不通过，因为专门用于编译工作的服务器有时候是没有必要连接外网的，没有外网就意味着不能够下载相关的引用的资源或者代码，因此我们通常会需要引用的开源项目的aar包，来支持离线编译。<br>然而通过compile、api或者implementation引用开源项目，我们在本地很可能会找不到aar，哪怕在build里面也找不到。<br>这个时候开头说的两个需求就来了。我们当然可以通过下载开源项目的源代码然后手动打aar包<a href="https://www.google.com.hk/search?safe=strict&amp;q=%E6%89%93aar%E5%8C%85&amp;oq=%E6%89%93aar%E5%8C%85&amp;gs_l=psy-ab.12..0i10i42k1.622035.622035.0.622425.1.1.0.0.0.0.264.264.2-1.1.0....0...1.1.64.psy-ab..0.1.262....0.MwxG2Y8zpJE" target="_blank" rel="external">[谷歌一下]</a>的方式来得到，当然我们也可以通过官方的下载渠道得到。接下来就介绍一下如何获取官方的aar包。</p>
+</code></pre><p>如果服务器的sdk中没有下载有这个26版本的库，那么就很可能会导致离线编译不通过，因为专门用于编译工作的服务器有时候是没有必要连接外网的，没有外网就意味着不能够下载相关的引用的资源或者代码，因此我们通常会需要引用的开源项目的aar包，来支持离线编译。<br>然而通过compile、api或者implementation引用开源项目，我们在本地很可能会找不到aar，哪怕在build里面也找不到。<br>这个时候开头说的两个需求就来了。我们当然可以通过下载开源项目的源代码然后手动打aar包<a href="https://www.google.com.hk/search?safe=strict&amp;q=%E6%89%93aar%E5%8C%85&amp;oq=%E6%89%93aar%E5%8C%85&amp;gs_l=psy-ab.12..0i10i42k1.622035.622035.0.622425.1.1.0.0.0.0.264.264.2-1.1.0....0...1.1.64.psy-ab..0.1.262....0.MwxG2Y8zpJE" target="_blank" rel="external">[谷歌一下]</a>的方式来得到，当然我们也可以通过官方的下载渠道得到。接下来就介绍一下如何获取官方的aar包。</p>
 <h2 id="获取官方的aar包"><a href="#获取官方的aar包" class="headerlink" title="获取官方的aar包"></a>获取官方的aar包</h2><h3 id="获取开源项目的aar包"><a href="#获取开源项目的aar包" class="headerlink" title="获取开源项目的aar包"></a>获取开源项目的aar包</h3><p>四个步骤，简单到怀疑人生</p>
 <ol>
 <li>打开链接<br><a href="https://search.maven.org/#search" target="_blank" rel="external">https://search.maven.org/#search</a></li>
