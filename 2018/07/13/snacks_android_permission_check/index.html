@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>[点心]Android权限判断中的版本兼容 | 卖牙膏的芖口钉</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="snacks," />
+  
+
+  <meta name="description" content="声明：博文未经授权一律不允转载 我知道Android6.0后引入了运行时权限检查，如果没有权限那么某些隐私的功能就无法使用。那么在针对公司的某些服务，制作一款Android SDK的时候，也是一样的，需要使用到权限检查。庆幸的是，Support Library V4包中已帮我们封装好了一个静态权限检查方法，ContextCompat#checkSelfPermission：  ContextCom">
+<meta name="keywords" content="snacks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[点心]Android权限判断中的版本兼容">
+<meta property="og:url" content="http://halohoop.com/2018/07/13/snacks_android_permission_check/index.html">
+<meta property="og:site_name" content="卖牙膏的芖口钉">
+<meta property="og:description" content="声明：博文未经授权一律不允转载 我知道Android6.0后引入了运行时权限检查，如果没有权限那么某些隐私的功能就无法使用。那么在针对公司的某些服务，制作一款Android SDK的时候，也是一样的，需要使用到权限检查。庆幸的是，Support Library V4包中已帮我们封装好了一个静态权限检查方法，ContextCompat#checkSelfPermission：  ContextCom">
+<meta property="og:image" content="http://halohoop.com/2018/07/13/snacks_android_permission_check/1.png">
+<meta property="og:image" content="http://halohoop.com/2018/07/13/snacks_android_permission_check/2.png">
+<meta property="og:updated_time" content="2018-07-12T17:02:00.614Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[点心]Android权限判断中的版本兼容">
+<meta name="twitter:description" content="声明：博文未经授权一律不允转载 我知道Android6.0后引入了运行时权限检查，如果没有权限那么某些隐私的功能就无法使用。那么在针对公司的某些服务，制作一款Android SDK的时候，也是一样的，需要使用到权限检查。庆幸的是，Support Library V4包中已帮我们封装好了一个静态权限检查方法，ContextCompat#checkSelfPermission：  ContextCom">
+<meta name="twitter:image" content="http://halohoop.com/2018/07/13/snacks_android_permission_check/1.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+<script type="text/javascript">
+	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cspan id='cnzz_stat_icon_1262349251'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D1262349251%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8d386d3f58d003ed2f4b4d02e584d2ae";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-snacks_android_permission_check" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">[点心]Android权限判断中的版本兼容</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.07.13</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Halohoop</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/tricks/">tricks</a>
+  </span>
+
+
+
+      
+
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
+<p>我知道Android6.0后引入了运行时权限检查，如果没有权限那么某些隐私的功能就无法使用。<br>那么在针对公司的某些服务，制作一款Android SDK的时候，也是一样的，需要使用到权限检查。<br>庆幸的是，Support Library V4包中已帮我们封装好了一个静态权限检查方法，ContextCompat#checkSelfPermission：</p>
+<hr>
+<pre><code>ContextCompat.checkSelfPermission(@NonNull Context context, @NonNull String permission)
+</code></pre><hr>
+<p>我当然可以直接调用这个方法，但是，在打包SDK为Jar的时候就不得不带上这个V4包的，这样会增大SDK整体包的大小，不建议使用，而且引入这个V4包的SDK集成到其他应用中时候还有可能造成V4包冲突的风险，因为其他应用可能也有用到V4包。</p>
+<p>作为一个有节操的SDK，必须解决这个问题，又因为V4是Android屏蔽版本区别的一个支持库，因此其中的方法一定是版本兼容的，于是在技术本能的驱使下，我深入这个checkSelfPermission方法一探究竟：</p>
+<hr>
+<pre><code>public static int checkSelfPermission(@NonNull Context context, @NonNull String permission) {
+    if (permission == null) {
+        throw new IllegalArgumentException(&quot;permission is null&quot;);
+    }
+    return context.checkPermission(permission, android.os.Process.myPid(), Process.myUid());
+}
+</code></pre><hr>
+<p>核心方法就是一句，调用Context#checkPermission方法，返回的int类型不同的值代表不同的权限。见下图。</p>
+<p><img src="/2018/07/13/snacks_android_permission_check/1.png" alt="demo0"></p>
+<p>燃鹅，我觉得这个方法需要太多参数，因为在一个应用，后面两个参数其实都是固定的，pid和uid（具体这两个变量是什么含义可以自行查阅），Google应该没有傻到让我做多余的事情，因此我决定进一步寻找，于是找到了这个方法Context#checkSelfPermission，果然只需要传递一个String权限参数，哈哈，和Google想到一块儿去了。见下图。</p>
+<p><img src="/2018/07/13/snacks_android_permission_check/2.png" alt="demo0"></p>
+<p>燃鹅的再燃鹅，看看左上角，这个方法特么的是“added in API level 23”，也就是说我在Android 6.0 以下的SDK中特么的无法使用啊，法使用啊，使用啊，用啊，啊。<br>如果有跟上我思路的童鞋，在这里可能就会有小疑问了：为什么既然这个方法在API 23才有，那我就增加如下的版本判断就好了呀：</p>
+<hr>
+<pre><code>if (Build.VERSION.SDK_INT &gt;= 23) {
+    //call Context#checkSelfPermission
+}
+</code></pre><hr>
+<p>但是，其实您并不能保证其他人在使用你的代码编译的时候的Androi SDK版本一定是≥23的，如果是不≥23的Android SDK版本去编译，编译就挂了。因此为了兼容编译的版本，我们使用反射来调用这个方法，取消方法名的显式调用，这样就不会有找不到这个方法的编译问题。所以现在我们的代码就变成了这样：</p>
+<hr>
+<p>public static boolean checkSelfPermission(Context context, String permission) {<br>    boolean permissionGranted = false;<br>    if (context == null) {<br>        return false;<br>    } else {<br>        if (Build.VERSION.SDK_INT &gt;= 23) {<br>            try {<br>                Class clz = Class.forName(“android.content.Context”);<br>                Method checkSelfPermission = clz.getMethod(“checkSelfPermission”, new<br>                        Class[]{String.class});<br>                int i = ((Integer) checkSelfPermission.invoke(context, new<br>                        Object[]{permission})).intValue();<br>                if (i == PackageManager.PERMISSION_GRANTED) {<br>                    permissionGranted = true;<br>                } else {<br>                    permissionGranted = false;<br>                }<br>            } catch (Throwable e) {<br>                e.printStackTrace();<br>            }<br>        }<br>    }<br>    return permissionGranted;<br>}</p>
+<hr>
+<p>但是的但是，现在显然这个方法是只能提供给API 23的权限检车使用的，因为进行了版本判断。我们再增加如下的代码片将API 22以及以下的版本给兜住喽：</p>
+<hr>
+<pre><code>PackageManager packageManager = context.getPackageManager();
+if (packageManager.checkPermission(permission, context.getPackageName()) ==
+                        PackageManager.PERMISSION_GRANTED) {
+    permissionGranted = true;
+}
+</code></pre><hr>
+<p>可能到这里又会有同学问了，既然只是判断是否授权，一个布尔值，那干脆全部使用上述的代码片段就好了哇。确实可以这样的，但是其实根据Support Library中的思路，有新的API，都会面向使用更(gèng)新的API，比如，V4包中的DrawableCompat类，在不同的版本会new不同版本的实例，这里也是一样的，不同版本走不同的逻辑，因此我们最终的权限判断方法就变成了如下的样子（针对if增加了一个else）：</p>
+<hr>
+<pre><code>public static boolean checkSelfPermission(Context context, String permission) {
+    boolean permissionGranted = false;
+    if (context == null) {
+        return false;
+    } else {
+        if (Build.VERSION.SDK_INT &gt;= 23) {
+            try {
+                Class clz = Class.forName(&quot;android.content.Context&quot;);
+                Method checkSelfPermission = clz.getMethod(&quot;checkSelfPermission&quot;, new
+                        Class[]{String.class});
+                int i = ((Integer) checkSelfPermission.invoke(context, new
+                        Object[]{permission})).intValue();
+                if (i == PackageManager.PERMISSION_GRANTED) {
+                    permissionGranted = true;
+                } else {
+                    permissionGranted = false;
+                }
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        } else {//新增
+            PackageManager packageManager = context.getPackageManager();
+            if (packageManager.checkPermission(permission, context.getPackageName()) ==
+                    PackageManager.PERMISSION_GRANTED) {
+                permissionGranted = true;
+            }
+        }
+    }
+    return permissionGranted;
+}
+</code></pre><hr>
+<p>另外，还有最后一点，我们的反射的API在Android中并不是@Hide标记的，因此，按理应不会在以后的Android版本中（比如Android 9.0 中），被禁用。</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持Halohoop</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/10/05/cookies_how_to_get_aar/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "cbb093ce3d1143eba2f2196086c1116f",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+  
+<script type="text/javascript"
+color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
