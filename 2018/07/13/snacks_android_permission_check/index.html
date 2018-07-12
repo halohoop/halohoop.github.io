@@ -15,19 +15,19 @@
     <meta name="keywords" content="snacks," />
   
 
-  <meta name="description" content="声明：博文未经授权一律不允转载 我知道Android6.0后引入了运行时权限检查，如果没有权限那么某些隐私的功能就无法使用。那么在针对公司的某些服务，制作一款Android SDK的时候，也是一样的，需要使用到权限检查。庆幸的是，Support Library V4包中已帮我们封装好了一个静态权限检查方法，ContextCompat#checkSelfPermission：  ContextCom">
+  <meta name="description" content="声明：博文未经授权一律不允转载 在Android中，我们会经常遇到一些需要检查权限允许后才可以进行的一些操作，尤其是Android 6.0以及以后版本最为明显，我们知道Android6.0后引入了运行时权限检查，如果没有权限那么某些隐私的功能就无法使用。那么在针对公司的某些服务，制作一款Android SDK的时候，也是一样的，需要使用到权限检查。庆幸的是，Support Library V4包中">
 <meta name="keywords" content="snacks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[点心]Android权限判断中的版本兼容">
 <meta property="og:url" content="http://halohoop.com/2018/07/13/snacks_android_permission_check/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
-<meta property="og:description" content="声明：博文未经授权一律不允转载 我知道Android6.0后引入了运行时权限检查，如果没有权限那么某些隐私的功能就无法使用。那么在针对公司的某些服务，制作一款Android SDK的时候，也是一样的，需要使用到权限检查。庆幸的是，Support Library V4包中已帮我们封装好了一个静态权限检查方法，ContextCompat#checkSelfPermission：  ContextCom">
+<meta property="og:description" content="声明：博文未经授权一律不允转载 在Android中，我们会经常遇到一些需要检查权限允许后才可以进行的一些操作，尤其是Android 6.0以及以后版本最为明显，我们知道Android6.0后引入了运行时权限检查，如果没有权限那么某些隐私的功能就无法使用。那么在针对公司的某些服务，制作一款Android SDK的时候，也是一样的，需要使用到权限检查。庆幸的是，Support Library V4包中">
 <meta property="og:image" content="http://halohoop.com/2018/07/13/snacks_android_permission_check/1.png">
 <meta property="og:image" content="http://halohoop.com/2018/07/13/snacks_android_permission_check/2.png">
-<meta property="og:updated_time" content="2018-07-12T17:09:44.191Z">
+<meta property="og:updated_time" content="2018-07-12T17:32:51.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[点心]Android权限判断中的版本兼容">
-<meta name="twitter:description" content="声明：博文未经授权一律不允转载 我知道Android6.0后引入了运行时权限检查，如果没有权限那么某些隐私的功能就无法使用。那么在针对公司的某些服务，制作一款Android SDK的时候，也是一样的，需要使用到权限检查。庆幸的是，Support Library V4包中已帮我们封装好了一个静态权限检查方法，ContextCompat#checkSelfPermission：  ContextCom">
+<meta name="twitter:description" content="声明：博文未经授权一律不允转载 在Android中，我们会经常遇到一些需要检查权限允许后才可以进行的一些操作，尤其是Android 6.0以及以后版本最为明显，我们知道Android6.0后引入了运行时权限检查，如果没有权限那么某些隐私的功能就无法使用。那么在针对公司的某些服务，制作一款Android SDK的时候，也是一样的，需要使用到权限检查。庆幸的是，Support Library V4包中">
 <meta name="twitter:image" content="http://halohoop.com/2018/07/13/snacks_android_permission_check/1.png">
 
   
@@ -217,7 +217,7 @@
   <div class="article-content">
     
       <p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
-<p>我知道Android6.0后引入了运行时权限检查，如果没有权限那么某些隐私的功能就无法使用。<br>那么在针对公司的某些服务，制作一款Android SDK的时候，也是一样的，需要使用到权限检查。<br>庆幸的是，Support Library V4包中已帮我们封装好了一个静态权限检查方法，ContextCompat#checkSelfPermission：</p>
+<p>在Android中，我们会经常遇到一些需要检查权限允许后才可以进行的一些操作，尤其是Android 6.0以及以后版本最为明显，我们知道Android6.0后引入了运行时权限检查，如果没有权限那么某些隐私的功能就无法使用。<br>那么在针对公司的某些服务，制作一款Android SDK的时候，也是一样的，需要使用到权限检查。<br>庆幸的是，Support Library V4包中已帮我们封装好了一个静态权限检查方法，ContextCompat#checkSelfPermission：</p>
 <hr>
 <pre><code>ContextCompat.checkSelfPermission(@NonNull Context context, @NonNull String permission)
 </code></pre><hr>
@@ -232,9 +232,9 @@
 }
 </code></pre><hr>
 <p>核心方法就是一句，调用Context#checkPermission方法，返回的int类型不同的值代表不同的权限。见下图。</p>
-<p><img src="/2018/07/13/snacks_android_permission_check/1.png" alt="demo0"></p>
+<p><img src="/2018/07/13/snacks_android_permission_check/1.png" alt="demo1"></p>
 <p>燃鹅，我觉得这个方法需要太多参数，因为在一个应用，后面两个参数其实都是固定的，pid和uid（具体这两个变量是什么含义可以自行查阅），Google应该没有傻到让我做多余的事情，因此我决定进一步寻找，于是找到了这个方法Context#checkSelfPermission，果然只需要传递一个String权限参数，哈哈，和Google想到一块儿去了。见下图。</p>
-<p><img src="/2018/07/13/snacks_android_permission_check/2.png" alt="demo0"></p>
+<p><img src="/2018/07/13/snacks_android_permission_check/2.png" alt="demo2"></p>
 <p>燃鹅的再燃鹅，看看左上角，这个方法特么的是“added in API level 23”，也就是说我在Android 6.0 以下的SDK中特么的无法使用啊，法使用啊，使用啊，用啊，啊。<br>如果有跟上我思路的童鞋，在这里可能就会有小疑问了：为什么既然这个方法在API 23才有，那我就增加如下的版本判断就好了呀：</p>
 <hr>
 <pre><code>if (Build.VERSION.SDK_INT &gt;= 23) {
