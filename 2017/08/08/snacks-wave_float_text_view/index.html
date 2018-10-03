@@ -178,7 +178,7 @@
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Posts List</strong>
+    <strong class="toc-title">文章目录</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#壹-效果图"><span class="toc-text">壹.效果图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#贰-知识点"><span class="toc-text">贰.知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#叁-背景-amp-介绍"><span class="toc-text">叁.背景&介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#肆-使用方式"><span class="toc-text">肆.使用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伍-拆解轮子"><span class="toc-text">伍.拆解轮子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-绘制波浪。"><span class="toc-text">1.绘制波浪。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-拆解文字，得到文字绘制的区域Rect。"><span class="toc-text">2.拆解文字，得到文字绘制的区域Rect。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-通过region得到波浪Path上的x，y坐标，将文字画出来。"><span class="toc-text">3.通过region得到波浪Path上的x，y坐标，将文字画出来。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“-”拒绝kotlin帮你做好的空指针危险限制。"><span class="toc-text">4.设置动画动起来和停下，当你非常确定一个变量不为空的时候可以加入“!!”拒绝kotlin帮你做好的空指针危险限制。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-使用SurfaceView子线程绘制实现。"><span class="toc-text">5.使用SurfaceView子线程绘制实现。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#陆-新需求迭代展望："><span class="toc-text">陆.新需求迭代展望：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#柒-最后"><span class="toc-text">柒.最后</span></a></li></ol>
   </div>
 
@@ -596,7 +596,7 @@ private fun drawTexts(canvas: Canvas?) {
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">Close</span>
+      <span id="close" class="btn-close">关闭</span>
     </div>
     <hr>
     <div class="modal-body">
@@ -738,20 +738,5 @@ private fun drawTexts(canvas: Canvas?) {
 <script type="text/javascript"
 color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
