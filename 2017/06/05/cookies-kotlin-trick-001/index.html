@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://halohoop.com/2017/06/05/cookies-kotlin-trick-001/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
 <meta property="og:description" content="声明：博文未经授权一律不允转载 好的文章有时候不在于鸿篇巨制，而在于一目了然，有时候这种快餐小技巧更能帮助人，没有铺垫没有客套，直戳掌握知识的要害。所以从这篇开始会不间断的记录一些小技巧，文章已[饼干]开头的都是一篇短文。 一些重复的工作，比如说我们在性能调优的时候经常用到的Trace，以下是一个实例： Java:Trace.beginSection(sectionName); doSomeCal">
-<meta property="og:updated_time" content="2017-07-20T05:37:04.122Z">
+<meta property="og:updated_time" content="2017-07-20T05:37:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[饼干]Kotlin Trick 001-省略一些重复的工作">
 <meta name="twitter:description" content="声明：博文未经授权一律不允转载 好的文章有时候不在于鸿篇巨制，而在于一目了然，有时候这种快餐小技巧更能帮助人，没有铺垫没有客套，直戳掌握知识的要害。所以从这篇开始会不间断的记录一些小技巧，文章已[饼干]开头的都是一篇短文。 一些重复的工作，比如说我们在性能调优的时候经常用到的Trace，以下是一个实例： Java:Trace.beginSection(sectionName); doSomeCal">
@@ -450,5 +450,20 @@ val result = trace(&quot;foo&quot;) {
 <script type="text/javascript"
 color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

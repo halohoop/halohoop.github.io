@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://halohoop.com/2017/06/13/cookies-kotlin-trick-002/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
 <meta property="og:description" content="声明：博文未经授权一律不允转载 Java:void test(int i){ } void test(String j){ } void test(int i, String j){ } 调用: test(1); test(&amp;quot;aaa&amp;quot;); test(1,&amp;quot;aaa&amp;quot;); Annoying：写太多重载了，眼都花了 When it comes to Kotlin：">
-<meta property="og:updated_time" content="2017-07-20T05:37:01.899Z">
+<meta property="og:updated_time" content="2017-07-20T05:37:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[饼干]Kotlin Trick 002-滚吧重载方法">
 <meta name="twitter:description" content="声明：博文未经授权一律不允转载 Java:void test(int i){ } void test(String j){ } void test(int i, String j){ } 调用: test(1); test(&amp;quot;aaa&amp;quot;); test(1,&amp;quot;aaa&amp;quot;); Annoying：写太多重载了，眼都花了 When it comes to Kotlin：">
@@ -435,5 +435,20 @@ test(j = &quot;aaa&quot;);//非第一个需要传递参数名字，这也能增�
 <script type="text/javascript"
 color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

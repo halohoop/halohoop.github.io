@@ -24,7 +24,7 @@
 <meta property="og:description" content="声明：博文未经授权一律不允转载 本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布 开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这">
 <meta property="og:image" content="http://halohoop.com/2017/06/13/meals-speedup_gradle_build/demo0.png">
 <meta property="og:image" content="http://halohoop.com/2017/06/13/meals-speedup_gradle_build/demo1.png">
-<meta property="og:updated_time" content="2017-07-21T18:03:10.916Z">
+<meta property="og:updated_time" content="2017-07-21T18:03:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[大餐]加快gradle构建速度">
 <meta name="twitter:description" content="声明：博文未经授权一律不允转载 本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布 开门撞山：AS中gradle构建一般可以分为三种， 1.从0开始构建，Full Build； 2.修改源代码后构建，之前构建过，Incremental build java change； 3.修改资源文件后构建，之前构建过，Incremental build resource change。 从这">
@@ -583,5 +583,20 @@ org.gradle.caching=true
 <script type="text/javascript"
 color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

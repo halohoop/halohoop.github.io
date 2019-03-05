@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="卖牙膏的芖口钉">
 <meta property="og:description" content="声明：博文未经授权一律不允转载 卫语句在《阿里巴巴Java开发手册》.pdf中的15页有提到“卫语句”，如下图。  说的是： 我们不要这样写：if(){  }else if(){  }else if(){  }... 而要这样写if(){     return; } if(){     return; } if(){     return; } 虽然不是很明白更深层的原因，但是我表示对后面那一句“">
 <meta property="og:image" content="http://halohoop.com/2017/06/08/dewdrops-weiyuju/demo0.png">
-<meta property="og:updated_time" content="2017-07-20T05:37:26.532Z">
+<meta property="og:updated_time" content="2017-07-20T05:37:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[露水]你知道卫语句不">
 <meta name="twitter:description" content="声明：博文未经授权一律不允转载 卫语句在《阿里巴巴Java开发手册》.pdf中的15页有提到“卫语句”，如下图。  说的是： 我们不要这样写：if(){  }else if(){  }else if(){  }... 而要这样写if(){     return; } if(){     return; } if(){     return; } 虽然不是很明白更深层的原因，但是我表示对后面那一句“">
@@ -438,5 +438,20 @@ if(){
 <script type="text/javascript"
 color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

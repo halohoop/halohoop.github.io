@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://halohoop.com/2017/07/14/the_key_to_efficiency/demo1.png">
 <meta property="og:image" content="http://halohoop.com/2017/07/14/the_key_to_efficiency/demo2.png">
 <meta property="og:image" content="http://halohoop.com/2017/07/14/the_key_to_efficiency/demo3.png">
-<meta property="og:updated_time" content="2017-07-24T14:58:17.459Z">
+<meta property="og:updated_time" content="2017-07-24T14:58:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[露水]使用计算机的时候提升效率的本质">
 <meta name="twitter:description" content="声明：博文未经授权一律不允转载 将需要精确点击的事情，变得不需要精确，甚至是随机（有规则的随机，但是遵守这个规则是人轻易就能做到的），让计算机来处理这种随机，那你的效率将会提高很多很多。  ————来自 卖牙膏霸气侧漏农村有文化的芖口钉（Halohoop）语录 那么你可能需要这些工具：  PC 端：StrokeIt。  地址：http://www.tcbmi.com/strokeit/    这个">
@@ -464,5 +464,20 @@
 <script type="text/javascript"
 color="0,0,0" opacity='0.4' zIndex="-2" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
