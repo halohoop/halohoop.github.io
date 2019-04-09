@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 
 
-  <html class="light page-archives201903">
+  <html class="light page-post">
 
 
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2019/3 | 卖牙膏的芖口钉</title>
+  <title>[饼干]如何向你的不懂编程的领导或者朋友解释什么是解耦 | 卖牙膏的芖口钉</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Halohoop,卖牙膏的霸气侧漏农村的芖口钉,Android,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript" />
+    <meta name="keywords" content="cookies,coding," />
   
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="卖牙膏的芖口钉">
-<meta property="og:url" content="http://halohoop.com/archives/2019/03/index.html">
+  <meta name="description" content="声明：博文未经授权一律不允转载 什么叫做解耦，其实就是用一个通用的桥梁去沟通有关联的两者，这里有个关键的点，通用的。不太理解？那就请请带着不理解继续往下读，请允许我给您说说我的理解。 我们学习一个新事物的时候一般都会类比自己已经熟知的相似的事物，要把解耦类比到我们生活中也很简单。想象一个场景，你在一个钉钉群里面共享了一个文件，”报销报表填写.xls”，需要大家填写后发回给你，然而群里大家正聊的热火">
+<meta name="keywords" content="cookies,coding">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[饼干]如何向你的不懂编程的领导或者朋友解释什么是解耦">
+<meta property="og:url" content="http://halohoop.com/2019/03/22/explanation_of_uncoupled/index.html">
 <meta property="og:site_name" content="卖牙膏的芖口钉">
+<meta property="og:description" content="声明：博文未经授权一律不允转载 什么叫做解耦，其实就是用一个通用的桥梁去沟通有关联的两者，这里有个关键的点，通用的。不太理解？那就请请带着不理解继续往下读，请允许我给您说说我的理解。 我们学习一个新事物的时候一般都会类比自己已经熟知的相似的事物，要把解耦类比到我们生活中也很简单。想象一个场景，你在一个钉钉群里面共享了一个文件，”报销报表填写.xls”，需要大家填写后发回给你，然而群里大家正聊的热火">
+<meta property="og:updated_time" content="2019-03-21T17:38:17.843Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="卖牙膏的芖口钉">
+<meta name="twitter:title" content="[饼干]如何向你的不懂编程的领导或者朋友解释什么是解耦">
+<meta name="twitter:description" content="声明：博文未经授权一律不允转载 什么叫做解耦，其实就是用一个通用的桥梁去沟通有关联的两者，这里有个关键的点，通用的。不太理解？那就请请带着不理解继续往下读，请允许我给您说说我的理解。 我们学习一个新事物的时候一般都会类比自己已经熟知的相似的事物，要把解耦类比到我们生活中也很简单。想象一个场景，你在一个钉钉群里面共享了一个文件，”报销报表填写.xls”，需要大家填写后发回给你，然而群里大家正聊的热火">
 
   
 
@@ -86,17 +91,8 @@
     <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
   
 
-  <div class="content content-archive">
-  <div class="page-header">
-
-  
-    <div class="breadcrumb">
-      <div class="location">博客</div>
-      <i class="icon-location"></i>
-    </div>
-  
-
-  
+  <div class="post-header CENTER">
+   
   <div class="toolbox">
     <a class="toolbox-entry" href="/">
       <span class="toolbox-entry-text">盒子</span>
@@ -175,59 +171,99 @@
   </div>
 
 
+</div>
 
-  <div class="box-blog-info">
-    <a class="avatar" href="/">
-      <img src="/images/avatar.jpg" alt="" />
-    </a>
-    <div class="info">
-      <h3 class="name" style="font-family: calligraffittiregular">
-        卖牙膏的芖口钉
-      </h3>
-      <div class="slogan">
-        我卖牙膏，你买么？
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-explanation_of_uncoupled" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">[饼干]如何向你的不懂编程的领导或者朋友解释什么是解耦</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.03.22</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Halohoop</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </span>
+
+
+
+      
+
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
+<p>什么叫做解耦，其实就是用一个通用的桥梁去沟通有关联的两者，这里有个关键的点，通用的。不太理解？那就请请带着不理解继续往下读，请允许我给您说说我的理解。</p>
+<p>我们学习一个新事物的时候一般都会类比自己已经熟知的相似的事物，要把解耦类比到我们生活中也很简单。想象一个场景，你在一个钉钉群里面共享了一个文件，”报销报表填写.xls”，需要大家填写后发回给你，然而群里大家正聊的热火朝天，很快文件的那条消息就被掩盖了，</p>
+<p>比如，在钉钉群里提供一个Apk包文件，很快就被聊天记录刷掉了，但是如果提供的是一个下载地址，这就解耦了，为什么解耦了，因为他可以很方便的复用在公告栏中。</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持Halohoop</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
       </div>
     </div>
   </div>
 
-</div>
 
-
-  <div class="post-list-box archive-body">
-    <ul class="list-post">  <li class="item-year item item-title item-title-4">
-    <a href="/archives/2019" class="text-year">
-      2019
-      <i class="icon-zhu"></i>
-      
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/03/06/stateofaprogram/">
+        <i class="icon icon-angle-left"></i>
     </a>
-  </li>
-<li class="item-post item">
-  <span class="post-date">03-22</span>
-
-  
-  <a class="post-title" href="/2019/03/22/explanation_of_uncoupled/">[饼干]如何向你的不懂编程的领导或者朋友解释什么是解耦</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">03-06</span>
-
-  
-  <a class="post-title" href="/2019/03/06/stateofaprogram/">《用程序的状态来衡量一个程序猿的成长大概是这样》</a>
-
-
-</li>
-</ul>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
   </div>
 
-  <div class="archive-footer">
-    
 
-  </div>
+
+
 </div>
 
 
-
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
 
 
 
@@ -315,6 +351,32 @@
 </div>
 
 
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: document.location.href, 
+    sourceId: "",
+    productKey: "cbb093ce3d1143eba2f2196086c1116f",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+
+
+    
+	
+  </div>
 
   
 
