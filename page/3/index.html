@@ -7,396 +7,83 @@
 })();</script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  localSearch: undefined,
   copy: {
     success: 'Copy successfully',
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="https://cdn.jsdelivr.net/gh/halohoop/cdn/github/avatar.jpg"></div><div class="author-info__name text-center">Halohoop</div><div class="author-info__description text-center">我有病，你有药嘛？</div><div class="follow-button"><a href="https://github.com/halohoop">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">33</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">39</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">7</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" href="https://www.kfc.com">KFC</a><a class="author-info-links__name text-center" href="https://www.mcdonalds.com.cn">Mcdonalds</a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">卖牙膏的芖口钉</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="site-info"><div id="site-title">卖牙膏的芖口钉</div><div id="site-sub-title">我有病，你有药嘛？</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/15/dewdrops-adb_wifi/">[露水]adb无线调试</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-15 22:52:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/tricks/">tricks</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/dewdrops/">dewdrops</a></span><div class="content"><p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
-<p>条件：</p>
-<ul>
-<li>一台开发版手机</li>
-<li>2个命令：<ul>
-<li>adb tcpip 55555</li>
-<li>adb yourDevicesIp:55555</li>
-</ul>
-</li>
-<li>4个步骤：<ul>
-<li>插入USB</li>
-<li>终端输入 adb tcpip 55555</li>
-<li>然后输入 adb yourDevicesIp:55555</li>
-<li>拔掉USB</li>
-</ul>
-</li>
-</ul>
-<p>比如：</p>
-<pre><code>[win cmd]
-D:\workspaces\androidstudio\project&gt;adb tcpip 55555
-D:\workspaces\androidstudio\project&gt;adb connect 192.168.199.156:55555
-connected to 192.168.199.156:55555
-</code></pre><p><strong>无线调试还支持 instant run 和 Debug 咧。</strong></p>
-<p><a href="https://developer.android.com/studio/command-line/adb.html#wireless" target="_blank" rel="external">参考</a></p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/14/cookies-kotlin-trick-003/">[饼干]Kotlin Trick 003-滚吧工具类</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-14 03:40:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/cookies/">cookies</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/android/">android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/kotlin/">kotlin</a></span><div class="content"><p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java:"></a>Java:</h2><pre><code>class Utils {
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="https://cdn.jsdelivr.net/gh/halohoop/cdn/github/avatar.jpg"></div><div class="author-info__name text-center">Halohoop</div><div class="author-info__description text-center">我有病，你有药嘛？</div><div class="follow-button"><a href="https://github.com/halohoop">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">34</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">40</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">7</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" href="https://www.kfc.com">KFC</a><a class="author-info-links__name text-center" href="https://www.mcdonalds.com.cn">Mcdonalds</a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">卖牙膏的芖口钉</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="site-info"><div id="site-title">卖牙膏的芖口钉</div><div id="site-sub-title">我有病，你有药嘛？</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/16/cookies-frag_manager_popstack/">[饼干]FragmentManager的popBackStack的使用</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-16 12:00:09</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/cookies/">cookies</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/android/">android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Fragment/">Fragment</a></span><div class="content">声明：博文未经授权一律不允转载
+开门撞山：
+用法：
+//自己以上所有，不包括自己
+getSupportFragmentManager().popBackStack(&quot;rt&quot;, 0);
+//自己以上所有，包括自己
+getSupportFragmentManager().popBac ...</div><a class="more" href="/2017/06/16/cookies-frag_manager_popstack/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/15/dewdrops-adb_wifi/">[露水]adb无线调试</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-15 22:52:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/tricks/">tricks</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/dewdrops/">dewdrops</a></span><div class="content">声明：博文未经授权一律不允转载
+条件：
+
+一台开发版手机
+2个命令：
+adb tcpip 55555
+adb yourDevicesIp:55555
+
+
+4个步骤：
+插入USB
+终端输入 adb tcpip 55555
+然后输入 adb yourDevicesIp:55555
+拔掉USB
+
+
+
+比如 ...</div><a class="more" href="/2017/06/15/dewdrops-adb_wifi/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/14/cookies-kotlin-trick-003/">[饼干]Kotlin Trick 003-滚吧工具类</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-14 03:40:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/cookies/">cookies</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/android/">android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/kotlin/">kotlin</a></span><div class="content">声明：博文未经授权一律不允转载
+Java:class Utils {
     public static char getLastChar(String str){
         return str.charAt(s.length()-1);
     }
 }
-</code></pre><p>调用:</p>
-<pre><code>char c = Utils.getLastChar(&quot;halohoop.com&quot;);//得到m
-</code></pre><h2 id="Annoying："><a href="#Annoying：" class="headerlink" title="Annoying："></a>Annoying：</h2><p>增加类</p>
-<h2 id="When-it-comes-to-Kotlin："><a href="#When-it-comes-to-Kotlin：" class="headerlink" title="When it comes to Kotlin："></a>When it comes to Kotlin：</h2><p>不需要增加额外的类。</p>
-<pre><code>//扩展属性
-inline val String.lastC: Char
-    get() = get(length - 1)
-</code></pre><p>或者：</p>
-<pre><code>//扩展方法
-inline fun String.getLastChar() : Char{
-    return get(length-1)
-}
-</code></pre><p>调用:</p>
-<pre><code>var c = &quot;halohoop.com&quot;.lastC//得到m
-</code></pre><p>或者</p>
-<pre><code>var c = &quot;halohoop.com&quot;.getLastChar()//得到m
-</code></pre></div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/13/cookies-kotlin-trick-002/">[饼干]Kotlin Trick 002-滚吧重载方法</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-13 19:40:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/cookies/">cookies</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/android/">android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/kotlin/">kotlin</a></span><div class="content"><p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java:"></a>Java:</h2><pre><code>void test(int i){
+调用:
+char c = Utils ...</div><a class="more" href="/2017/06/14/cookies-kotlin-trick-003/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/13/cookies-kotlin-trick-002/">[饼干]Kotlin Trick 002-滚吧重载方法</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-13 19:40:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/cookies/">cookies</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/android/">android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/kotlin/">kotlin</a></span><div class="content">声明：博文未经授权一律不允转载
+Java:void test(int i){
 }
 void test(String j){
 }
 void test(int i, String j){
 }
-</code></pre><p>调用:</p>
-<pre><code>test(1);
-test(&quot;aaa&quot;);
-test(1,&quot;aaa&quot;);
-</code></pre><h2 id="Annoying："><a href="#Annoying：" class="headerlink" title="Annoying："></a>Annoying：</h2><p>写太多重载了，眼都花了</p>
-<h2 id="When-it-comes-to-Kotlin："><a href="#When-it-comes-to-Kotlin：" class="headerlink" title="When it comes to Kotlin："></a>When it comes to Kotlin：</h2><pre><code>//一个足矣
-fun test(i:int = 0, j:String = &quot;&quot;){
-}
-</code></pre><p>调用:</p>
-<pre><code>test();//有默认值，可以不用传
+调用:
 test(1);
-test(1,&quot;aaa&quot;);
-test(j = &quot;aaa&quot;);//非第一个需要传递参数名字，这也能增加可读性
-</code></pre></div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/13/meals-speedup_gradle_build/">[大餐]加快gradle构建速度</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-13 00:50:09</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/android/">android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/meals/">meals</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/gradle/">gradle</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/构建/">构建</a></span><div class="content"><p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
-<p><em>本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布</em></p>
-<h2 id="开门撞山："><a href="#开门撞山：" class="headerlink" title="开门撞山："></a>开门撞山：</h2><p>AS中gradle构建一般可以分为三种，</p>
-<p>1.从0开始构建，Full Build；</p>
-<p>2.修改源代码后构建，之前构建过，Incremental build java change；</p>
-<p>3.修改资源文件后构建，之前构建过，Incremental build resource change。</p>
-<p>从这三方面其实都可以有切入点来进行提速，gradle插件3.0做了大改，优化了很多东西，包括gradle依赖系统以及缓存系统，这些都是直接影响构建速度的因素，整理了有10+个小技巧可以加快我们的构建速度，下面请听我一一道来。</p>
-<h2 id="正餐："><a href="#正餐：" class="headerlink" title="正餐："></a>正餐：</h2><h3 id="技巧1：使用最新版本的gradle插件"><a href="#技巧1：使用最新版本的gradle插件" class="headerlink" title="技巧1：使用最新版本的gradle插件"></a>技巧1：使用最新版本的gradle插件</h3><pre><code>buildscript {
-    repositories {
-        maven { url &apos;https://maven.google.com&apos; }
-        jcenter()
-    }
-    dependencies {
-        classpath &apos;com.android.tools.build:gradle:3.0.0-alpha1&apos;
-    }
-    ...
-}
-</code></pre><p>看到google.com之后，相信你应该知道要拿个“梯子”的，所以我说升级as最方便嘛，而现在gradle的版本已经更新到alpha1+了(现在是2017年06月12日)，根据谷歌官方只要是3.0+，也就是以2017I/O大会的版本开始就可以。</p>
-<h3 id="技巧2：避免使用legacy-multidex"><a href="#技巧2：避免使用legacy-multidex" class="headerlink" title="技巧2：避免使用legacy multidex"></a>技巧2：避免使用legacy multidex</h3><p>当app方法数量超过64k的时候就会编译失败，早期版本的构建系统按如下方式报告这一错误：</p>
-<pre><code>Conversion to Dalvik format failed:
-Unable to execute dex: method ID not in [0, 0xffff]: 65536
-</code></pre><p>较新版本的 Android 构建系统虽然显示的错误不同，但指示的是同一问题：</p>
-<pre><code>trouble writing output:
-Too many field references: 131000; max is 65536.
-You may try using --multi-dex option.
-</code></pre><p>使用multidex分包处理是谷歌官方给我们提供的解决方案，由于分包被内置支持在5.0以及之后，当我们需要兼容的版本跨越5.0也就是api21的时候，比如说14–23，那么我们需要使用兼容库：</p>
-<pre><code>com.android.support:multidex:1.0.0
-</code></pre><p>使用兼容库能让我们的低版本的也进行分包处理，<a href="https://developer.android.com/studio/build/multidex.html#about" target="_blank" rel="external">具体如何操作gradle需要配置什么Application需要如何设置</a>等不是本文重点，请各位自行谷歌、百度。</p>
-<p>根据谷歌官方描述，使用兼容库会明显拖慢构建，也就是如果你的调试机器版本低于5.0，又进行了分包处理，那么当你点击那个绿色构建按钮▶或者使用命令行gradlew构建的时候，那你可以先去吃一顿饭先了（Just kidding!）。</p>
-<p>所以我们在开发调试的时候尽量使用高版本的手机5.0+，等功能完成了，后面做兼容低版本的时候再使用低版本的手机进行调试。可能有人会说，我在开发功能的时候如果不实时调试低版本的兼容问题后期可能有问题，关于这一点，我想说的是一点是经验问题，经验足的人就是能够知道你这段代码写出来可能的结果，这是内功，不可言状，却又确实存在的能力，我见过这样的人，你没写出来他就能够知道运行的结果，另一点是我们需要相信google的兼容团队给我们的兼容方案是能够解决绝大部分的兼容问题的，我指的兼容方案是指使用appcompat、support等之类的兼容库。</p>
-<h3 id="技巧3：关闭multi-apk"><a href="#技巧3：关闭multi-apk" class="headerlink" title="技巧3：关闭multi apk"></a>技巧3：关闭multi apk</h3><p>如果你的项目需要编译出多个density或者多个abi（CPU架构）的APK，那么这也是开发构建的时候不需要做的操作，因为在你手上调试的机器只是一种density一种abi，因此我们在构建的时候可以将<a href="https://developer.android.com/studio/build/configure-apk-splits.html" target="_blank" rel="external">multi-apk</a>的构建给去除。可以进行如下配置：</p>
-<pre><code>splits {
-    density {
-        //enable true
-        enable false
-        ...
-    }
-    abi {
-        //enable true
-        enable false
-        ...
-    }
-}
-</code></pre><p>但是显然这趟配置影响全局配置，后期还可能忘记改回来，更灵活一点的方式可以这样：</p>
-<pre><code>android {
-    ...
-    splits {
-        ...
-    ｝
-    if(project.hasProperty(&apos;HaloDevBuild&apos;)){
-        splits.abi.enable = false;
-        splits.density.enable = false;
-    }
-    ...
-}
-</code></pre><p>或者，可以更加细致一点：</p>
-<pre><code>android {
-    ...
-    splits {
-        ...
-    ｝
-    if(project.hasProperty(&apos;HaloDevBuild&apos;)){
-        splits.density.enable = false
-        splits.abi {
-            enable true
-            reset()
-            include &apos;arm64-v8a&apos; //select ABIs to build APKs for
-            universalApk false //whether generate an additional APK that contains all the ABIs
-        }
-        aaptOptions.cruncherEnabled = false
-    }
-    ...
-}
-</code></pre><p>注意project没有s，不是projects。<strong>并且这个判断的代码必须置于splits块的下面，否则就可能设置完之后就又被覆盖回来了</strong><br>“HaloDevBuild”属性的字符串我们可以自定义，在gradle写好这个判断之后，我们就可以在命令行编译了，命令如下：</p>
-<pre><code>./gradlew 项目名:变体 -PHaloDevBuild
-</code></pre><p>比如：</p>
-<pre><code>gradlew app:assembleDevelopmentDebug -PHaloDevBuild
-</code></pre><p>又或者可以构建顺带安装了：</p>
-<pre><code>gradlew demo:installdevelopmentDebug -PHaloDevBuild
-</code></pre><p>-P之后表示要传递的属性。当然我们如果需要在as中点击绿色构建按钮▶编译，那就要设置一下每次都要传入属性：</p>
-<p><img src="/2017/06/13/meals-speedup_gradle_build/demo0.png" alt="demo0"></p>
-<p>另外，我们可以这样获取Android手机CPU/ABI型号：</p>
-<pre><code>String CPU_ABI = android.os.Build.CPU_ABI;//过时了
-String CPU_ABIs[] = android.os.Build.SUPPORTED_ABIS;
-</code></pre><h3 id="技巧4：使用最少的资源打包"><a href="#技巧4：使用最少的资源打包" class="headerlink" title="技巧4：使用最少的资源打包"></a>技巧4：使用最少的资源打包</h3><p>和上面的思路一样，我们开发调试的时候只需要用到一种语言和一套资源文件。所以我们打包的时候不需要将所有的东西都放到这个调试的apk中。我们可以采用<a href="https://developer.android.com/studio/build/build-variants.html" target="_blank" rel="external">定义变体</a>的方式来完成，注意下面的resConfigs属性指定了要保留的素材资源文件和语言资源文件。</p>
-<pre><code>android {
-    ...
-    flavorDimensions &quot;dev&quot;
-    productFlavors {
-        development {
-            dimension &quot;dev&quot;
-            resConfigs &quot;en&quot;, &quot;xxhdpi&quot;
-            ...
-        }
-    }
-}
-</code></pre><h3 id="技巧5-关闭aapt对png的优化"><a href="#技巧5-关闭aapt对png的优化" class="headerlink" title="技巧5:关闭aapt对png的优化"></a>技巧5:关闭aapt对png的优化</h3><p>aapt打包时候对资源图片的处理也会耗时，这里主要针对PNG，我们可以暂时关闭这种处理，还是用到上面的技巧，gradle配置如下：</p>
-<pre><code>android {
-    ...
-    if(projects.hasProperty(&apos;HaloDevBuild&apos;)){
-        splits.abi.enable = false;
-        splits.density.enable = false;
-        aaptOptions.cruncherEnabled = false
-    }
-    ...
-}
-</code></pre><p>当然如果我们将PNG转为webP也可以是一种优化方案。as2.3+支持直接转换，右键直接png图片选则convert to webP。当然webP是有版本要求的，所以请注意其用法，只有4.0及以上的android手机支持webP，不过当然想要低版本的支持webP可以引入以下这个裤，另，更多webP详情非本文重点请自行百度了解。</p>
-<p><a href="https://github.com/alexey-pelykh/webp-android-backport" target="_blank" rel="external">https://github.com/alexey-pelykh/webp-android-backport</a></p>
-<h3 id="技巧6：使用instant-run"><a href="#技巧6：使用instant-run" class="headerlink" title="技巧6：使用instant run"></a>技巧6：使用instant run</h3><p>多使用instant run，根据谷歌的描述，as3.0和2.0的instant run有巨大的差别，做了很多的优化，instant run要求调试的机器必须要在api21或者以上，而不是你的项目最小版本要在21或者以上。还有一点就是使用instant run的时候，如果我们首次构建是从0开始的，那么会比不使用instant run慢一点，因为需要为后面的instant run的冷热交换去准备一些额外的东西，然而如果后面一直都使用instant run，那么首次构建的延缓的时间就能很快被挽回来。</p>
-<h3 id="技巧7：避免写一些不必要的更改"><a href="#技巧7：避免写一些不必要的更改" class="headerlink" title="技巧7：避免写一些不必要的更改"></a>技巧7：避免写一些不必要的更改</h3><p>有些开发者为了方便会直接使用时间戳来作为每次构建的版本号（或者是自己的一套计算算法），像这样：</p>
-<pre><code>def buildDataTime = new Date().format(&apos;yyMMddHHmm&apos;).toInteger()
-android {
-    ...
-    defaultConfig {
-        versionCode buildDateTime
-        ...
-    }
-}
-</code></pre><p>这个一定程度上方便了我们，但是对于gradle构建系统来说，这不是好事。由于每次版本号都有修改，这就直接导致清单文件Manifest的更改。而清单文件的修改势必会趋势构建系统重新审视整个项目情况，这会增加很多额外的时间，这在开发调试的时候根本没有必要。</p>
-<p>还是利用上面的技巧，我们可以这样：</p>
-<pre><code>def buildDataTime = project.hasProperty(&apos;HaloDevBuild&apos;)? 100 : new Date().format(&apos;yyMMddHHmm&apos;).toInteger()
-android {
-    ...
-    defaultConfig {
-        versionCode buildDateTime
-        ...
-    }
-}
-</code></pre><h3 id="技巧8：类库不要使用动态的版本"><a href="#技巧8：类库不要使用动态的版本" class="headerlink" title="技巧8：类库不要使用动态的版本"></a>技巧8：类库不要使用动态的版本</h3><p>项目中可能会这样配置：</p>
-<pre><code>dependencies {
-    ...
-    compile &apos;com.android.support:appcompat-v7:+&apos;
-}
-</code></pre><p>这个加号+，导致gradle每次构建都要检查新的版本。即使你希望每次都用最新但是还是不好，因为库可能已经有很大的变化了，但是你是基于旧版开发的，所以为了安全不要这样设置。其实这和我们coding还是一样的道理，我们码代码的时候肯定会考虑如何能让别人的修改不影响到我们自己的，因此这个加号使不得，使不得。</p>
-<h3 id="技巧9：查看jvm使用的内存是否合适"><a href="#技巧9：查看jvm使用的内存是否合适" class="headerlink" title="技巧9：查看jvm使用的内存是否合适"></a>技巧9：查看jvm使用的内存是否合适</h3><p><img src="/2017/06/13/meals-speedup_gradle_build/demo1.png" alt="demo1"></p>
-<p>我一般设置为2g，这个根据项目的不同可能会有不同效果，所以可以试着稍微调整一下。</p>
-<h3 id="技巧10：打开gradle新的缓存机制"><a href="#技巧10：打开gradle新的缓存机制" class="headerlink" title="技巧10：打开gradle新的缓存机制"></a>技巧10：打开gradle新的缓存机制</h3><p>我们可以通过一个设置使用这种新的缓存机制，如下：</p>
-<pre><code>//在gradle.properties中+一行
-org.gradle.caching=true
-</code></pre><p>文章开头也提到过，Gradle 3.5（现在20170612的gradle版本已经4.0了）新的机制，可以缓存所有任务的输出。这个和as2.3时候介绍的build 缓存不一样，build 缓存只缓存预dex的外部libs。而任何时候的构建缓存其实都是可复用的，比如切换分支之后，还可以用其他分支时候的构建缓存。</p>
-<p>当然，根据谷歌官方描述，这个设置的背后还有很多需要完善的地方，使用的同时，我们可以有更多后期优化的期待。</p>
-<h3 id="技巧11：使用新的依赖机制"><a href="#技巧11：使用新的依赖机制" class="headerlink" title="技巧11：使用新的依赖机制"></a>技巧11：使用新的依赖机制</h3><p>按照官方的描述，gradle3.0之前，构建系统的依赖关系被认为是一种完全错误的方式，举一个例子：</p>
-<p>app依赖了库libX，库libX又依赖库libY。</p>
-<p>app：</p>
-<pre><code>compile &apos;libX&apos;
-</code></pre><p>libX：</p>
-<pre><code>compile &apos;libY&apos;
-</code></pre><p>如果在app中调用了libY的方法，这个时候如果libY中的方法做了改变，那么由于libY被和libX和app都有依赖被依赖关系，这时候如果构建libY势必会导致libX和app也重新构建。</p>
-<p>这应该是个完全错误的依赖方式，正确的方式应该是既然app只依赖了libX那就不应该知道libY中的api，然而这在构建系统3.0（gradle插件）之前都是这样存在的，因此3.0做了改变，引入了新的依赖形式，api和implementation来替换compile。</p>
-<ul>
-<li>implementation：表示我依赖你，但是你的api不会被我重新分享出去了。</li>
-<li>api：表示我依赖你，但是你的api会被我重新分享出去了。</li>
-</ul>
-<p>那么在看上面的例子就变成了：</p>
-<p>app：</p>
-<pre><code>implementation &apos;libX&apos;
-</code></pre><p>libX：</p>
-<pre><code>api &apos;libY&apos;
-</code></pre><p>由于存在之前的这种依赖传递的错误机制，因此我们项目中很可能就出现了这种依赖传递之后导致一个小修改就把所有库都构建一遍的情况，因此我们花一些时间将一些库的compile都替换成api和impementation对我们是有好处的，一来有效缩短构建时间，而来真正搞清楚项目中依赖的情况，那些api需要依赖传递，哪些不需要。</p>
-<p>当然我们还是可以继续使用compile，不过这种方式已经是过时的了，我们只要更新了最新插件，那么新建了项目就会发现所有的compile都会被换成了implementation。相关的修改还有androidTestImplementation和testImplementation，对应的是原来的androidTestCompile和testCompile。</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>根据上述技巧，我写了一个小demo：</p>
-<p><a href="https://github.com/halohoop/SpeedUpGradleBuild2" target="_blank" rel="external">https://github.com/halohoop/SpeedUpGradleBuild2</a></p>
-<ul>
-<li>Stay hungry stay foolish!</li>
-</ul>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/09/meals-android-fishing/">[大餐]开发摘记1--我的Fragment通信的框架</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-09 01:00:09</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/view/">view</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/android/">android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/meals/">meals</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/开发摘记/">开发摘记</a></span><div class="content"><p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
-<p>如果把通信比作钓鱼，如果每次都有鱼上钩，那么我想可以分为以下四种：</p>
-<ul>
-<li>1.鱼钩上<strong>不钩</strong>饵料，然后抛出去，钩到鱼了，这时候鱼线断了，连线带钩和鱼都没了。</li>
-<li>2.鱼钩上<strong>钩上</strong>饵料，然后抛出去，钩到鱼了，这时候鱼线断了，连线带钩和鱼带饵料都没了。</li>
-<li>3.鱼钩上<strong>不钩</strong>饵料，然后抛出去，钩到鱼了，这时候鱼线<strong>没断</strong>，连线带钩和鱼带饵料都<strong>拉回来</strong>了。</li>
-<li>4.鱼钩上<strong>钩上</strong>饵料，然后抛出去，钩到鱼了，这时候鱼线<strong>没断</strong>，连线带钩和鱼带饵料都<strong>拉回来</strong>了。</li>
-</ul>
-<p>其实这四种就可以对应着四种不同的通信：</p>
-<ul>
-<li>1.A向发了一个<strong>空的通知</strong>让B响应了，A不需要知道B是否响应(鱼线断了)。</li>
-<li>2.A向发了一个<strong>携带参数的通知</strong>让B响应了，A不需要知道B是否响应(鱼线断了)。</li>
-<li>3.A向发了一个<strong>空的通知</strong>让B响应了，A需要知道B是否响应，最终A得到了B响应结果(鱼线完好，成功回收)。</li>
-<li>4.A向发了一个<strong>携带参数的通知</strong>让B响应了，A需要知道B是否响应，最终A得到了B响应结果(鱼线完好，成功回收)。</li>
-</ul>
-<p>再说的简单一点，那就是：</p>
-<ul>
-<li>1.调用“void func()”方法，无参无返回值。</li>
-<li>2.调用“void func(P p)”方法，有参无返回值。</li>
-<li>3.调用“R func()”方法，无参有返回值。</li>
-<li>4.调用“R func(P p)”方法，有参有返回值。</li>
-</ul>
-<p>因为通信无非就是这四种方法，那么就可以抽象出来的这四类方法的类，如果使用四个容器装着，在合适的时候往里添加，并且在合适的时候取出来调用，那么势必可以变成一个解耦通信框架。</p>
-<p>后面会陆续记录开发这个小框架的心路历程。</p>
-<hr>
-<p><img src="/2017/06/09/meals-android-fishing/demo0.png" alt=""></p>
-<p>项目地址：</p>
-<p><a href="https://github.com/halohoop/Fishing" target="_blank" rel="external">https://github.com/halohoop/Fishing</a></p>
-<p>已经可以正常使用了。</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/08/dewdrops-weiyuju/">[露水]你知道卫语句不</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-08 00:50:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/dewdrops/">dewdrops</a></span><div class="content"><p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
-<h3 id="卫语句"><a href="#卫语句" class="headerlink" title="卫语句"></a>卫语句</h3><p>在<a href="http://halohoop.com/2017/06/08/dewdrops-weiyuju/《阿里巴巴Java开发手册》.pdf">《阿里巴巴Java开发手册》.pdf</a>中的15页有提到“卫语句”，如下图。</p>
-<p><img src="/2017/06/08/dewdrops-weiyuju/demo0.png" alt="demo0"></p>
-<p>说的是：</p>
-<h3 id="我们不要这样写："><a href="#我们不要这样写：" class="headerlink" title="我们不要这样写："></a>我们不要这样写：</h3><pre><code>if(){
+test(&quot;aaa&quot;);
+test(1,&quot;aaa&quo ...</div><a class="more" href="/2017/06/13/cookies-kotlin-trick-002/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/13/meals-speedup_gradle_build/">[大餐]加快gradle构建速度</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-13 00:50:09</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/android/">android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/meals/">meals</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/gradle/">gradle</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/构建/">构建</a></span><div class="content">声明：博文未经授权一律不允转载
+本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布
+开门撞山：AS中gradle构建一般可以分为三种，
+1.从0开始构建，Full Build；
+2.修改源代码后构建，之前构建过，Incremental build java change；
+3.修改资 ...</div><a class="more" href="/2017/06/13/meals-speedup_gradle_build/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/09/meals-android-fishing/">[大餐]开发摘记1--我的Fragment通信的框架</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-09 01:00:09</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/view/">view</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/android/">android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/meals/">meals</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/开发摘记/">开发摘记</a></span><div class="content">声明：博文未经授权一律不允转载
+如果把通信比作钓鱼，如果每次都有鱼上钩，那么我想可以分为以下四种：
+
+1.鱼钩上不钩饵料，然后抛出去，钩到鱼了，这时候鱼线断了，连线带钩和鱼都没了。
+2.鱼钩上钩上饵料，然后抛出去，钩到鱼了，这时候鱼线断了，连线带钩和鱼带饵料都没了。
+3.鱼钩上不钩饵料，然后抛出去， ...</div><a class="more" href="/2017/06/09/meals-android-fishing/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/08/dewdrops-weiyuju/">[露水]你知道卫语句不</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-08 00:50:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/dewdrops/">dewdrops</a></span><div class="content">声明：博文未经授权一律不允转载
+卫语句在《阿里巴巴Java开发手册》.pdf中的15页有提到“卫语句”，如下图。
+
+说的是：
+我们不要这样写：if(){
 
 }else if(){
 
 }else if(){
 
 }...
-</code></pre><h3 id="而要这样写"><a href="#而要这样写" class="headerlink" title="而要这样写"></a>而要这样写</h3><pre><code>if(){
+而要这样写if(){
     return;
 }
 if(){
-    return;
-}
-if(){
-    return;
-}
-</code></pre><p>虽然不是很明白更深层的原因，但是我表示对后面那一句“或者状态模式来实现”很有感触，因为正在做的一个小框架就打算使用状态模式来摒弃一堆的if-else判断。</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/08/dewdrops-be_objective/">[露水]客观，有时候需要精分</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-08 00:39:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/tricks/">tricks</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/dewdrops/">dewdrops</a></span><div class="content">The article has been encrypted, please enter your password to view.<br></div><a class="more" href="/2017/06/08/dewdrops-be_objective/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/06/dewdrops-importance-of-books/">[露水]多看书有多重要</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-06 23:32:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/tricks/">tricks</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/dewdrops/">dewdrops</a></span><div class="content"><p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
-<p>多看书有多重要，为了拓展思维，在大脑留下更多的种子，也许你没有全部记住，但是你留下了种子，日后接触到相关的内容(肥料)的时候，你可以快速的回来生根发芽。</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/06/cookies-android-touchdelegate/">[饼干]安卓小秘密-不扩大view宽高增加其可触控范围</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-06 03:44:09</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/cookies/">cookies</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/view/">view</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/android/">android</a></span><div class="content"><p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
-<h2 id="开门撞山："><a href="#开门撞山：" class="headerlink" title="开门撞山："></a>开门撞山：</h2><p>今天我要记录的是<strong>TouchDelegate</strong>，有很多人应该都不知道还有这个东西，知道的孩子都没你们事了，都散了散了吧，不知道的请往下看。其实也不算什么秘密，只要你仔细的走过神迹一样的事件分发的源码，很容易发现的。</p>
-<h2 id="场景："><a href="#场景：" class="headerlink" title="场景："></a>场景：</h2><p>如下图，有这样一个场景，View a 需要有这么大，比如可以是一个按钮，UI要求显示View a的黑框部分，但是为了更好的用户体验，我们一般会增大其触控范围，比如点击绿框中都能够触发a的事件，咋做？（说好的不卖关子的呢？）</p>
-<p><img src="/2017/06/06/cookies-android-touchdelegate/demo0.png" alt="demo0"></p>
-<h2 id="Don’t-do"><a href="#Don’t-do" class="headerlink" title="Don’t do:"></a>Don’t do:</h2><ul>
-<li>增加a的Padding?<ul>
-<li>后期如果修改bgColor，那么不好了，绿色框内全变色。</li>
-</ul>
-</li>
-<li>套多一层透明的FrameLayout？<ul>
-<li>增加布局复杂度，我TM一脚飞死你。 </li>
-</ul>
-</li>
-<li>自定义view限制绘制区域？<ul>
-<li>写完了？你很棒！但是你可以收拾包袱走人了。 </li>
-</ul>
-</li>
-</ul>
-<h2 id="What-should-do-How-to-use-TouchDelegate-："><a href="#What-should-do-How-to-use-TouchDelegate-：" class="headerlink" title="What should do (How to use TouchDelegate)："></a>What should do (How to use TouchDelegate)：</h2><p>要学会站在巨人的肩膀，要知道，<strong>“你遇到的，巨人也会遇到”</strong>，巨人给我们留下了<strong>TouchDelegate</strong></p>
-<h3 id="直接上菜："><a href="#直接上菜：" class="headerlink" title="直接上菜："></a>直接上菜：</h3><p>注意方法ViewGroup.setTouchDelegate(Rect,View)</p>
-<p>以下代码出自我一个自定义View—<a href="https://github.com/halohoop/UsoppBubble/blob/master/lib/src/main/java/com/halohoop/usoppbubble/widget/UsoppBubble.java" target="_blank" rel="external">UsoppBubble.java</a></p>
-<pre><code>@Override
-protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-    super.onLayout(changed, left, top, right, bottom);
-    if (changed) {
-        float largedSize = (bottom - top) * mTouchAreaLargerRatio;//乘以放大倍数
-        int deltaY = (int) (largedSize - (bottom - top));
-        int deltaX = largedSize &gt; (right - left) ? (int) (largedSize - (right - left)) : 0;
-        ViewGroup vg = (ViewGroup) getParent();
-        Rect rect = new Rect(left - deltaX, top - deltaY, right + deltaX, bottom + deltaY);
-        //构建出来的Rect对象就相当于绿色框框，而this就是这个view的实例。
-        vg.setTouchDelegate(new TouchDelegate(rect, this));
-    }
-}
-</code></pre><p>相信上述代码是极度容易的，ViewGroup.setTouchDelegate(Rect,View)接受两个参数：</p>
-<ul>
-<li>可触控区域。</li>
-<li>谁(哪个子view)需要用这个可触控区域。</li>
-</ul>
-<h2 id="实际应用场景"><a href="#实际应用场景" class="headerlink" title="实际应用场景"></a>实际应用场景</h2><ul>
-<li>QQ消息气泡可触控区域</li>
-</ul>
-<p><img src="/2017/06/06/cookies-android-touchdelegate/demo1.png" alt="demo1"></p>
-<ul>
-<li>当然我也模仿qq做了一个<a href="https://github.com/halohoop/UsoppBubble" target="_blank" rel="external">自己的消息气泡版本</a></li>
-</ul>
-<p><img src="/2017/06/06/cookies-android-touchdelegate/demo2.gif" alt="demo2"></p>
-<ul>
-<li>小米贴边悬浮球点击唤醒</li>
-</ul>
-<p><img src="/2017/06/06/cookies-android-touchdelegate/demo3.png" alt="demo3"></p>
-<ul>
-<li>锤子的闪念胶囊贴边点击唤醒</li>
-</ul>
-<p><img src="/2017/06/06/cookies-android-touchdelegate/demo4.png" alt="demo4"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>View.setTouchDelegate(Rect,View)，这句还不够吗？还要我怎样？</li>
-<li>你遇到的，巨人也会遇到，如果换位思考一下，你就是“巨人”，那么子View获取到的触摸事件是从ViewGroup分发下来的，那么如果在分发之前加一些条件判断，比如区域什么的，那么TouchDelegate这玩意儿是不是就出来了呢？</li>
-<li>Stay hungry stay foolish!</li>
-</ul>
-<p><em>仅作知识点记录，如有疏漏，全(欢)都(迎)怪(指)你(正)。</em></p>
-<hr>
-<p>确保这文章被看完了，我在上面留了一个无伤大雅的bug，不知道有人发现没有，那就是：</p>
-<p><em>setTouchDelegate其实是View的方法。而ViewGroup : View，无伤大雅。</em></p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/05/cookies-kotlin-trick-001/">[饼干]Kotlin Trick 001-省略一些重复的工作</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-05 23:32:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/cookies/">cookies</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/android/">android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/kotlin/">kotlin</a></span><div class="content"><p><strong><em>声明：博文未经授权一律不允转载</em></strong></p>
-<p>好的文章有时候不在于鸿篇巨制，而在于一目了然，有时候这种快餐小技巧更能帮助人，没有铺垫没有客套，直戳掌握知识的要害。所以从这篇开始会不间断的记录一些小技巧，文章已[饼干]开头的都是一篇短文。</p>
-<p>一些重复的工作，比如说我们在性能调优的时候经常用到的Trace，以下是一个实例：</p>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java:"></a>Java:</h2><pre><code>Trace.beginSection(sectionName);
-doSomeCalculation();
-Trace.endSection();
-</code></pre><h2 id="Annoying："><a href="#Annoying：" class="headerlink" title="Annoying："></a>Annoying：</h2><p>如果在每个地方都加入<strong>Trace.beginSection(sectionName)和Trace.endSection()</strong>会疯掉的，搞不好还忘记加Trace.endSection()。</p>
-<h2 id="When-it-comes-to-Kotlin："><a href="#When-it-comes-to-Kotlin：" class="headerlink" title="When it comes to Kotlin："></a>When it comes to Kotlin：</h2><p>利用kotlin的扩展方法特性，我们能够这样操作</p>
-<pre><code>inline fun trace(sectionName: String, body: () -&gt; Unit) {
-    Trace.beginSection(sectionName)
-    try {
-        body()
-    } finally {
-        Trace.endSection()
-    }
-}
-//and use it
-trace(&quot;foo&quot;) {
-    doSomeCalculation()
-}
-</code></pre><p>这样我们就可以把Trace.beginSection(sectionName)和Trace.endSection()省略了。<br>甚至你还可以有返回值：</p>
-<pre><code>inline fun &lt;T&gt; trace(sectionName: String, body: () -&gt; T): T {
-    Trace.beginSection(sectionName)
-    try {
-        return body()
-    } finally {
-        Trace.endSection()
-    }
-}
-
-//and use it
-val result = trace(&quot;foo&quot;) {
-    doSomeCalculation()
-}
-</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>实际上这种方式是方法拓展，lambda带给我们的额便利，同样的技巧，相信你能应用到Trace以外更多的地方，相信你能接触到更好的用法。</strong></p>
-</div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-chevron-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;1997 - 2020 By Halohoop</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+    return ...</div><a class="more" href="/2017/06/08/dewdrops-weiyuju/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/08/dewdrops-be_objective/">[露水]客观，有时候需要精分</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-08 00:39:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/tricks/">tricks</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/dewdrops/">dewdrops</a></span><div class="content">The article has been encrypted, please enter your password to view.<br></div><a class="more" href="/2017/06/08/dewdrops-be_objective/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/06/dewdrops-importance-of-books/">[露水]多看书有多重要</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-06 23:32:02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/tricks/">tricks</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/dewdrops/">dewdrops</a></span><div class="content">声明：博文未经授权一律不允转载
+多看书有多重要，为了拓展思维，在大脑留下更多的种子，也许你没有全部记住，但是你留下了种子，日后接触到相关的内容(肥料)的时候，你可以快速的回来生根发芽。
+</div><a class="more" href="/2017/06/06/dewdrops-importance-of-books/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2017/06/06/cookies-android-touchdelegate/">[饼干]安卓小秘密-不扩大view宽高增加其可触控范围</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-06-06 03:44:09</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/programming/">programming</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/cookies/">cookies</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/view/">view</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/android/">android</a></span><div class="content">声明：博文未经授权一律不允转载
+开门撞山：今天我要记录的是TouchDelegate，有很多人应该都不知道还有这个东西，知道的孩子都没你们事了，都散了散了吧，不知道的请往下看。其实也不算什么秘密，只要你仔细的走过神迹一样的事件分发的源码，很容易发现的。
+场景：如下图，有这样一个场景，View a 需 ...</div><a class="more" href="/2017/06/06/cookies-android-touchdelegate/#more" style="margin-top: 14px">Read more</a><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-chevron-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;1997 - 2020 By Halohoop</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
   $('#top-container').addClass('is-mobile')
-}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
+}</script></body></html>
